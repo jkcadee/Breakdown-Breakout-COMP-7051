@@ -16,7 +16,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            sb.ShootAtTarget((target.transform.position - transform.position).normalized * 25f);
+            sb.ShootAtTarget(target.transform.position);
         }
     }
 }

@@ -11,7 +11,7 @@ public class BulletBehaviour : MonoBehaviour
     // this will need to be updated later
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag != "Bullet" && shooter.tag != other.gameObject.tag)
+        if(shooter.tag != other.gameObject.tag)
         {
             Damageable target = other.gameObject.GetComponent<Damageable>();
             target?.GetHit(1f);
