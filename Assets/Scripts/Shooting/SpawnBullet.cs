@@ -6,15 +6,14 @@ public class SpawnBullet : MonoBehaviour
 {
     public GameObject bulletPrefab;
 
-    private void Update()
+    public void ShootAtTarget(Vector3 v3)
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject bullet = Instantiate(bulletPrefab, transform);
-            BulletBehaviour bh = bullet.GetComponent<BulletBehaviour>();
-            bh.SetShooter(gameObject);
-            bh.StartMovement(3, 3);
-        }
+        GameObject bullet = Instantiate(bulletPrefab, transform);
+        bullet.transform.SetParent(null);
+        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
+        BulletBehaviour bh = bullet.GetComponent<BulletBehaviour>();
+        bh.SetShooter(gameObject);
+        bh.StartMovement(v3);
     }
 
 }
