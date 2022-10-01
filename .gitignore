@@ -2,3 +2,11 @@
 /Library/
 /Temp/
 /UserSettings/
+/.vs/
+/obj/
+.vsconfig
+Assembly-CSharp.csproj
+Breakdown-Breakout-COMP-7051.sln
+
+/Assets/Scenes/AidanTestScene.unity
+/Assets/Scenes/AidanTestScene.unity.meta
