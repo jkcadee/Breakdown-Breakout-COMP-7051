@@ -18,6 +18,8 @@ public class PlayerControls : MonoBehaviour
     //Represents the health bar of the player.
     public GameObject health_meter;
 
+    Rigidbody rb;
+
     /** 
      Sets up the value of the player's health.
      */
@@ -33,6 +35,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         inputActions = new InputActions(); //create new InputActions
     }
 
@@ -59,7 +62,8 @@ public class PlayerControls : MonoBehaviour
     {
         Vector2 v2 = movement.ReadValue<Vector2>(); //extract 2d input data
         Vector3 v3 = new Vector3(v2.x * 1.0f, 0, v2.y); //convert to 3d space
-        transform.Translate(v3);
+        //transform.Translate(v3);
+        rb.AddForce(v3, ForceMode.VelocityChange);
 
     }
 
@@ -86,6 +90,13 @@ public class PlayerControls : MonoBehaviour
     private void Heal() {
         health += 1.0f;
         UpdateHealth();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy") {
+            TakeDamage();
+        }
     }
 
     void Update() {
