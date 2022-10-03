@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
+
+    public Image weapon_image;
+
     //create private internal references
     private InputActions inputActions;
 
@@ -26,6 +30,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Start() {
         health = 5.0f;
+        weapon_image.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
         UpdateHealth();
     }
 
@@ -97,9 +102,40 @@ public class PlayerControls : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") {
             TakeDamage();
         }
+        if (collision.gameObject.tag == "Weapon")
+        {
+            EquipWeapon();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Weapon")
+        {
+            EquipWeapon();
+        }
+    }
+
+    /**
+     * Triggered when player loses all of their health.
+     * Ends the level.
+     */
+
+    private void LoseCondition() {
+        Debug.Log("You Lose!");
+    }
+
+    private void EquipWeapon() {
+
+        weapon_image.GetComponent<Image>().color = new Color32(255, 0, 0, 100);
+
     }
 
     void Update() {
+        if (health <= 0.0f) {
 
+            LoseCondition();
+        
+        }
     }
 }
