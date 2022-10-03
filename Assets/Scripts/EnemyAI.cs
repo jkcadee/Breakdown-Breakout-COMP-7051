@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour
             if (hit.transform.tag.Equals("Player"))
             {
                 isVisible = true;
-                angerTimer = 3f;
+                angerTimer = 2.5f;
             }
             else
             {
