@@ -6,6 +6,7 @@ public class BulletBehaviour : MonoBehaviour
 {
     Rigidbody rb;
     GameObject shooter;
+    public float damageDealt = 1f;
 
     // if the bullet hits something other than the shooter, delete self
     // this will need to be updated later
@@ -14,9 +15,8 @@ public class BulletBehaviour : MonoBehaviour
         if(shooter.tag != other.gameObject.tag)
         {
             Damageable target = other.gameObject.GetComponent<Damageable>();
-            target?.GetHit(1f);
+            target?.GetHit(damageDealt);
             Destroy(gameObject);
-            Debug.Log(other.gameObject.name);
         }
     }
 
