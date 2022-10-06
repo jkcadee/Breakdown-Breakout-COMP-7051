@@ -2,3 +2,8 @@
 /Library/
 /Temp/
 /UserSettings/
+/.vs/
+/obj/
+.vsconfig
+Assembly-CSharp.csproj
+Breakdown-Breakout-COMP-7051.sln
