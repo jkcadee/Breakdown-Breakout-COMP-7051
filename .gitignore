@@ -7,3 +7,8 @@ Assembly-CSharp.csproj
 Breakdown-Breakout-COMP-7051.sln
 ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
 ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+/.vs/
+/obj/
+.vsconfig
+Assembly-CSharp.csproj
+Breakdown-Breakout-COMP-7051.sln
