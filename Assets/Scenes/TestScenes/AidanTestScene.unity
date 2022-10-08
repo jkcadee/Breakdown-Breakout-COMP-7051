@@ -699,6 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 200522462}
+  shootCooldown: 0.3
 --- !u!1001 &1666535322
 PrefabInstance:
   m_ObjectHideFlags: 0
