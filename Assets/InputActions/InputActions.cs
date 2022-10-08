@@ -39,7 +39,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Keyboard"",
                     ""id"": ""8981da5e-de70-4cf0-9d82-727c665b2dea"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
