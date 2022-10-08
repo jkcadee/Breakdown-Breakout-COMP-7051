@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 7453403638127696367}
   m_Layer: 0
   m_Name: TestEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,3 +262,6 @@ MonoBehaviour:
   moveSpeed: 5
   maxDist: 25
   minDist: 10
+  angerTimer: 0
+  _agent: {fileID: 0}
+  distance: 0
