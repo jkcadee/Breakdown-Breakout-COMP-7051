@@ -14,10 +14,19 @@ public class EnemyControls : MonoBehaviour
 
     private Vector3 tvec = Vector3.zero;
 
+    //Represents the maximum distance
+    private float maxDist = 25f;
+
+    private float minDist = 10f;
+
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         health = 5.0f;
+        health_bar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,5 +82,23 @@ public class EnemyControls : MonoBehaviour
     {
         health += 1.0f;
         UpdateHealth();
+    }
+
+    private void FixedUpdate()
+    {
+        float distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
+
+        if (distance >= maxDist)
+        {
+            health_bar.SetActive(true);
+        }
+        else if (distance <= minDist)
+        {
+            health_bar.SetActive(true);
+        }
+        else
+        {
+            health_bar.SetActive(false);
+        }
     }
 }

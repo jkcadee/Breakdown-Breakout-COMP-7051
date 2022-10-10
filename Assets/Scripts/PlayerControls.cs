@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
-
+    // Represents the image of the weapon the player currently has equipped.
     public Image weapon_image;
 
     //create private internal references
@@ -22,6 +22,7 @@ public class PlayerControls : MonoBehaviour
     //Represents the health bar of the player.
     public GameObject health_meter;
 
+    //Represents the player's rigidbody component.
     Rigidbody rb;
 
     /** 
