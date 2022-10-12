@@ -15,7 +15,7 @@ public class BulletBehaviour : MonoBehaviour
         if(shooter.tag != other.gameObject.tag)
         {
             Damageable target = other.gameObject.GetComponent<Damageable>();
-            target?.GetHit(damageDealt);
+            target?.GetHit(damageDealt, gameObject);
             Destroy(gameObject);
         }
     }
