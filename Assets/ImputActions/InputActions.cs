@@ -51,7 +51,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""id"": ""54d7aaf5-3fa6-4457-b4e6-e0390c2794ce"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -181,7 +181,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d055c9f6-5572-4615-abfd-0b1f8842cca8"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
