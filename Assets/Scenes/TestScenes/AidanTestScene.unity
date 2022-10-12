@@ -882,6 +882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 3600443462484883264, guid: 4f3c4643d97063e478fe4b6cc29e63a2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3600443462484883268, guid: 4f3c4643d97063e478fe4b6cc29e63a2, type: 3}
       propertyPath: m_RootOrder
       value: 8
