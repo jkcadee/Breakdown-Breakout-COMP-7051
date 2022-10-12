@@ -17,6 +17,7 @@ public class EnemyControls : MonoBehaviour
     //Represents the maximum distance
     private float maxDist = 25f;
 
+    //Represents the minimum distance
     private float minDist = 10f;
 
     private GameObject player;
