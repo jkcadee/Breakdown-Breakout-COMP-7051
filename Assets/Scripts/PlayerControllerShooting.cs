@@ -11,7 +11,6 @@ public class PlayerControllerShooting : MonoBehaviour
 
     private Vector2 mousePos;
     Vector3 m_EulerAngleVelocity;
-    public Weapon weapon;
 
     private Camera mainCamera;
 
