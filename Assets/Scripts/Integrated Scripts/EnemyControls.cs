@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyControls : MonoBehaviour
 {
 
+    /** This code represents the Enemy's status and attributes (health, etc.)*/
+
     //Represents the health of the player
     private float health;
 
@@ -23,18 +25,6 @@ public class EnemyControls : MonoBehaviour
 
     //Represents the player.
     private GameObject player;
-
-    //Represents the speed of the enemy.
-    public float moveSpeed = 5f;
-
-    //Represents the visibility of the player.
-    private bool isVisible = false;
-
-    //Represents how long the enemy will be angry for.
-    public float angerTimer;
-
-    //JAY-COMMENT
-    public UnityEngine.AI.NavMeshAgent _agent;
 
     //Represents the distance between the player and the enemy.
     public float distance;
@@ -67,7 +57,7 @@ public class EnemyControls : MonoBehaviour
     private void UpdateHealth()
     {
 
-        health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health*1, 1);
+        health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health * 1, 1);
 
     }
 
@@ -76,7 +66,8 @@ public class EnemyControls : MonoBehaviour
     */
     private void TakeDamage()
     {
-        if (health > 0.0f) {
+        if (health > 0.0f)
+        {
             health -= 1.0f;
             UpdateHealth();
         }
@@ -99,10 +90,11 @@ public class EnemyControls : MonoBehaviour
 
     /** Destroys the enemy. */
 
-    private void Die() {
+    private void Die()
+    {
 
         Destroy(gameObject);
-    
+
     }
 
     /** 
@@ -113,6 +105,7 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
         if (distance >= maxDist)
@@ -127,44 +120,5 @@ public class EnemyControls : MonoBehaviour
         {
             health_bar.SetActive(false);
         }
-
-        if (distance >= maxDist || (!isPlayerVisible() && angerTimer <= 0))
-        {
-            _agent.isStopped = true;
-        }
-        else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
-        {
-            _agent.isStopped = true;
-            transform.LookAt(player.transform);
-        }
-        else
-        {
-            _agent.isStopped = false;
-            transform.LookAt(player.transform);
-            _agent.SetDestination(player.transform.localPosition);
-            // transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
-        }
-    }
-
-    /** JAY'S COMMENT */
-
-    private bool isPlayerVisible()
-    {
-        Vector3 direction = player.transform.localPosition - transform.localPosition;
-        RaycastHit hit;
-        if (Physics.Raycast(transform.localPosition, direction, out hit))
-        {
-            if (hit.transform.tag.Equals("Player"))
-            {
-                isVisible = true;
-                angerTimer = 2.5f;
-            }
-            else
-            {
-                isVisible = false;
-                angerTimer -= Time.deltaTime;
-            }
-        }
-        return isVisible;
     }
 }
