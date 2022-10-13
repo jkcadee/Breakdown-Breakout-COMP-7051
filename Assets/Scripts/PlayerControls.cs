@@ -155,7 +155,7 @@ public class PlayerControls : MonoBehaviour
 
     void Update() {
         /** ROTATION CODE SNIPPET START**/
-        Rotate_Player();
+        //Rotate_Player();
         /** ROTATION CODE SNIPPET END**/
         if (health <= 0.0f) {
             LoseCondition();
