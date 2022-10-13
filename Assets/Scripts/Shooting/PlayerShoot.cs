@@ -10,7 +10,6 @@ public class PlayerShoot : MonoBehaviour
     private InputActions inputActions;
     private InputAction shootAction;
 
-    public float shootCooldown = 0.3f;
     private float timer = 0;
 
     private bool shooting = false;
@@ -49,7 +48,7 @@ public class PlayerShoot : MonoBehaviour
             return;
 
         sb.ShootAtTarget(target.transform.position);
-        timer = shootCooldown;
+        timer = sb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
     }
 
     void Update()
