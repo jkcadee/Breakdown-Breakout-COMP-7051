@@ -411,7 +411,7 @@ BoxCollider:
   m_GameObject: {fileID: 158301241}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -478,6 +478,8 @@ GameObject:
   - component: {fileID: 180964808}
   - component: {fileID: 180964807}
   - component: {fileID: 180964811}
+  - component: {fileID: 180964812}
+  - component: {fileID: 180964813}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -578,6 +580,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health_meter: {fileID: 1394313277}
   health_bar: {fileID: 1624716705}
+  moveSpeed: 5
+  angerTimer: 0
+  _agent: {fileID: 180964813}
+  distance: 0
+--- !u!114 &180964812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180964806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88686b532924cdd4a9a4f81b31d01b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &180964813
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180964806}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &219316691
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +758,7 @@ BoxCollider:
   m_GameObject: {fileID: 243527594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -930,7 +970,7 @@ BoxCollider:
   m_GameObject: {fileID: 334125063}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1322,6 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f9658d67c76ac4fa1f6c07b0d81d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_transform: {fileID: 658359156}
   weapon_image: {fileID: 897961215}
   health_meter: {fileID: 1113011102}
 --- !u!114 &658359158
@@ -1338,6 +1379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: eb0fe5c71699429479fcd61831b588d9, type: 3}
   bulletSpeed: 25
+  shooter: {fileID: 658359152}
 --- !u!114 &658359159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba03f34ff2f26a4b997576b94d06575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 180964806}
+  target: {fileID: 1985939344}
   shootCooldown: 0.3
 --- !u!1 &733834276
 GameObject:
@@ -1395,7 +1437,7 @@ BoxCollider:
   m_GameObject: {fileID: 733834276}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1730,7 +1772,7 @@ BoxCollider:
   m_GameObject: {fileID: 1008476292}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1827,7 +1869,7 @@ BoxCollider:
   m_GameObject: {fileID: 1082134810}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2000,7 +2042,7 @@ BoxCollider:
   m_GameObject: {fileID: 1157776126}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2097,7 +2139,7 @@ BoxCollider:
   m_GameObject: {fileID: 1321942952}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2270,7 +2312,7 @@ BoxCollider:
   m_GameObject: {fileID: 1494693027}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2694,6 +2736,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1985939344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5608636488222872158, guid: af5eb44fb98fa624790dc21a0fd391f8, type: 3}
+  m_PrefabInstance: {fileID: 966057350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097136887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,7 +2784,7 @@ BoxCollider:
   m_GameObject: {fileID: 2097136887}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

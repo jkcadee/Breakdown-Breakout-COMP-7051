@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
+    /** ROTATION CODE SNIPPET START**/
+    public float rotation_speed;
+    public Transform player_transform;
+    private float player_angle;
+    /** ROTATION CODE SNIPPET END**/
     // Represents the image of the weapon the player currently has equipped.
     public Image weapon_image;
 
@@ -30,6 +35,7 @@ public class PlayerControls : MonoBehaviour
      */
 
     private void Start() {
+        player_angle = 0.0f;
         health = 5.0f;
         weapon_image.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
         UpdateHealth();
@@ -98,6 +104,7 @@ public class PlayerControls : MonoBehaviour
         UpdateHealth();
     }
 
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy") {
@@ -108,6 +115,7 @@ public class PlayerControls : MonoBehaviour
             EquipWeapon();
         }
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -132,11 +140,25 @@ public class PlayerControls : MonoBehaviour
 
     }
 
-    void Update() {
-        if (health <= 0.0f) {
+    /** ROTATION CODE SNIPPET START**/
+    void Rotate_Player() {
+        // used this video as reference:
+        // https://www.youtube.com/watch?v=gaDFNCRQr38
 
+        player_angle += Input.GetAxis("Mouse X") * rotation_speed * -Time.deltaTime;
+        player_angle = Math.Clamp(player_angle, 0, 360);
+        player_transform.localRotation = Quaternion.AngleAxis(player_angle, Vector3.up);
+
+    }
+    /** ROTATION CODE SNIPPET END**/
+
+
+    void Update() {
+        /** ROTATION CODE SNIPPET START**/
+        Rotate_Player();
+        /** ROTATION CODE SNIPPET END**/
+        if (health <= 0.0f) {
             LoseCondition();
-        
         }
     }
 }
