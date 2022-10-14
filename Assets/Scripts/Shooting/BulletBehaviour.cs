@@ -33,6 +33,16 @@ public class BulletBehaviour : MonoBehaviour
         shooter = s;
     }
 
+    public Rigidbody GetRigidbody()
+    {
+        return rb;
+    }
+
+    public Vector3 GetVelocity()
+    {
+        return rb.velocity;
+    }
+
     public void StartMovement(Vector3 v3)
     {
         rb.AddForce(v3, ForceMode.VelocityChange);

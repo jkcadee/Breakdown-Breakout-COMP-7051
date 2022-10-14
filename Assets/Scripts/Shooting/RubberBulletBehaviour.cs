@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RubberBulletBehaviour : BulletBehaviour
 {
-    public int bounces = 1;
+    public int bounces = 2;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -22,6 +22,7 @@ public class RubberBulletBehaviour : BulletBehaviour
             }
 
             bounces -= 1;
+            damageDealt += 1f;
         }
     }
 }
