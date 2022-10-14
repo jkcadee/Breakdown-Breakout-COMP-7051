@@ -90,7 +90,7 @@ public class PickUpController : MonoBehaviour
         slotFull = true;
 
         //Make weapon a child of the camera and move it to default position
-        transform.SetParent(player);
+        transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         //transform.localScale = Vector3.one;

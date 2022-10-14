@@ -442,6 +442,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3338401572196247443, guid: 053005abdf24483478408a03c5b5a916, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338401572196247443, guid: 053005abdf24483478408a03c5b5a916, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
@@ -596,6 +600,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37c0e8465e502fc4d94b2443aceda644, type: 3}
+--- !u!4 &1726277369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9123205378857702533, guid: bc025974c219cec4180103475033744a, type: 3}
+  m_PrefabInstance: {fileID: 6511549888088827954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1759634647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -952,7 +961,7 @@ PrefabInstance:
     - target: {fileID: 364670898653476649, guid: bc025974c219cec4180103475033744a, type: 3}
       propertyPath: attackPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1726277369}
     - target: {fileID: 364670898653476649, guid: bc025974c219cec4180103475033744a, type: 3}
       propertyPath: magazineSize
       value: 1000
