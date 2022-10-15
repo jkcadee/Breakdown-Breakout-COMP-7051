@@ -72,7 +72,7 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 v2 = movement.ReadValue<Vector2>(); //extract 2d input data
-        Vector3 v3 = new Vector3(v2.x * 1.0f, 0, v2.y); //convert to 3d space
+        Vector3 v3 = new Vector3(v2.x * 0.7f, 0, v2.y * 0.7f); //convert to 3d space
         //transform.Translate(v3);
         rb.AddForce(v3, ForceMode.VelocityChange);
 

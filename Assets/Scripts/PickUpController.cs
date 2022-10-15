@@ -30,6 +30,7 @@ public class PickUpController : MonoBehaviour
         drop = inputActions.Player.Drop;
         pickup = inputActions.Player.Pickup;
         distanceToPlayer = player.position - transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void OnEnable() {
@@ -71,7 +72,7 @@ public class PickUpController : MonoBehaviour
         }
         if (equipped)
         {
-            gunScript.enabled = true;
+            gunScript.enabled = false;
             rb.isKinematic = true;
             coll.isTrigger = true;
             slotFull = true;
@@ -80,6 +81,11 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
+/*        if (coll.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collided with Player");
+            Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>(), coll);
+        }*/
         //Check if player is in range and "E" is pressed
         distanceToPlayer = player.position - transform.position;
         

@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7233bef7f690442bb164c522d457b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSpawn: {fileID: 2848082949352423173, guid: 18038980af236ec42a1f7c4ed8cc3a00, type: 3}
+  weaponSpawn: {fileID: 1536692380781846149, guid: f8510800318f94641a584c2f3be362de, type: 3}
 --- !u!1001 &568933846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,11 +518,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4710668281526633141, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
+      propertyPath: m_Size.y
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710668281526633141, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
+      propertyPath: m_Center.y
+      value: 1.08
+      objectReference: {fileID: 0}
     - target: {fileID: 4710668281526633143, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
       propertyPath: m_Name
       value: UFO
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4922493320703677059, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
 --- !u!1001 &1094254267
 PrefabInstance:
@@ -603,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7233bef7f690442bb164c522d457b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSpawn: {fileID: 2848082949352423173, guid: 18038980af236ec42a1f7c4ed8cc3a00, type: 3}
+  weaponSpawn: {fileID: 1536692380781846149, guid: f8510800318f94641a584c2f3be362de, type: 3}
 --- !u!1001 &1605232622
 PrefabInstance:
   m_ObjectHideFlags: 0
