@@ -379,7 +379,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1594625275
@@ -773,6 +773,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7453403636141572034, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453403637383752031, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696360, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_Name
       value: TestEnemy
@@ -825,6 +833,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7453403638127696366, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696367, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: _agent
       value: 
@@ -832,6 +844,14 @@ PrefabInstance:
     - target: {fileID: 7453403638127696367, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: minDist
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922207577864839299, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922207577864839299, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Center.y
+      value: -0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac76d1e077bec224683e9496233acd17, type: 3}
