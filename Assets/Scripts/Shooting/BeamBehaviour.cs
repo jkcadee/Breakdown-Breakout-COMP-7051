@@ -20,8 +20,10 @@ public class BeamBehaviour : BulletBehaviour
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         // deletes the old beam
         Destroy(beam);
         beam = gameObject;

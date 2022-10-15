@@ -32,8 +32,9 @@ public class ExplodingBulletBehaviour : BulletBehaviour
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         startPosition = transform.position;
     }
 
