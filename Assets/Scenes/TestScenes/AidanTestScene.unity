@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cfd578932111f4daf05b2674ff515c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6223945032506627727, guid: eb0fe5c71699429479fcd61831b588d9, type: 3}
+  bulletPrefab: {fileID: 6223945032506627727, guid: 2b2696522eea4e741a54d14bc02e534b, type: 3}
   shooter: {fileID: 1641443498}
 --- !u!54 &1641443504
 Rigidbody:

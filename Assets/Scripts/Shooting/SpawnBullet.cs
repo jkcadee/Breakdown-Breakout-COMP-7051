@@ -18,4 +18,8 @@ public class SpawnBullet : MonoBehaviour
         bh.StartMovement((target - transform.position).normalized * bh.bulletSpeed);
     }
 
+    public void SetBulletPrefab(GameObject bulletType)
+    {
+        bulletPrefab = bulletType;
+    }
 }

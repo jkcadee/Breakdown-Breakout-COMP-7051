@@ -144,7 +144,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ecd69af1-034a-4711-b702-6b58d8c7446b"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
