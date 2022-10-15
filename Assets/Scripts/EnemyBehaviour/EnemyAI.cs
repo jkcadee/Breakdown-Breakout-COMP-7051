@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
         if (distance >= maxDist || (!isPlayerVisible() && angerTimer <= 0))
         {
             _agent.isStopped = true;
+            Debug.Log("NOT SHOOTING ANYMORE!!!");
         }
         else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
         {
@@ -77,7 +78,6 @@ public class EnemyAI : MonoBehaviour
     {
 
         sb.ShootAtTarget(player.transform.position);
-        timer = sb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
 
         Debug.Log("SHOT FIRED!!!");
     }
