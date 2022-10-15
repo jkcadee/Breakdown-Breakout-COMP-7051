@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6223945032506627724}
   - component: {fileID: 8093300762068932638}
   m_Layer: 6
-  m_Name: Bullet
+  m_Name: SpreadBulletChild
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  shootCooldown: 0.3
+  bulletSpeed: 40
 --- !u!54 &8093300762068932638
 Rigidbody:
   m_ObjectHideFlags: 0

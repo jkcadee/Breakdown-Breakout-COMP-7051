@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnBullet : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 25f;
     public GameObject shooter;
 
     public void ShootAtTarget(Vector3 target)
@@ -16,7 +15,11 @@ public class SpawnBullet : MonoBehaviour
         Physics.IgnoreCollision(bullet.GetComponent<Collider>(), shooter.GetComponent<Collider>());
         BulletBehaviour bh = bullet.GetComponent<BulletBehaviour>();
         bh.SetShooter(shooter);
-        bh.StartMovement((target - transform.position).normalized * bulletSpeed);
+        bh.StartMovement((target - transform.position).normalized * bh.bulletSpeed);
     }
 
+    public void SetBulletPrefab(GameObject bulletType)
+    {
+        bulletPrefab = bulletType;
+    }
 }
