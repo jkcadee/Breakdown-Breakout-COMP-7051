@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Bullet
   - LevelObject
+  - Status_Image
   layers:
   - Default
   - TransparentFX
