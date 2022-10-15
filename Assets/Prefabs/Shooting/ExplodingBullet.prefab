@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9078c76550a9bf2428110a319ca7449c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
-  shootCooldown: 0.3
+  damageDealt: 2
+  shootCooldown: 0.6
   bulletSpeed: 40
+  spreadAngle: 0
+  explosionPrefab: {fileID: 6491656988900457012, guid: 7393b164f430514428298b2699467a0e, type: 3}
+  distanceBeforeExplosion: 17

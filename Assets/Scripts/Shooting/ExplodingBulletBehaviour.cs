@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class ExplodingBulletBehaviour : BulletBehaviour
 {
+    public GameObject explosionPrefab;
+    public float distanceBeforeExplosion = 17f;
+    Vector3 startPosition;
+
+    void Explode()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, transform);
+        explosion.transform.parent = null;
+        explosion.transform.position = gameObject.transform.position;
+        ExplosionBehaviour eb = explosion.GetComponent<ExplosionBehaviour>();
+        eb.SetShooter(GetShooter());
+        eb.SetDamageDealt(damageDealt);
+        Destroy(gameObject);
+    }
 
     // if the bullet hits something other than the shooter, delete self
     // this will need to be updated later
@@ -11,9 +25,18 @@ public class ExplodingBulletBehaviour : BulletBehaviour
     {
         if(GetShooter().tag != other.gameObject.tag)
         {
-            Damageable target = other.gameObject.GetComponent<Damageable>();
-            target?.GetHit(damageDealt, gameObject);
-            Destroy(gameObject);
+            Explode();
         }
+    }
+
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        if (Vector3.Distance(transform.position, startPosition) > distanceBeforeExplosion) 
+            Explode();
     }
 }
