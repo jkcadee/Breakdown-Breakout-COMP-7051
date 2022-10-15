@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     private float timer = 0;
     private SpawnBullet sb;
     private bool shooting = false;
+    [SerializeField] private float weaponCooldown = 0.5f;
+    private float _fireTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,7 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
 
-
+        Debug.Log("ANGER TIMER: " + angerTimer);
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
 
@@ -40,17 +42,29 @@ public class EnemyAI : MonoBehaviour
         }
         else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
         {
+            Debug.Log("NOT MOVEING BUT STILL SHOOTING!!!!");
             _agent.isStopped = true;
             transform.LookAt(player.transform);
-            Shoot();
+
+            if (Time.time > _fireTimer) {
+                _fireTimer = Time.time + weaponCooldown;
+                Shoot();
+            }
+
+
         }
         else
         {
-
+            Debug.Log("SHOOT TO KILL!!!!");
             _agent.isStopped = false;
             transform.LookAt(player.transform);
             _agent.SetDestination(player.transform.localPosition);
-            Shoot();
+
+            if (Time.time > _fireTimer) {
+                _fireTimer = Time.time + weaponCooldown;
+                Shoot();
+            }
+
             // transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
         }
     }
@@ -64,7 +78,7 @@ public class EnemyAI : MonoBehaviour
             if (hit.transform.tag.Equals("Player"))
             {
                 isVisible = true;
-                angerTimer = 2f;
+                angerTimer = 2.5f;
             }
             else
             {
@@ -76,9 +90,8 @@ public class EnemyAI : MonoBehaviour
     }
     void Shoot()
     {
-
         sb.ShootAtTarget(player.transform.position);
 
-        Debug.Log("SHOT FIRED!!!");
+
     }
 }
