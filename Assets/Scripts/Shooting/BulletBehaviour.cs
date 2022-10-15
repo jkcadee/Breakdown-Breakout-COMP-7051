@@ -6,6 +6,7 @@ public class BulletBehaviour : MonoBehaviour
 {
     Rigidbody rb;
     GameObject shooter;
+    Vector3 intendedVelocity;
     public float damageDealt = 1f;
     public float shootCooldown = 0.3f;
     public float bulletSpeed = 40f;
@@ -49,9 +50,15 @@ public class BulletBehaviour : MonoBehaviour
         return damageDealt;
     }
 
+    public Vector3 GetIntendedVelocity()
+    {
+        return intendedVelocity;
+    }
+
     public void StartMovement(Vector3 v3)
     {
         Vector3 adjustedAngleMovement = Quaternion.Euler(0, Random.Range(-spreadAngle, spreadAngle), 0) * v3;
+        intendedVelocity = adjustedAngleMovement;
         rb.AddForce(adjustedAngleMovement, ForceMode.VelocityChange);
     }
 }
