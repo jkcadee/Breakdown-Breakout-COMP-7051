@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour
             if (hit.transform.tag.Equals("Player"))
             {
                 isVisible = true;
-                angerTimer = 2.5f;
+                angerTimer = 2f;
             }
             else
             {
@@ -75,10 +75,10 @@ public class EnemyAI : MonoBehaviour
     }
     void Shoot()
     {
-        if (timer > 0) 
-            return;
 
         sb.ShootAtTarget(player.transform.position);
         timer = sb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
+
+        Debug.Log("SHOT FIRED!!!");
     }
 }
