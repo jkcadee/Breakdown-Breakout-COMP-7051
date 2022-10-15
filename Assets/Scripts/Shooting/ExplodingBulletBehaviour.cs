@@ -10,17 +10,20 @@ public class ExplodingBulletBehaviour : BulletBehaviour
 
     void Explode()
     {
+        // create an explosion
         GameObject explosion = Instantiate(explosionPrefab, transform);
         explosion.transform.parent = null;
         explosion.transform.position = gameObject.transform.position;
         ExplosionBehaviour eb = explosion.GetComponent<ExplosionBehaviour>();
+        
+        // give the explosion the info it needs
         eb.SetShooter(GetShooter());
         eb.SetDamageDealt(damageDealt);
+        
+        // destroy the bullet
         Destroy(gameObject);
     }
 
-    // if the bullet hits something other than the shooter, delete self
-    // this will need to be updated later
     private void OnCollisionEnter(Collision other)
     {
         if(GetShooter().tag != other.gameObject.tag)
@@ -29,13 +32,15 @@ public class ExplodingBulletBehaviour : BulletBehaviour
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         startPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
+        // destroys the bullet once it's travelled past a certain distance
         if (Vector3.Distance(transform.position, startPosition) > distanceBeforeExplosion) 
             Explode();
     }

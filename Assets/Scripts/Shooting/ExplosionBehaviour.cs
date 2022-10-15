@@ -16,6 +16,7 @@ public class ExplosionBehaviour : MonoBehaviour
         shooter = s;
     }
 
+    // used so that you set the damage values via the exploding bullet itself
     public void SetDamageDealt(float dd)
     {
         damageDealt = dd;
@@ -33,15 +34,16 @@ public class ExplosionBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        // explosion goes out
         if (!imploding)
         {
             transform.localScale *= explosionRate;
             if (transform.localScale.x > explosionMaxSize) imploding = true;
         }
-        else
+        else // and then in
         {
             transform.localScale /= implosionRate;
-            if (transform.localScale.x < 0.05f) Destroy(gameObject);
+            if (transform.localScale.x < 0.05f) Destroy(gameObject); // and then destroys itself once it's small enough
         }
     }
 }

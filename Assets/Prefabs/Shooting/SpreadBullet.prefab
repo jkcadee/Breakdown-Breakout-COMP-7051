@@ -130,4 +130,6 @@ MonoBehaviour:
   damageDealt: 0.5
   shootCooldown: 0.5
   bulletSpeed: 40
+  spreadAngle: 0
+  bulletATFieldPrefab: {fileID: 8267849643428129342, guid: a07fbd413c57dee4e94249ff744af775, type: 3}
   bulletPrefab: {fileID: 6223945032506627727, guid: d04acb7c08ce81d44a139bd6455d0d8d, type: 3}
