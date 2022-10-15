@@ -14,15 +14,21 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent _agent;
     public float distance;
 
+    private float timer = 0;
+    private SpawnBullet sb;
+    private bool shooting = false;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        sb = GetComponent<SpawnBullet>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
 
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
@@ -35,14 +41,15 @@ public class EnemyAI : MonoBehaviour
         {
             _agent.isStopped = true;
             transform.LookAt(player.transform);
-
+            Shoot();
         }
         else
-        {   
+        {
 
             _agent.isStopped = false;
             transform.LookAt(player.transform);
             _agent.SetDestination(player.transform.localPosition);
+            Shoot();
             // transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
         }
     }
@@ -66,5 +73,12 @@ public class EnemyAI : MonoBehaviour
         }
         return isVisible;
     }
+    void Shoot()
+    {
+        if (timer > 0) 
+            return;
 
+        sb.ShootAtTarget(player.transform.position);
+        timer = sb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
+    }
 }
