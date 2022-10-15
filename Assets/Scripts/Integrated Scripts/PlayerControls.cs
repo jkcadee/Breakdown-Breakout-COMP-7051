@@ -37,7 +37,6 @@ public class PlayerControls : MonoBehaviour
     private void Start() {
         player_angle = 0.0f;
         health = 5.0f;
-        weapon_image.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
         UpdateHealth();
     }
 
@@ -110,20 +109,8 @@ public class PlayerControls : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") {
             TakeDamage();
         }
-        if (collision.gameObject.tag == "Weapon")
-        {
-            EquipWeapon();
-        }
     }
     
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Weapon")
-        {
-            EquipWeapon();
-        }
-    }
 
     /**
      * Triggered when player loses all of their health.
@@ -132,12 +119,6 @@ public class PlayerControls : MonoBehaviour
 
     private void LoseCondition() {
         Debug.Log("You Lose!");
-    }
-
-    private void EquipWeapon() {
-
-        weapon_image.GetComponent<Image>().color = new Color32(255, 0, 0, 100);
-
     }
 
     /** ROTATION CODE SNIPPET START**/

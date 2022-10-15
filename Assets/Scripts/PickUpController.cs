@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PickUpController : MonoBehaviour
 {
@@ -81,7 +82,7 @@ public class PickUpController : MonoBehaviour
     {
         //Check if player is in range and "E" is pressed
         distanceToPlayer = player.position - transform.position;
-
+        
     }
 
     private void PickUp()
@@ -102,6 +103,9 @@ public class PickUpController : MonoBehaviour
 
         //Enable script
         gunScript.enabled = true;
+
+        //Change The Icon Color To Match Weapon
+        ChangeIcon();
     }
 
     private void Drop()
@@ -128,6 +132,23 @@ public class PickUpController : MonoBehaviour
 
         //Disable script
         gunScript.enabled = false;
+        Debug.Log("Hit1");
+        //Turn Icon To Default
+        RemoveIcon();
+    }
+
+    private void ChangeIcon() {
+        Renderer renderer = GetComponent<Renderer>();
+        Material sharedMaterial = renderer.sharedMaterial;
+        GameObject weapon_image = GameObject.FindGameObjectWithTag("Status_Image");
+        weapon_image.GetComponent<Image>().color = sharedMaterial.color;
+    }
+
+    private void RemoveIcon()
+    {
+        Debug.Log("Hit2");
+        GameObject weapon_image = GameObject.FindGameObjectWithTag("Status_Image");
+        weapon_image.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
     }
 
 }
