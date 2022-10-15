@@ -11,41 +11,52 @@ public class PlayerControllerShooting : MonoBehaviour
 
     private Vector2 mousePos;
     Vector3 m_EulerAngleVelocity;
-    public Weapon weapon;
 
-    private float rotX;
-    private float rotY;
-    public float speed = 100f;
+    private Camera mainCamera;
 
-    private InputActionReference Shoot;
+    // private InputAction shoot;
+    Plane groundPlane;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
-
+        mainCamera = FindObjectOfType<Camera>();
         inputActions = new InputActions();
-
+        //shoot = inputActions.Player.Shoot;
         movement = inputActions.Player.Movement;
+        groundPlane = new Plane(Vector3.up, Vector3.zero);
+
 
     }
 
     private void OnEnable() {
         movement.Enable();
+        //shoot.Enable();
+        //shoot.performed += Shoot;
     }
 
     public void OnDisable() {
         movement.Disable();
+        //shoot.performed -= Shoot;
+        //shoot.Disable();
     }
+
+    //   public void Shoot(InputAction.CallbackContext obj){
+    //     weapon.onShoot();
+    // }
 
     public void Update(){
         mousePos = Mouse.current.position.ReadValue();
-        Debug.Log(mousePos.x);
-        Debug.Log(mousePos.y);
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos); 
-    }
+        // https://www.youtube.com/watch?v=lkDGk3TjsIE
+        // aiming code
+        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        float rayLength = 0;
 
-    public void onShoot(InputValue value){
-        Debug.Log("fire");
-        weapon.Fire();
+        if(groundPlane.Raycast(cameraRay, out rayLength)){
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            Debug.DrawLine(cameraRay.origin,pointToLook, Color.blue);
+            transform.LookAt(new Vector3 (pointToLook.x, transform.position.y, pointToLook.z));
+        }
+
     }
 
     private void FixedUpdate() {
@@ -54,17 +65,5 @@ public class PlayerControllerShooting : MonoBehaviour
         Vector3 v3 = new Vector3(v2.x, 0, v2.y);
 
         rb.AddForce(v3, ForceMode.VelocityChange);
-         
-        Vector2 modifiedPos = new Vector2(rb.position.x,rb.position.z);
-        Vector2 aimDirection = mousePos - modifiedPos;
-        float aimAngle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg - 90;
-        Debug.Log(aimAngle);
-        transform.rotation = Quaternion.Euler(new Vector3(0, -aimAngle, 0));
-        // m_EulerAngleVelocity = new Vector3(0, aimAngle, 0);
-        // Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.fixedDeltaTime);
-        // //rb.MoveRotation( rb.rotation * deltaRotation);
-        // rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(0f, aimAngle, 0f))
-
-
     }
 }
