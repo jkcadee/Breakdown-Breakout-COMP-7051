@@ -4,26 +4,43 @@ using UnityEngine;
 
 public class ExplosionBehaviour : MonoBehaviour
 {
-    public float explosionRate = 1.01f;
-    bool imploding = true;
+    public float explosionRate = 1.2f;
+    public float implosionRate = 1.3f;
+    public float explosionMaxSize = 5f;
+    bool imploding = false;
+    GameObject shooter;
+    float damageDealt;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetShooter(GameObject s)
     {
-        
+        shooter = s;
     }
 
-    // Update is called once per frame
+    public void SetDamageDealt(float dd)
+    {
+        damageDealt = dd;
+    }
+
+    // rigidbody is required for this to work btw (like the enemy must have a rigidbody)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (shooter.tag != other.gameObject.tag)
+        {
+            Damageable target = other.gameObject.GetComponent<Damageable>();
+            target?.GetHit(damageDealt, gameObject);
+        }
+    }
+
     void FixedUpdate()
     {
         if (!imploding)
         {
             transform.localScale *= explosionRate;
-            if (transform.localScale.x > 3) imploding = true;
+            if (transform.localScale.x > explosionMaxSize) imploding = true;
         }
         else
         {
-            transform.localScale /= explosionRate;
+            transform.localScale /= implosionRate;
             if (transform.localScale.x < 0.05f) Destroy(gameObject);
         }
     }

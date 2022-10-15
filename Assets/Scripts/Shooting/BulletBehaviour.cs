@@ -44,6 +44,11 @@ public class BulletBehaviour : MonoBehaviour
         return rb.velocity;
     }
 
+    public float GetDamageDealt()
+    {
+        return damageDealt;
+    }
+
     public void StartMovement(Vector3 v3)
     {
         Vector3 adjustedAngleMovement = Quaternion.Euler(0, Random.Range(-spreadAngle, spreadAngle), 0) * v3;
