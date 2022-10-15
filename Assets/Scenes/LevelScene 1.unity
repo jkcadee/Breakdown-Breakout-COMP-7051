@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710668281526633141, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
       propertyPath: m_Center.y
-      value: 1.11
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 4710668281526633143, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
       propertyPath: m_Name
