@@ -88,7 +88,7 @@ public class EnemyControls : MonoBehaviour
 
         if (distance >= maxDist)
         {
-            health_bar.SetActive(true);
+            health_bar.SetActive(false);
         }
         else
         {
