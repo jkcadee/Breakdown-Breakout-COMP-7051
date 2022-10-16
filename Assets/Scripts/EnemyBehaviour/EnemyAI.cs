@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("UFO");
+        player = GameObject.FindGameObjectWithTag("Player");
         sb = GetComponent<SpawnBullet>();
     }
 
@@ -37,23 +37,20 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
 
-        if(health < 1) {
-            Destroy(gameObject);
-        }
-
         distance = Vector3.Distance(transform.position, player.transform.position);
 
 
-        if (distance >= maxDist || !isPlayerVisible())
+        if (distance >= maxDist || (!isPlayerVisible() && angerTimer <= 0))
         {
             _agent.isStopped = true;
         }
-        else if (distance <= minDist && isPlayerVisible())
+        else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
         {
             _agent.isStopped = true;
             transform.LookAt(player.transform);
 
-            if (Time.time > _fireTimer) {
+            if (Time.time > _fireTimer)
+            {
                 _fireTimer = Time.time + weaponCooldown;
                 Shoot();
             }
@@ -66,7 +63,8 @@ public class EnemyAI : MonoBehaviour
             transform.LookAt(player.transform);
             _agent.SetDestination(player.transform.position);
 
-            if (Time.time > _fireTimer) {
+            if (Time.time > _fireTimer)
+            {
                 _fireTimer = Time.time + weaponCooldown;
                 Shoot();
             }
@@ -74,27 +72,31 @@ public class EnemyAI : MonoBehaviour
             // transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
 
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private bool isPlayerVisible()
     {
-        Debug.Log("RAYCAST BEING CALLED!!!!!");
         Vector3 direction = player.transform.position - transform.position;
         RaycastHit hit;
         bulletlayer = ~bulletlayer;
-        if (Physics.Raycast(transform.position, direction, out hit, bulletlayer))
+        if (Physics.Raycast(transform.position, direction, out hit, 500f, bulletlayer))
         {
 
             if (hit.collider.gameObject.name == ("UFO"))
             {
 
                 isVisible = true;
-                // angerTimer = 2.5f;
+                angerTimer = 2.5f;
             }
             else
             {
                 isVisible = false;
-                // angerTimer -= Time.deltaTime;
+                angerTimer -= Time.deltaTime;
             }
         }
         return isVisible;
