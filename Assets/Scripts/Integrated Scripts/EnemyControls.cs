@@ -8,7 +8,7 @@ public class EnemyControls : MonoBehaviour
     /** This code represents the Enemy's status and attributes (health, etc.)*/
 
     //Represents the health of the player
-    private float health;
+    public float health;
 
     //Represents the health meter on the enemy's healthbar that indictes
     //how much health they have.
@@ -26,6 +26,8 @@ public class EnemyControls : MonoBehaviour
     //Represents the player.
     private GameObject player;
 
+    public GameObject weaponDrop;
+
     //Represents the distance between the player and the enemy.
     public float distance;
 
@@ -33,7 +35,7 @@ public class EnemyControls : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        health = 5.0f;
+        health = 2.0f;
         health_bar.SetActive(false);
     }
 
@@ -43,13 +45,13 @@ public class EnemyControls : MonoBehaviour
     @param other
      */
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Bullet")
-        {
-            TakeDamage();
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.tag == "Bullet")
+    //     {
+    //         TakeDamage();
+    //     }
+    // }
 
     /** 
         * Updates the health bar in accordance with the enemy's current health.
@@ -64,38 +66,38 @@ public class EnemyControls : MonoBehaviour
     /** 
       * Decrements the enemy's health by one.
     */
-    private void TakeDamage()
-    {
-        if (health > 0.0f)
-        {
-            health -= 1.0f;
-            UpdateHealth();
-        }
-        //Checks the enemy's health
-        //If it is less than or equal to 2, enemy dies.
-        if (health <= 0.0f)
-        {
-            Die();
-        }
-    }
+    // private void TakeDamage()
+    // {
+    //     if (health > 0.0f)
+    //     {
+    //         health -= 1.0f;
+    //         UpdateHealth();
+    //     }
+    //     //Checks the enemy's health
+    //     //If it is less than or equal to 2, enemy dies.
+    //     if (health <= 0.0f)
+    //     {
+    //         Die();
+    //     }
+    // }
 
     /** 
         Increments the enemy's health by one.
     */
-    private void Heal()
-    {
-        health += 1.0f;
-        UpdateHealth();
-    }
+    // private void Heal()
+    // {
+    //     health += 1.0f;
+    //     UpdateHealth();
+    // }
 
     /** Destroys the enemy. */
 
-    private void Die()
-    {
+    // private void Die()
+    // {
 
-        Destroy(gameObject);
+    //     Destroy(gameObject);
 
-    }
+    // }
 
     /** 
      Updates each frame. It detects the distance of the enemy relative
@@ -106,6 +108,14 @@ public class EnemyControls : MonoBehaviour
     private void FixedUpdate()
     {
 
+        if (health < 1)
+        {
+            Instantiate(weaponDrop, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+
+        }
+
+        UpdateHealth();
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
         if (distance >= maxDist)

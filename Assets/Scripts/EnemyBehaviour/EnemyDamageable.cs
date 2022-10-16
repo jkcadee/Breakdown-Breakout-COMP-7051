@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDamageable : Damageable
 {
-    public EnemyAI enemy;
+    public EnemyControls enemy;
     public override void GetHit(float damage, GameObject other) {
         enemy.health -= damage;
         

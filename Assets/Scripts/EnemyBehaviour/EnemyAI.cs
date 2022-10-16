@@ -22,9 +22,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float weaponCooldown = 0.5f;
     private float _fireTimer;
 
-    public float health = 2f;
-
     public LayerMask bulletlayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,11 +69,6 @@ public class EnemyAI : MonoBehaviour
             }
 
             // transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        }
-
-        if (health < 1)
-        {
-            Destroy(gameObject);
         }
 
     }
