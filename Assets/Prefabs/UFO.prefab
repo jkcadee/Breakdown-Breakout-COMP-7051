@@ -84,6 +84,7 @@ MonoBehaviour:
   weapon_image: {fileID: 4710668281770429752}
   health: 0
   health_meter: {fileID: 4710668283059286617}
+  playerStats: {fileID: 4710668282232986488}
   speedLimit: 17
   accelerationSpeed: 3
 --- !u!114 &4710668281526633136
@@ -138,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2985747b772ae214a8d363feeb43f683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4710668281602174435
 GameObject:
   m_ObjectHideFlags: 0

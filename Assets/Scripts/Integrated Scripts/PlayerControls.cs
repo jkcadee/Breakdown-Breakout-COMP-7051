@@ -26,6 +26,8 @@ public class PlayerControls : MonoBehaviour
     //Represents the player's rigidbody component.
     Rigidbody rb;
 
+    public GameObject playerStats;
+
     public float speedLimit = 17f;
     public float accelerationSpeed = 3f;
 
@@ -36,6 +38,7 @@ public class PlayerControls : MonoBehaviour
     private void Start() {
         health = 5.0f;
         UpdateHealth();
+        playerStats.transform.SetParent(null);
     }
 
     /** 
