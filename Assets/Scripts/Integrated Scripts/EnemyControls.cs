@@ -7,8 +7,9 @@ public class EnemyControls : MonoBehaviour
 
     /** This code represents the Enemy's status and attributes (health, etc.)*/
 
-    //Represents the health of the player
-    public float health;
+    //Represents the health of the enemy
+    public float health = 4f;
+    private float maxHealth;
 
     //Represents the health meter on the enemy's healthbar that indictes
     //how much health they have.
@@ -16,6 +17,8 @@ public class EnemyControls : MonoBehaviour
 
     //Represents the health bar that hovers over the enemy.
     public GameObject health_bar;
+
+    public GameObject enemyStats;
 
     //Represents the maximum distance
     private float maxDist = 25f;
@@ -28,6 +31,8 @@ public class EnemyControls : MonoBehaviour
 
     public GameObject weaponDrop;
 
+    private EnemyAI enemyAI;
+
     //Represents the distance between the player and the enemy.
     public float distance;
 
@@ -35,23 +40,11 @@ public class EnemyControls : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        health = 2.0f;
+        maxHealth = health;
         health_bar.SetActive(false);
+        enemyStats.transform.parent = null;
+        enemyAI = GetComponent<EnemyAI>();
     }
-
-    /** 
-    Detects if the enemy enters a trigger.
-    If it collides with a bullet, the enemy takes damage.
-    @param other
-     */
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.gameObject.tag == "Bullet")
-    //     {
-    //         TakeDamage();
-    //     }
-    // }
 
     /** 
         * Updates the health bar in accordance with the enemy's current health.
@@ -59,45 +52,19 @@ public class EnemyControls : MonoBehaviour
     private void UpdateHealth()
     {
 
-        health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health * 1, 1);
+        health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health/maxHealth * 5, 1);
 
     }
 
-    /** 
-      * Decrements the enemy's health by one.
-    */
-    // private void TakeDamage()
-    // {
-    //     if (health > 0.0f)
-    //     {
-    //         health -= 1.0f;
-    //         UpdateHealth();
-    //     }
-    //     //Checks the enemy's health
-    //     //If it is less than or equal to 2, enemy dies.
-    //     if (health <= 0.0f)
-    //     {
-    //         Die();
-    //     }
-    // }
+    private void UpdateCanvasPosition()
+    {
+        enemyStats.transform.position = new Vector3(transform.position.x - 2.5f, transform.position.y + 3f, transform.position.z + 3f);
+    }
 
-    /** 
-        Increments the enemy's health by one.
-    */
-    // private void Heal()
-    // {
-    //     health += 1.0f;
-    //     UpdateHealth();
-    // }
-
-    /** Destroys the enemy. */
-
-    // private void Die()
-    // {
-
-    //     Destroy(gameObject);
-
-    // }
+    private void OnDestroy()
+    {
+        Destroy(enemyStats);
+    }
 
     /** 
      Updates each frame. It detects the distance of the enemy relative
@@ -116,19 +83,16 @@ public class EnemyControls : MonoBehaviour
         }
 
         UpdateHealth();
+        UpdateCanvasPosition();
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
         if (distance >= maxDist)
         {
             health_bar.SetActive(true);
         }
-        else if (distance <= minDist)
-        {
-            health_bar.SetActive(true);
-        }
         else
         {
-            health_bar.SetActive(false);
+            health_bar.SetActive(true);
         }
     }
 }
