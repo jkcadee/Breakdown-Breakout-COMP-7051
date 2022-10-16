@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 985638783, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: weaponDrop
+      value: 
+      objectReference: {fileID: 9126153371847525794, guid: a431815c7086ddd42924d3843f114f00, type: 3}
+    - target: {fileID: 7436398780814060312, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6223945032506627727, guid: 394998506960ef64daf567635ea2331d, type: 3}
     - target: {fileID: 7453403638127696360, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_Name
       value: JS_TestEnemy
@@ -632,6 +640,10 @@ PrefabInstance:
       propertyPath: weaponDrop
       value: 
       objectReference: {fileID: 9126153371847525794, guid: 059710396c98409448b97a323260e326, type: 3}
+    - target: {fileID: 7436398780814060312, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6223945032506627727, guid: 293da330144fea94989d1515253107a5, type: 3}
     - target: {fileID: 7453403638127696360, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_Name
       value: JS_TestEnemy (3)
@@ -819,6 +831,10 @@ PrefabInstance:
       propertyPath: weaponDrop
       value: 
       objectReference: {fileID: 9126153371847525794, guid: db11bd08637336b4aa5bddbdef1794d2, type: 3}
+    - target: {fileID: 7436398780814060312, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5811075831961966127, guid: 9fbc54f14c8c4d34583df89a20d2a355, type: 3}
     - target: {fileID: 7453403638127696360, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_Name
       value: JS_TestEnemy (1)
