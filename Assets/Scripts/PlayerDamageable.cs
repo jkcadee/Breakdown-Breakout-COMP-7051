@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlayerDamageable : Damageable
 {
-    public PlayerControls player;
+    PlayerControls player;
+
+    private void Start()
+    {
+        player = GetComponent<PlayerControls>();
+    }
+
     public override void GetHit(float damage, GameObject other)
     {
         player.health -= damage;
