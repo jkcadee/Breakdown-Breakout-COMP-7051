@@ -16,14 +16,20 @@ public class EnemyAI : MonoBehaviour
 
     private float timer = 0;
     private SpawnBullet sb;
+
+    private BulletBehaviour bb;
     private bool shooting = false;
     [SerializeField] private float weaponCooldown = 0.5f;
     private float _fireTimer;
 
+    public float health = 2f;
+
+    public LayerMask bulletlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("UFO");
         sb = GetComponent<SpawnBullet>();
     }
 
@@ -31,18 +37,19 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
 
-        Debug.Log("ANGER TIMER: " + angerTimer);
-        distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
+        if(health < 1) {
+            Destroy(gameObject);
+        }
+
+        distance = Vector3.Distance(transform.position, player.transform.position);
 
 
-        if (distance >= maxDist || (!isPlayerVisible() && angerTimer <= 0))
+        if (distance >= maxDist || !isPlayerVisible())
         {
             _agent.isStopped = true;
-            Debug.Log("NOT SHOOTING ANYMORE!!!");
         }
-        else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
+        else if (distance <= minDist && isPlayerVisible())
         {
-            Debug.Log("NOT MOVEING BUT STILL SHOOTING!!!!");
             _agent.isStopped = true;
             transform.LookAt(player.transform);
 
@@ -55,35 +62,39 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            Debug.Log("SHOOT TO KILL!!!!");
             _agent.isStopped = false;
             transform.LookAt(player.transform);
-            _agent.SetDestination(player.transform.localPosition);
+            _agent.SetDestination(player.transform.position);
 
             if (Time.time > _fireTimer) {
                 _fireTimer = Time.time + weaponCooldown;
                 Shoot();
             }
 
-            // transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
+            // transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
+
     }
 
     private bool isPlayerVisible()
     {
-        Vector3 direction = player.transform.localPosition - transform.localPosition;
+        Debug.Log("RAYCAST BEING CALLED!!!!!");
+        Vector3 direction = player.transform.position - transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(transform.localPosition, direction, out hit))
+        bulletlayer = ~bulletlayer;
+        if (Physics.Raycast(transform.position, direction, out hit, bulletlayer))
         {
-            if (hit.transform.tag.Equals("Player"))
+
+            if (hit.collider.gameObject.name == ("UFO"))
             {
+
                 isVisible = true;
-                angerTimer = 2.5f;
+                // angerTimer = 2.5f;
             }
             else
             {
                 isVisible = false;
-                angerTimer -= Time.deltaTime;
+                // angerTimer -= Time.deltaTime;
             }
         }
         return isVisible;
