@@ -481,7 +481,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &861731114
 PrefabInstance:
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d138c59aa0ee91246b6286019e069eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 985638778}
+  enemy: {fileID: 985638783}
 --- !u!114 &985638778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,10 +616,26 @@ MonoBehaviour:
   _agent: {fileID: 985638768}
   distance: 0
   weaponCooldown: 0.5
-  health: 2
   bulletlayer:
     serializedVersion: 2
     m_Bits: 192
+--- !u!114 &985638783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985638756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce627c56c90264e8fde2d6f63744e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  health_meter: {fileID: 2358211182716157979, guid: 3e68c2ecc698c5e4a96ee0bd4d2992ed, type: 3}
+  health_bar: {fileID: 4944411924388623748, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+  weaponDrop: {fileID: 9126153371847525794, guid: e0acb21b82fbb8b4f95a0644d48a762e, type: 3}
+  distance: 0
 --- !u!1001 &1094254267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,7 +653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1613739132327083165, guid: 37c0e8465e502fc4d94b2443aceda644, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1613739132327083165, guid: 37c0e8465e502fc4d94b2443aceda644, type: 3}
       propertyPath: m_LocalPosition.x
