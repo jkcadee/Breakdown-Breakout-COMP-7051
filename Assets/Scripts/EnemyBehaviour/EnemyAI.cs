@@ -16,9 +16,15 @@ public class EnemyAI : MonoBehaviour
 
     private float timer = 0;
     private SpawnBullet sb;
+
+    private BulletBehaviour bb;
     private bool shooting = false;
     [SerializeField] private float weaponCooldown = 0.5f;
     private float _fireTimer;
+
+    public float health = 2f;
+
+    public LayerMask bulletlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -31,22 +37,20 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
 
-        Debug.Log("ANGER TIMER: " + angerTimer);
-        distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
+        distance = Vector3.Distance(transform.position, player.transform.position);
 
 
         if (distance >= maxDist || (!isPlayerVisible() && angerTimer <= 0))
         {
             _agent.isStopped = true;
-            Debug.Log("NOT SHOOTING ANYMORE!!!");
         }
         else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
         {
-            Debug.Log("NOT MOVEING BUT STILL SHOOTING!!!!");
             _agent.isStopped = true;
             transform.LookAt(player.transform);
 
-            if (Time.time > _fireTimer) {
+            if (Time.time > _fireTimer)
+            {
                 _fireTimer = Time.time + weaponCooldown;
                 Shoot();
             }
@@ -55,28 +59,37 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            Debug.Log("SHOOT TO KILL!!!!");
             _agent.isStopped = false;
             transform.LookAt(player.transform);
-            _agent.SetDestination(player.transform.localPosition);
+            _agent.SetDestination(player.transform.position);
 
-            if (Time.time > _fireTimer) {
+            if (Time.time > _fireTimer)
+            {
                 _fireTimer = Time.time + weaponCooldown;
                 Shoot();
             }
 
-            // transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
+            // transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
+
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private bool isPlayerVisible()
     {
-        Vector3 direction = player.transform.localPosition - transform.localPosition;
+        Vector3 direction = player.transform.position - transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(transform.localPosition, direction, out hit))
+        bulletlayer = ~bulletlayer;
+        if (Physics.Raycast(transform.position, direction, out hit, 500f, bulletlayer))
         {
-            if (hit.transform.tag.Equals("Player"))
+
+            if (hit.collider.gameObject.name == ("UFO"))
             {
+
                 isVisible = true;
                 angerTimer = 2.5f;
             }
