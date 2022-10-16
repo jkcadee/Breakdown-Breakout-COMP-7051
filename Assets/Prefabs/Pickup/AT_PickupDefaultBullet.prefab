@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9126153371847525793}
   - component: {fileID: 9126153371847525792}
   - component: {fileID: 9126153371847525795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AT_PickupDefaultBullet
   m_TagString: Weapon
   m_Icon: {fileID: 0}
