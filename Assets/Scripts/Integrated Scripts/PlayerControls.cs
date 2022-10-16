@@ -18,7 +18,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction movement;
 
     //Represents the health of the player
-    private float health;
+    public float health;
 
     //Represents the health bar of the player.
     public GameObject health_meter;
@@ -81,7 +81,7 @@ public class PlayerControls : MonoBehaviour
     /** 
      * Updates the health bar in accordance with the player's current health.
      */
-    private void UpdateHealth() {
+    public void UpdateHealth() {
 
         health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health*30, 23.9f) ;
 
@@ -118,6 +118,7 @@ public class PlayerControls : MonoBehaviour
      */
 
     private void LoseCondition() {
+        Destroy(gameObject);
         Debug.Log("You Lose!");
     }
 

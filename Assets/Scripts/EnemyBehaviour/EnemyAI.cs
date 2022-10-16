@@ -73,6 +73,11 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    public bool GetIsPlayerVisible()
+    {
+        return isVisible;
+    }
+
     private bool isPlayerVisible()
     {
         Vector3 direction = player.transform.position - transform.position;
