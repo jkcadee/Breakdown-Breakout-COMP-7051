@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BeamBehaviour : BulletBehaviour
 {
-    int layerMask;
+    public LayerMask layerMask;
     bool stoppedMotion = false;
     bool destroyState = false;
     static GameObject beam;
 
     void OnCollisionEnter(Collision other)
     {
-        if (GetShooter().tag != other.gameObject.tag)
+        if (GetShooterTag() != other.gameObject.tag)
         {
             // hit the target and destroy self (self explanatory p much)
             Damageable target = other.gameObject.GetComponent<Damageable>();
@@ -27,7 +27,7 @@ public class BeamBehaviour : BulletBehaviour
         // deletes the old beam
         Destroy(beam);
         beam = gameObject;
-        layerMask = LayerMask.GetMask("Default");
+        layerMask = ~layerMask;
 
         // points the beam in the right direction
         Vector3 pointDir = transform.position + GetIntendedVelocity();

@@ -9,7 +9,7 @@ public class RubberBulletBehaviour : BulletBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (GetShooter().tag != other.gameObject.tag)
+        if (GetShooterTag() != other.gameObject.tag)
         {
             Damageable target = other.gameObject.GetComponent<Damageable>();
             if(target != null) // if the target is damageable, the bullet will not bounce
