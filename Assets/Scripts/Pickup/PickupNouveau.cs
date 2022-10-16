@@ -17,6 +17,8 @@ public class PickupNouveau : MonoBehaviour
         inputActions = new InputActions();
         pickup = inputActions.Player.Pickup;
         sb = GetComponent<SpawnBullet>();
+        ChangeIcon(Color.black);
+        gun.GetComponent<Renderer>().material.color = Color.black;
     }
 
     public void OnEnable()
