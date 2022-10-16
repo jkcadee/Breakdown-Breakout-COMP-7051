@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4710668281526633138}
   - component: {fileID: 4710668281526633136}
   - component: {fileID: 4710668281526633137}
+  - component: {fileID: 1206224015}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Player
@@ -82,6 +83,7 @@ MonoBehaviour:
   weapon_image: {fileID: 4710668281770429752}
   health_meter: {fileID: 4710668283059286617}
   speedLimit: 17
+  accelerationSpeed: 3
 --- !u!114 &4710668281526633136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +111,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 4710668281526633143}
+--- !u!114 &1206224015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710668281526633143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433bc60cf9181404195f27cc1a8424a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 7517380267126786954}
 --- !u!1 &4710668281602174435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,45 +1927,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9123205378857702533, guid: bc025974c219cec4180103475033744a, type: 3}
   m_PrefabInstance: {fileID: 4710668282278913450}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &7517380267126786952 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 2957948366688923170, guid: bc025974c219cec4180103475033744a, type: 3}
-  m_PrefabInstance: {fileID: 4710668282278913450}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7517380267126786954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2957948366688923168, guid: bc025974c219cec4180103475033744a, type: 3}
   m_PrefabInstance: {fileID: 4710668282278913450}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4710668282737072024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7517380267126786954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12c8d430b04e0a4bbd41633016c9ae0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunScript: {fileID: 0}
-  rb: {fileID: 8903878287719637306}
-  coll: {fileID: 7517380267126786952}
-  player: {fileID: 4710668281526633139}
-  gunContainer: {fileID: 4710668282306881190}
-  attackPoint: {fileID: 0}
-  pickUpRange: 4
-  dropForwardForce: 0.5
-  dropUpwardForce: 7
-  equipped: 1
 --- !u!4 &7517380267126786955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2957948366688923169, guid: bc025974c219cec4180103475033744a, type: 3}
-  m_PrefabInstance: {fileID: 4710668282278913450}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &8903878287719637306 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 4237687106248934544, guid: bc025974c219cec4180103475033744a, type: 3}
   m_PrefabInstance: {fileID: 4710668282278913450}
   m_PrefabAsset: {fileID: 0}
