@@ -116,6 +116,9 @@ MonoBehaviour:
   bulletSpeed: 1
   spreadAngle: 0
   bulletATFieldPrefab: {fileID: 8267849643428129342, guid: a07fbd413c57dee4e94249ff744af775, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 246
 --- !u!54 &4822845238283548920
 Rigidbody:
   m_ObjectHideFlags: 0

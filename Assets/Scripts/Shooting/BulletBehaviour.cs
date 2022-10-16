@@ -6,6 +6,7 @@ public class BulletBehaviour : MonoBehaviour
 {
     Rigidbody rb;
     GameObject shooter;
+    string shooterTag;
     Vector3 intendedVelocity;
     public float damageDealt = 1f;
     public float shootCooldown = 0.3f;
@@ -19,18 +20,25 @@ public class BulletBehaviour : MonoBehaviour
         FieldBulletProtector fbp = bulletATField.GetComponent<FieldBulletProtector>();
         fbp.shooterTag = shooter.tag;
         fbp.bullet = gameObject;
+
+        shooterTag = shooter.tag;
     }
 
     // if the bullet hits something other than the shooter, delete self
     // this will need to be updated later
     private void OnCollisionEnter(Collision other)
     {
-        if(shooter.tag != other.gameObject.tag)
+        if(shooterTag != other.gameObject.tag)
         {
             Damageable target = other.gameObject.GetComponent<Damageable>();
             target?.GetHit(damageDealt, gameObject);
             Destroy(gameObject);
         }
+    }
+
+    public string GetShooterTag()
+    {
+        return shooter.tag;
     }
 
     public GameObject GetShooter()

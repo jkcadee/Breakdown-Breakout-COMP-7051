@@ -26,7 +26,7 @@ public class ExplodingBulletBehaviour : BulletBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(GetShooter().tag != other.gameObject.tag)
+        if(GetShooterTag() != other.gameObject.tag)
         {
             Explode();
         }

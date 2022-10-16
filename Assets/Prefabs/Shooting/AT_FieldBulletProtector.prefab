@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3613557987312979247}
   - component: {fileID: 6506676616029634444}
   - component: {fileID: 3017580248589990714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AT_FieldBulletProtector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
