@@ -26,6 +26,8 @@ public class EnemyAI : MonoBehaviour
     public string bulletType;
 
     private string weaponName;
+    private float inaccuraty = 2f;
+    private Vector3 enemyAim;
 
 
     // Start is called before the first frame update
@@ -100,8 +102,10 @@ public class EnemyAI : MonoBehaviour
     }
 
     void Shoot()
-    {
-        sb.ShootAtTarget(player.transform.position);
+    {   
+        Vector2 rand = Random.insideUnitCircle;
+        enemyAim = player.transform.position + new Vector3(rand.x, 0, rand.y) * inaccuraty;
+        sb.ShootAtTarget(enemyAim);
 
     }
 
