@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 985638783}
+  ai: {fileID: 985638778}
 --- !u!114 &985638778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +442,7 @@ MonoBehaviour:
   enemyStats: {fileID: 1424196301}
   weaponDrop: {fileID: 9126153371847525794, guid: e0acb21b82fbb8b4f95a0644d48a762e, type: 3}
   distance: 0
+  ai: {fileID: 985638778}
 --- !u!1001 &406768981
 PrefabInstance:
   m_ObjectHideFlags: 0

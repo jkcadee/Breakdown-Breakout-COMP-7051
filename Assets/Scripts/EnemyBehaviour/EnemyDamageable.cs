@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyDamageable : Damageable
 {
     public EnemyControls enemy;
-    public override void GetHit(float damage, GameObject other) {
-        enemy.health -= damage;
-        
-    }
-    
+    public EnemyAI ai;
+    public override void GetHit(float damage, GameObject other)
+    {
 
+        enemy.health -= damage;
+
+        ai.angerTimer = 4f;
+
+    }
 }
