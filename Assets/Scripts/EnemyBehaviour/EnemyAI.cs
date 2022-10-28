@@ -19,10 +19,15 @@ public class EnemyAI : MonoBehaviour
 
     private BulletBehaviour bb;
     private bool shooting = false;
-    [SerializeField] private float weaponCooldown = 0.5f;
+    [SerializeField] private float weaponCooldown;
     private float _fireTimer;
 
     public LayerMask bulletlayer;
+    public string bulletType;
+
+    private string weaponName;
+    private float inaccuraty = 2f;
+    private Vector3 enemyAim;
 
 
     // Start is called before the first frame update
@@ -30,53 +35,49 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         sb = GetComponent<SpawnBullet>();
+        weaponCooldown = sb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
+        weaponName = sb.bulletPrefab.transform.name;
+        bulletType = "AT_Pickup" + weaponName;
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-
+    {   
         distance = Vector3.Distance(transform.position, player.transform.position);
 
+        isVisible = isPlayerVisible();
 
-        if (distance >= maxDist || (!isPlayerVisible() && angerTimer <= 0))
+        if (angerTimer > 0)
         {
-            _agent.isStopped = true;
-        }
-        else if (distance <= minDist && (isPlayerVisible() || angerTimer > 0))
-        {
-            _agent.isStopped = true;
-            transform.LookAt(player.transform);
-
-            if (Time.time > _fireTimer)
+            if (distance <= minDist)
             {
-                _fireTimer = Time.time + weaponCooldown;
-                Shoot();
+                _agent.isStopped = true;
+                transform.LookAt(player.transform);
+
+                if (Time.time > _fireTimer)
+                {
+                    _fireTimer = Time.time + weaponCooldown;
+                    Shoot();
+                }
             }
-
-
-        }
-        else
-        {
-            _agent.isStopped = false;
-            transform.LookAt(player.transform);
-            _agent.SetDestination(player.transform.position);
-
-            if (Time.time > _fireTimer)
+            else
             {
-                _fireTimer = Time.time + weaponCooldown;
-                Shoot();
+                _agent.isStopped = false;
+                transform.LookAt(player.transform);
+                _agent.SetDestination(player.transform.position);
+
+                if (Time.time > _fireTimer)
+                {
+                    _fireTimer = Time.time + weaponCooldown;
+                    Shoot();
+                }
             }
-
-            // transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
-
+        else {
+             _agent.isStopped = true;
+        }
     }
 
-    public bool GetIsPlayerVisible()
-    {
-        return isVisible;
-    }
 
     private bool isPlayerVisible()
     {
@@ -86,9 +87,8 @@ public class EnemyAI : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hit, 500f, bulletlayer))
         {
 
-            if (hit.collider.gameObject.name == ("UFO"))
+            if (hit.collider.gameObject.name == ("UFO") && distance < maxDist)
             {
-
                 isVisible = true;
                 angerTimer = 2.5f;
             }
@@ -100,10 +100,13 @@ public class EnemyAI : MonoBehaviour
         }
         return isVisible;
     }
-    void Shoot()
-    {
-        sb.ShootAtTarget(player.transform.position);
 
+    void Shoot()
+    {   
+        Vector2 rand = Random.insideUnitCircle;
+        enemyAim = player.transform.position + new Vector3(rand.x, 0, rand.y) * inaccuraty;
+        sb.ShootAtTarget(enemyAim);
 
     }
+
 }

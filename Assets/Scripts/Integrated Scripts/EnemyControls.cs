@@ -8,7 +8,7 @@ public class EnemyControls : MonoBehaviour
     /** This code represents the Enemy's status and attributes (health, etc.)*/
 
     //Represents the health of the enemy
-    public float health = 4f;
+    public float health = 3f;
     private float maxHealth;
 
     //Represents the health meter on the enemy's healthbar that indictes
@@ -29,12 +29,16 @@ public class EnemyControls : MonoBehaviour
     //Represents the player.
     private GameObject player;
 
-    public GameObject weaponDrop;
+    private GameObject weaponDrop;
 
     private EnemyAI enemyAI;
 
     //Represents the distance between the player and the enemy.
     public float distance;
+
+    private string weaponPrefabPath;
+    private string assetFolder = "Prefabs/Pickup/";
+    
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,8 @@ public class EnemyControls : MonoBehaviour
         health_bar.SetActive(false);
         enemyStats.transform.parent = null;
         enemyAI = GetComponent<EnemyAI>();
+        
+
     }
 
     /** 
@@ -74,6 +80,10 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(weaponPrefabPath);
+        weaponPrefabPath = assetFolder + enemyAI.bulletType;
+
+        weaponDrop = (GameObject)Resources.Load(weaponPrefabPath, typeof(GameObject));
 
         if (health < 1)
         {
@@ -86,7 +96,7 @@ public class EnemyControls : MonoBehaviour
         UpdateCanvasPosition();
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
-        if (distance >= maxDist)
+        if (health == maxHealth)
         {
             health_bar.SetActive(false);
         }
