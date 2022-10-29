@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: ca3c2d02528298e418a70ea6a30dd5c7, type: 3}
   startColor: {r: 0.21867211, g: 0.735849, b: 0.48147142, a: 1}
+  startSprite: {fileID: 21300000, guid: 2cb55794200332149bc981ef78918b99, type: 3}

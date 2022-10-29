@@ -17,8 +17,8 @@ public class PickupNouveau : MonoBehaviour
         inputActions = new InputActions();
         pickup = inputActions.Player.Pickup;
         sb = GetComponent<SpawnBullet>();
-        ChangeIcon(Color.black);
-        gun.GetComponent<Renderer>().material.color = Color.black;
+        ChangeColour(Color.white);
+        gun.GetComponent<Renderer>().material.color = Color.white;
     }
 
     public void OnEnable()
@@ -33,10 +33,16 @@ public class PickupNouveau : MonoBehaviour
         pickup.performed -= GrabPickupItem;
     }
 
-    private void ChangeIcon(Color colour)
+    private void ChangeColour(Color colour)
     {
         GameObject weapon_image = GameObject.FindGameObjectWithTag("Status_Image");
         weapon_image.GetComponent<Image>().color = colour;
+    }
+
+    private void ChangeIcon(Sprite sprite)
+    {
+        GameObject weapon_image = GameObject.FindGameObjectWithTag("Status_Image");
+        weapon_image.GetComponent<Image>().sprite = sprite;
     }
 
     public void GrabPickupItem(InputAction.CallbackContext _)
@@ -64,7 +70,8 @@ public class PickupNouveau : MonoBehaviour
         Debug.Log("g2 " + gunRenderer.material.color);
         Debug.Log("p2 " + pickupRenderer.material.color);
 
-        ChangeIcon(gunRenderer.material.color);
+        ChangeColour(gunRenderer.material.color);
+        ChangeIcon(ipb.startSprite);
     }
 
     public void SetPickupItem(GameObject pi)
