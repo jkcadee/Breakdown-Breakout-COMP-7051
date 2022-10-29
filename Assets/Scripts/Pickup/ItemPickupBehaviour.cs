@@ -6,10 +6,12 @@ public class ItemPickupBehaviour : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Color startColor;
+    public Sprite startSprite;
     private PickupNouveau player;
 
     private void Start()
     {
+        //GetComponent<Image>().sprite = startSprite;
         GetComponent<Renderer>().material.color = startColor;
     }
 

@@ -25,6 +25,10 @@ public class PickUpController : MonoBehaviour
 
     private InputAction pickup;
 
+    public Sprite weapon_sprite;
+
+    public Sprite default_sprite;
+
     private void Awake(){
         inputActions = new InputActions();
         drop = inputActions.Player.Drop;
@@ -144,17 +148,18 @@ public class PickUpController : MonoBehaviour
     }
 
     private void ChangeIcon() {
-        Renderer renderer = GetComponent<Renderer>();
-        Material sharedMaterial = renderer.sharedMaterial;
+        //Renderer renderer = GetComponent<Renderer>();
+        //Material sharedMaterial = renderer.sharedMaterial;
         GameObject weapon_image = GameObject.FindGameObjectWithTag("Status_Image");
-        weapon_image.GetComponent<Image>().color = sharedMaterial.color;
+        //weapon_image.GetComponent<Image>().color = sharedMaterial.color;
+        weapon_image.GetComponent<Image>().sprite = weapon_sprite;
     }
 
     private void RemoveIcon()
     {
-        Debug.Log("Hit2");
         GameObject weapon_image = GameObject.FindGameObjectWithTag("Status_Image");
-        weapon_image.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+        //weapon_image.GetComponent<Image>().color = sharedMaterial.color;
+        weapon_image.GetComponent<Image>().sprite = default_sprite;
     }
 
 }
