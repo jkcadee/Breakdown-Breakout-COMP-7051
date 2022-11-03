@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EnemyControls : MonoBehaviour
 {
 
@@ -9,7 +9,9 @@ public class EnemyControls : MonoBehaviour
 
     //Represents the health of the enemy
     public float health = 3f;
+    public float shield = 10f;
     private float maxHealth;
+    private float maxShield;
 
     //Represents the health meter on the enemy's healthbar that indictes
     //how much health they have.
@@ -20,11 +22,12 @@ public class EnemyControls : MonoBehaviour
 
     public GameObject enemyStats;
 
+    public Image healthBarImage;
     //Represents the maximum distance
-    private float maxDist = 25f;
+    // private float maxDist = 25f;
 
-    //Represents the minimum distance
-    private float minDist = 10f;
+    // //Represents the minimum distance
+    // private float minDist = 10f;
 
     //Represents the player.
     private GameObject player;
@@ -40,17 +43,18 @@ public class EnemyControls : MonoBehaviour
 
     private string weaponPrefabPath;
     private string assetFolder = "Prefabs/Pickup/";
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         maxHealth = health;
+        maxShield = shield;
         health_bar.SetActive(false);
         enemyStats.transform.parent = null;
         enemyAI = GetComponent<EnemyAI>();
-        
+
 
     }
 
@@ -59,8 +63,14 @@ public class EnemyControls : MonoBehaviour
     */
     private void UpdateHealth()
     {
-
-        health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health/maxHealth * 5, 1);
+        if (shield <= 0)
+        {
+            health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHealth * 5, 1);
+        }
+        else
+        {
+            health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(shield / maxShield * 5, 1);
+        }
 
     }
 
@@ -83,7 +93,11 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(weaponPrefabPath);
+        Debug.Log(shield);
+
+        healthBarImage = health_meter.GetComponent<Image>();
+
+        // Debug.Log(weaponPrefabPath);
         weaponPrefabPath = assetFolder + enemyAI.bulletType;
 
         weaponDrop = (GameObject)Resources.Load(weaponPrefabPath, typeof(GameObject));
@@ -99,12 +113,17 @@ public class EnemyControls : MonoBehaviour
         UpdateCanvasPosition();
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
-        if (health == maxHealth)
+        if (health == maxHealth && shield == maxShield)
         {
             health_bar.SetActive(false);
         }
-        else
+        else if (shield != maxShield && shield > 0)
         {
+            healthBarImage.color = new Color(0, 175 / 255f, 45 / 255f);
+            health_bar.SetActive(true);
+        } else
+        {
+            healthBarImage.color = new Color(255 / 255f, 0, 0);
             health_bar.SetActive(true);
         }
     }

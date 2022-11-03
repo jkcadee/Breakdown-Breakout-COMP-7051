@@ -14,11 +14,11 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent _agent;
     public float distance;
 
-    private float timer = 0;
+    // private float timer = 0;
     private SpawnBullet sb;
 
-    private BulletBehaviour bb;
-    private bool shooting = false;
+    // private BulletBehaviour bb;
+    // private bool shooting = false;
     [SerializeField] private float weaponCooldown;
     private float _fireTimer;
 
@@ -107,6 +107,6 @@ public class EnemyAI : MonoBehaviour
         enemyAim = player.transform.position + new Vector3(rand.x, 0, rand.y) * inaccuraty;
         sb.ShootAtTarget(enemyAim);
 
-    }
+    }    public bool correctBullet;
 
 }
