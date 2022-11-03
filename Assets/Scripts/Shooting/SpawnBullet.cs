@@ -6,6 +6,7 @@ public class SpawnBullet : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject shooter;
+    public AudioSource shoot;
 
     public void ShootAtTarget(Vector3 target)
     {
@@ -16,6 +17,7 @@ public class SpawnBullet : MonoBehaviour
         BulletBehaviour bh = bullet.GetComponent<BulletBehaviour>();
         bh.SetShooter(shooter);
         bh.StartMovement((target - transform.position).normalized * bh.bulletSpeed);
+        AudioController.PlaySFX(shoot);
     }
 
     public void SetBulletPrefab(GameObject bulletType)
