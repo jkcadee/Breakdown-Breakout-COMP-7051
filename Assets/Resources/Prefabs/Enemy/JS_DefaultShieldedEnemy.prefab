@@ -1277,6 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 7453403638127696360}
+  shoot: {fileID: 3059197952583112856, guid: af44178740e000c46be8aa899c304590, type: 3}
 --- !u!114 &985638763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,6 +1355,7 @@ MonoBehaviour:
   health_bar: {fileID: 4944411923985561809}
   enemyStats: {fileID: 1424196301}
   healthBarImage: {fileID: 0}
+  death: {fileID: 3285527058873924951, guid: f43d59955f7891248884991c05b1732d, type: 3}
   distance: 0
 --- !u!114 &1924520694979256865
 MonoBehaviour:
@@ -1370,6 +1372,7 @@ MonoBehaviour:
   enemy: {fileID: 985638783}
   ai: {fileID: 985638778}
   shield: {fileID: 5943146513727032317}
+  hit: {fileID: 2276859046316058088, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
 --- !u!114 &5943146513727032317
 MonoBehaviour:
   m_ObjectHideFlags: 0

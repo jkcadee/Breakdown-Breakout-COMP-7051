@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 7453403638127696360}
+  shoot: {fileID: 3059197952583112856, guid: af44178740e000c46be8aa899c304590, type: 3}
 --- !u!114 &985638763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +427,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   bulletType: 
+  correctBullet: 0
 --- !u!114 &985638783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,9 +441,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  shield: 10
   health_meter: {fileID: 4944411924844627277}
   health_bar: {fileID: 4944411923985561809}
   enemyStats: {fileID: 1424196301}
+  healthBarImage: {fileID: 0}
+  death: {fileID: 3285527058873924951, guid: f43d59955f7891248884991c05b1732d, type: 3}
   distance: 0
 --- !u!1001 &406768981
 PrefabInstance:

@@ -9,6 +9,7 @@ public class EnemyExplosionDamagable : Damageable
     public EnemyAI ai;
     public EnemyShield shield;
     private Collision collision;
+    public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
     {
         Debug.Log(shield.hasShield);
@@ -24,12 +25,14 @@ public class EnemyExplosionDamagable : Damageable
             {
                 enemy.shield -= 1f;
             }
-        } else {
+        }
+        else
+        {
             Debug.Log("Didn't Hit Shield!!!");
             enemy.health -= damage;
         }
 
-
+        AudioController.PlaySFX(hit);
         ai.angerTimer = 4f;
 
     }
