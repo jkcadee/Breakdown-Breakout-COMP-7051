@@ -16,7 +16,7 @@ public class EnemyExplosionDamagable : Damageable
         {
             Debug.Log("Hit Shield!!!");
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
-            if (other.name == "ExplodingBullet(Clone)")
+            if (other.name == "Explosion(Clone)")
             {
                 enemy.shield -= 5f;
             }

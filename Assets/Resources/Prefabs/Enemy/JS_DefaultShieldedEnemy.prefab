@@ -1385,6 +1385,7 @@ MonoBehaviour:
   hasShield: 0
   ec: {fileID: 985638783}
   correctBullet: 0
+  shield: {fileID: 6554847780035162929}
 --- !u!1001 &406768981
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 985638783}
   ai: {fileID: 985638778}
-  shield: {fileID: 0}
+  shield: {fileID: 1323210023663049931}
 --- !u!114 &1323210023663049931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1385,7 @@ MonoBehaviour:
   hasShield: 0
   ec: {fileID: 985638783}
   correctBullet: 0
+  shield: {fileID: 6554847780035162929}
 --- !u!1001 &406768981
 PrefabInstance:
   m_ObjectHideFlags: 0

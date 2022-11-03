@@ -8,6 +8,7 @@ public class EnemyShield : MonoBehaviour
     public bool hasShield;
     public EnemyControls ec;
     public bool correctBullet;
+    public GameObject shield;
 
     void FixedUpdate()
     {
@@ -18,7 +19,7 @@ public class EnemyShield : MonoBehaviour
     public void chekcShield()
     {
 
-        if (GameObject.Find("Shield") != null)
+        if (shield != null)
         {
             hasShield = true;
         }
@@ -30,9 +31,9 @@ public class EnemyShield : MonoBehaviour
 
     public void ShieldDamage()
     {
-        if (ec.shield <= 0 && GameObject.FindGameObjectWithTag("Shield") != null)
+        if (ec.shield <= 0 && shield != null)
         {
-            Destroy(GameObject.Find("Shield"));
+            Destroy(shield);
             // ec.healthBarImage.color = new Color(255/255f, 0, 0);
 
         }
