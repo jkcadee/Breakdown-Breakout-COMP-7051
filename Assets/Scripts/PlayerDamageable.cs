@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerDamageable : Damageable
 {
     PlayerControls player;
+    public AudioSource hit;
 
     private void Start()
     {
@@ -15,5 +16,6 @@ public class PlayerDamageable : Damageable
     {
         player.health -= damage;
         player.UpdateHealth();
+        AudioController.PlaySFX(hit);
     }
 }

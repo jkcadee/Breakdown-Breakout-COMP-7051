@@ -31,6 +31,8 @@ public class PlayerControls : MonoBehaviour
     public float speedLimit = 17f;
     public float accelerationSpeed = 3f;
 
+    public AudioSource death;
+
     /** 
      Sets up the value of the player's health.
      */
@@ -121,6 +123,7 @@ public class PlayerControls : MonoBehaviour
      */
 
     private void LoseCondition() {
+        AudioController.PlaySFX(death);
         Destroy(gameObject);
         Debug.Log("You Lose!");
     }
