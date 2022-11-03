@@ -3,7 +3,10 @@ guid: d138c59aa0ee91246b6286019e069eb6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemy: {instanceID: 0}
+  - ai: {instanceID: 0}
+  - dmgSFX: {fileID: 1653854192551954257, guid: a0ff7ecffc71aef4cabc67b6cbef102f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
