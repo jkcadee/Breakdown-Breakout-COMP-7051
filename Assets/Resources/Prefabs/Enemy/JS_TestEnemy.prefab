@@ -424,6 +424,7 @@ MonoBehaviour:
   bulletlayer:
     serializedVersion: 2
     m_Bits: 192
+  bulletType: 
 --- !u!114 &985638783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,9 +441,7 @@ MonoBehaviour:
   health_meter: {fileID: 4944411924844627277}
   health_bar: {fileID: 4944411923985561809}
   enemyStats: {fileID: 1424196301}
-  weaponDrop: {fileID: 9126153371847525794, guid: e0acb21b82fbb8b4f95a0644d48a762e, type: 3}
   distance: 0
-  ai: {fileID: 985638778}
 --- !u!1001 &406768981
 PrefabInstance:
   m_ObjectHideFlags: 0
