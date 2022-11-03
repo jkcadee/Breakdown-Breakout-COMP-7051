@@ -36,7 +36,7 @@ public class EnemyDefaultDamagable : Damageable
 
         if (enemy.shield != enemy.maxShield && enemy.shield > 0)
         {
-            enemy.healthBarImage.color = new Color(0f, 175f / 255f, 45 / 255f);
+            enemy.healthBarImage.color = new Color(0f, 0f, 0f);
 
         } else
         {
