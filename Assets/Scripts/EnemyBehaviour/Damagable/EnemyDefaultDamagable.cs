@@ -34,5 +34,14 @@ public class EnemyDefaultDamagable : Damageable
         AudioController.PlaySFX(hit);
         ai.angerTimer = 4f;
 
+        if (enemy.shield != enemy.maxShield && enemy.shield > 0)
+        {
+            enemy.healthBarImage.color = new Color(0f, 175f / 255f, 45 / 255f);
+
+        } else
+        {
+            enemy.healthBarImage.color = new Color(255f, 0f, 0f);
+
+        }
     }
 }

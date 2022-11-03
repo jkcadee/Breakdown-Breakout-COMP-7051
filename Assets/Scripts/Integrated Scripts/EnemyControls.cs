@@ -11,7 +11,7 @@ public class EnemyControls : MonoBehaviour
     public float health = 3f;
     public float shield = 10f;
     private float maxHealth;
-    private float maxShield;
+    public float maxShield;
 
     //Represents the health meter on the enemy's healthbar that indictes
     //how much health they have.
@@ -119,11 +119,11 @@ public class EnemyControls : MonoBehaviour
         }
         else if (shield != maxShield && shield > 0)
         {
-            healthBarImage.color = new Color(0, 175 / 255f, 45 / 255f);
+
             health_bar.SetActive(true);
         } else
         {
-            healthBarImage.color = new Color(255 / 255f, 0, 0);
+
             health_bar.SetActive(true);
         }
     }

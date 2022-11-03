@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyExplosionDamagable : Damageable
+public class EnemySpreadDamagable : Damageable
 {
-
     public EnemyControls enemy;
     public EnemyAI ai;
     public EnemyShield shield;
@@ -18,7 +16,7 @@ public class EnemyExplosionDamagable : Damageable
         {
             Debug.Log("Hit Shield!!!");
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
-            if (other.name == "Explosion(Clone)")
+            if (other.name == "SpreadBullet(Clone)" || other.name == "SpreadBulletChild(Clone)")
             {
                 enemy.shield -= 5f;
             }
@@ -36,14 +34,13 @@ public class EnemyExplosionDamagable : Damageable
         AudioController.PlaySFX(hit);
         ai.angerTimer = 4f;
 
-
         if (enemy.shield != enemy.maxShield && enemy.shield > 0)
         {
-            enemy.healthBarImage.color = new Color(255f, 100f / 255f, 0f);
+            enemy.healthBarImage.color = new Color(0f, 175f / 255f, 255f);
 
         } else
         {
-            enemy.healthBarImage.color = new Color(255f , 0, 0);
+            enemy.healthBarImage.color = new Color(255f, 0f, 0f);
 
         }
     }
