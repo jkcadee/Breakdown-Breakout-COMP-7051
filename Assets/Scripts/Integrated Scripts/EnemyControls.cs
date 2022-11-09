@@ -36,7 +36,8 @@ public class EnemyControls : MonoBehaviour
 
     private EnemyAI enemyAI;
 
-    public AudioController aCtrl;
+    //public AudioController aCtrl;
+    public AudioSource death;
 
     //Represents the distance between the player and the enemy.
     public float distance;
@@ -81,7 +82,8 @@ public class EnemyControls : MonoBehaviour
 
     private void OnDestroy()
     {
-        aCtrl.PlayDeath();
+        //aCtrl.PlayDeath();
+        AudioController.PlaySFX(death);
         Destroy(enemyStats);
     }
 

@@ -11,7 +11,8 @@ public class PickupNouveau : MonoBehaviour
     private GameObject pickupItem;
     private SpawnBullet sb;
     public GameObject gun;
-    public AudioController aCtrl;
+    //public AudioController aCtrl;
+    public AudioSource pickup_sound;
 
     private void Awake()
     {
@@ -73,7 +74,8 @@ public class PickupNouveau : MonoBehaviour
 
         ChangeColour(gunRenderer.material.color);
         ChangeIcon(ipb.startSprite);
-        aCtrl.PlayPickup();
+        //aCtrl.PlayPickup();
+        AudioController.PlaySFX(pickup_sound);
     }
 
     public void SetPickupItem(GameObject pi)
