@@ -8,7 +8,7 @@ public class EnemySpreadDamagable : Damageable
     public EnemyAI ai;
     public EnemyShield shield;
     private Collision collision;
-    public AudioSource hit;
+    public AudioController aCtrl;
     public override void GetHit(float damage, GameObject other)
     {
         Debug.Log(shield.hasShield);
@@ -31,7 +31,7 @@ public class EnemySpreadDamagable : Damageable
             enemy.health -= damage;
         }
 
-        AudioController.PlaySFX(hit);
+        aCtrl.PlayHit();
         ai.angerTimer = 4f;
 
         if (enemy.shield != enemy.maxShield && enemy.shield > 0)

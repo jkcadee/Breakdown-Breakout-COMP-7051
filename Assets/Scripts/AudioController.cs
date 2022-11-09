@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public static AudioController aCtrl;
-    public GameObject bgMusic1;
-    private AudioSource levelMusic;
+    public AudioSource levelMusic;
+    public AudioSource death;
+    public AudioSource hit;
+    public AudioSource pickup;
+    public AudioSource shoot;
 
     public void Awake()
-    {
-        if (aCtrl == null)
-        {
-            levelMusic = bgMusic1.GetComponent<AudioSource>();
+    {   
             levelMusic.loop = true;
-            aCtrl = this;
             PlayMusic();
-        }
     }
-
+/**
     public static void PlaySFX(AudioSource sfx) {
         sfx.Play();
     }
-
+*/
     public void StopMusic()
     {
         levelMusic.Stop();
@@ -35,4 +32,26 @@ public class AudioController : MonoBehaviour
     {
         levelMusic.Play();
     }
+
+    public void PlayDeath() {
+
+        death.Play();
+
+    }
+
+    public void PlayHit()
+    {
+        hit.Play();
+    }
+
+    public void PlayPickup()
+    {
+        pickup.Play();
+    }
+
+    public void PlayShoot()
+    {
+        shoot.Play();
+    }
+
 }
