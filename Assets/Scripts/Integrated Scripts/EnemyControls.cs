@@ -93,7 +93,7 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(shield);
+        //Debug.Log(shield);
 
         healthBarImage = health_meter.GetComponent<Image>();
 

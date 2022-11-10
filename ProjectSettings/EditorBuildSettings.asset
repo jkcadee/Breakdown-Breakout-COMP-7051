@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title_Screen.unity
     guid: ba1ae1ce0f236384490d9c83a44bf3ad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelScene 1.unity
     guid: 7aacef7dcc9dfa44bb9ef48b2eb3f3a8
+  - enabled: 1
+    path: Assets/Scenes/LevelProgressionScenes/Level1.unity
+    guid: 07de78254ee6d8a4fa26465f79453cd7
+  - enabled: 1
+    path: Assets/Scenes/LevelProgressionScenes/Level2.unity
+    guid: fd7bccdf09f412b499a7c8ee1e2c1b9b
   m_configObjects: {}

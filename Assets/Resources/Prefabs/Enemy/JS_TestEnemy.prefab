@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 7453403638127696360}
+  shoot: {fileID: 0}
 --- !u!114 &985638763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +427,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   bulletType: 
+  correctBullet: 0
 --- !u!114 &985638783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,9 +441,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  shield: 10
   health_meter: {fileID: 4944411924844627277}
   health_bar: {fileID: 4944411923985561809}
   enemyStats: {fileID: 1424196301}
+  healthBarImage: {fileID: 4944411923985561811}
+  death: {fileID: 0}
   distance: 0
 --- !u!1001 &406768981
 PrefabInstance:
@@ -550,6 +555,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4944411924388623751, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
   m_PrefabInstance: {fileID: 406768981}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4944411923985561811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4944411924388623750, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+  m_PrefabInstance: {fileID: 406768981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944411923985561809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4944411924844627277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4944411924712327192, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}

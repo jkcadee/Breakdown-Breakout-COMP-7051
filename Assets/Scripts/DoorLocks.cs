@@ -27,6 +27,11 @@ public class DoorLocks : MonoBehaviour
         }
     }
 
+    public Material GetOpenDoor()
+    {
+        return openDoor;
+    }
+
     // Update is called once per frame
     void Update()
     {

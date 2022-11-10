@@ -17,7 +17,7 @@ public class SpawnBullet : MonoBehaviour
         BulletBehaviour bh = bullet.GetComponent<BulletBehaviour>();
         bh.SetShooter(shooter);
         bh.StartMovement((target - transform.position).normalized * bh.bulletSpeed);
-        AudioController.PlaySFX(shoot);
+        //AudioController.PlaySFX(shoot);
     }
 
     public void SetBulletPrefab(GameObject bulletType)
