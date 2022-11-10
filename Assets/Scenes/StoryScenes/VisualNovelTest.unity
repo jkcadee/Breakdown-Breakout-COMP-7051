@@ -445,8 +445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1572717552}
-  m_Horizontal: 1
-  m_Vertical: 1
+  m_Horizontal: 0
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -586,6 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572717552}
   - component: {fileID: 1572717553}
+  - component: {fileID: 1572717554}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -639,6 +640,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &1572717554
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572717551}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1863409855
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +665,7 @@ GameObject:
   - component: {fileID: 1863409857}
   - component: {fileID: 1863409856}
   - component: {fileID: 1863409860}
+  - component: {fileID: 1863409861}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -756,6 +770,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textLine: {fileID: 5455309657379256615, guid: 791fa4e7ed541fc459dcad44a1606230, type: 3}
   content: {fileID: 1572717551}
+  opacityChangeRate: 0.04
+--- !u!114 &1863409861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863409855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b88c770845c99429bd14203305e1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1940812003
 GameObject:
   m_ObjectHideFlags: 0

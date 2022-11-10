@@ -3,29 +3,93 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System;
 
 public class VisualNovelHandler : MonoBehaviour
 {
     public GameObject textLine;
     public GameObject content;
-    StoryPage storyPage;
+    CanvasGroup contentCv;
+    List<StoryPage> storyPages;
     VNActions vnActions;
-    int currentIndex = 0;
+    int currentTextIndex, pageIndex = 0;
 
-    private void NextTextBox()
+    public float opacityChangeRate = 0.04f;
+    Action zeroVisCallback;
+    Action updateCallback;
+
+    private void InstantiateText()
     {
-        if(currentIndex < storyPage.storyText.Count)
+        GameObject textObj = Instantiate(textLine, content.transform);
+        TMP_Text text = textObj.GetComponent<TMP_Text>();
+        text.text = storyPages[pageIndex].storyText[currentTextIndex];
+        currentTextIndex++;
+        updateCallback = IncreaseVisibility;
+    }
+
+    private void ProgressText()
+    {
+        if(pageIndex == storyPages.Count)
         {
-            GameObject textObj = Instantiate(textLine, content.transform);
-            TMP_Text text = textObj.GetComponent<TMP_Text>();
-            text.text = storyPage.storyText[currentIndex];
-            currentIndex++;
+            zeroVisCallback = GetComponent<StorySegment>().MoveToNextScene;
+        } 
+        else if(currentTextIndex < storyPages[pageIndex].storyText.Count)
+        {
+            InstantiateText();
+        } 
+        else
+        {
+            pageIndex++;
+            currentTextIndex = 0;
+            updateCallback = DecreaseVisibility;
         }
     }
 
     private void NextTextInput(InputAction.CallbackContext _)
     {
-        NextTextBox();
+        ProgressText();
+    }
+
+    private void WipeText()
+    {
+        if (pageIndex == storyPages.Count)
+        {
+            return;
+        }
+
+        foreach (Transform child in content.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        InstantiateText();
+    }
+
+    private void IncreaseVisibility()
+    {
+        if(contentCv.alpha >= 1)
+        {
+            updateCallback = null;
+            return;
+        }
+
+        contentCv.alpha += opacityChangeRate;
+    }
+
+    private void DecreaseVisibility()
+    {
+        if (contentCv.alpha <= 0)
+        {
+            WipeText();
+
+            if(zeroVisCallback != null)
+                zeroVisCallback();
+
+            zeroVisCallback = null;
+            return;
+        }
+
+        contentCv.alpha -= opacityChangeRate;
     }
 
     private void Awake()
@@ -45,13 +109,18 @@ public class VisualNovelHandler : MonoBehaviour
         vnActions.Player.Continue.performed -= NextTextInput;
     }
 
-    void Start()
+    private void Start()
     {
-        List<string> text = new List<string>();
-        text.Add("In a dark room with metal walls and metal floors...");
-        text.Add("a robot wakes from its sleep mode.");
-        text.Add("text");
+        contentCv = content.GetComponent<CanvasGroup>();
+        storyPages = GetComponent<StorySegment>().GetStoryPages();
+        contentCv.alpha = 0;
+        updateCallback = IncreaseVisibility;
+        InstantiateText();
+    }
 
-        storyPage = new StoryPage(text, null);
+    private void FixedUpdate()
+    {
+        if (updateCallback != null)
+            updateCallback();
     }
 }
