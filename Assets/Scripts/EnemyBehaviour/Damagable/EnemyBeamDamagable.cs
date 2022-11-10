@@ -9,6 +9,7 @@ public class EnemyBeamDamagable : Damageable
     public EnemyAI ai;
     public EnemyShield shield;
     private Collision collision;
+    //public AudioController aCtrl;
     public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
     {
@@ -32,6 +33,7 @@ public class EnemyBeamDamagable : Damageable
             enemy.health -= damage;
         }
 
+        //aCtrl.PlayHit();
         AudioController.PlaySFX(hit);
         ai.angerTimer = 4f;
 

@@ -6,6 +6,7 @@ public class EnemyDamageable : Damageable
 {
     public EnemyControls enemy;
     public EnemyAI ai;
+    //public AudioController aCtrl;
     public AudioSource hit;
 
     public override void GetHit(float damage, GameObject other)
@@ -15,6 +16,7 @@ public class EnemyDamageable : Damageable
 
         ai.angerTimer = 4f;
 
+        //aCtrl.PlayHit();
         AudioController.PlaySFX(hit);
 
     }
