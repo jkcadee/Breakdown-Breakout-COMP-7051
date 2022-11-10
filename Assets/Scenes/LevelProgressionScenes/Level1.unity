@@ -543,11 +543,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2276859046316058089, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
   m_PrefabInstance: {fileID: 2276859045285037508}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1326989770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1412371772492209102, guid: 95694cf588768bc4bb504e87e31d9d2b, type: 3}
-  m_PrefabInstance: {fileID: 1412371771200870916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1326989771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1412371772492209103, guid: 95694cf588768bc4bb504e87e31d9d2b, type: 3}
@@ -1004,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2a9c547e336074389aca6404248be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgMusic1: {fileID: 1326989770}
+  bgMusic1: {fileID: 0}
 --- !u!1001 &2019819784
 PrefabInstance:
   m_ObjectHideFlags: 0
