@@ -11,7 +11,7 @@ public class StorySegment1 : StorySegment
         List<string> text = new List<string>();
         text.Add("In a dark room with metal walls and metal floors...");
         text.Add("a robot wakes from its sleep mode.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/testbg1")));
 
         text = new List<string>();
         text.Add("The room hums with the soft sound of fans,");
@@ -21,7 +21,7 @@ public class StorySegment1 : StorySegment
         text = new List<string>();
         text.Add("<i>How did I get here?</i>, the robot thinks,");
         text.Add("when its memory banks return a most perplexing result.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/testbg2")));
 
         text = new List<string>();
         text.Add("All data is fragmented.");

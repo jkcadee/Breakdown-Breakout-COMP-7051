@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using TMPro;
 using System;
 
@@ -9,6 +10,7 @@ public class VisualNovelHandler : MonoBehaviour
 {
     public GameObject textLine;
     public GameObject content;
+    public GameObject background;
     CanvasGroup contentCv;
     List<StoryPage> storyPages;
     VNActions vnActions;
@@ -40,6 +42,7 @@ public class VisualNovelHandler : MonoBehaviour
         else
         {
             pageIndex++;
+            SetBackground();
             currentTextIndex = 0;
             updateCallback = DecreaseVisibility;
         }
@@ -47,7 +50,17 @@ public class VisualNovelHandler : MonoBehaviour
 
     private void NextTextInput(InputAction.CallbackContext _)
     {
-        ProgressText();
+        if(contentCv.alpha == 1)
+            ProgressText();
+    }
+
+    private void SetBackground()
+    {
+        Image image = background.GetComponent<Image>();
+        if(pageIndex < storyPages.Count && storyPages[pageIndex].background)
+        {
+            image.sprite = storyPages[pageIndex].background;
+        }
     }
 
     private void WipeText()
@@ -116,6 +129,7 @@ public class VisualNovelHandler : MonoBehaviour
         contentCv.alpha = 0;
         updateCallback = IncreaseVisibility;
         InstantiateText();
+        SetBackground();
     }
 
     private void FixedUpdate()

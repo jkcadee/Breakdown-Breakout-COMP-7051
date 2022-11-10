@@ -770,6 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textLine: {fileID: 5455309657379256615, guid: 791fa4e7ed541fc459dcad44a1606230, type: 3}
   content: {fileID: 1572717551}
+  background: {fileID: 1492350372}
   opacityChangeRate: 0.04
 --- !u!114 &1863409861
 MonoBehaviour:
