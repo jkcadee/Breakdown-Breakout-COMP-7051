@@ -6,28 +6,65 @@ using UnityEngine;
 public class Level_Timer : MonoBehaviour
 {
 
-    public float time;
-    public TextMeshProUGUI timer_text;
+    public static Level_Timer Instance;
+
+    //Represents how much time has passed
+    public static float time;
+
+    //Represents whether or not the timer is on
+    public static bool timer_on;
+
+    //A text object that displays the text
+    //public TextMeshProUGUI timer_text;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        time = 0.0f;
+
+        // start of new code
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        // end of new code
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start() {
+        if (Level_Timer.Instance != null)
+        {
+            ResetTime();
+            StartTime();
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        time += Time.deltaTime * 2;
-        int time_integer = (int)time;
-        int minute = time_integer / 60;
-        int seconds = time_integer % 60;
-        if (seconds < 10)
+        if (timer_on == true)
         {
-            timer_text.text = minute + ":0" + seconds;
+            time += Time.deltaTime;
         }
-        else {
-            timer_text.text = minute + ":" + seconds;
-        }
+    }
+
+    public static float GetTime() {
+        return time;
+    }
+
+    public static void ResetTime() {
+        time = 0.0f;
+    }
+
+    public static void PauseTime()
+    {
+        timer_on = false;
+    }
+
+    public static void StartTime()
+    {
+        timer_on = true;
     }
 }

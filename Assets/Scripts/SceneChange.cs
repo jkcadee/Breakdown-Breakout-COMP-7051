@@ -11,5 +11,13 @@ public class SceneChange : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        if (sceneName == "Title_Screen")
+        {
+            Level_Timer.PauseTime();
+            Level_Timer.ResetTime();
+        }
+        else {
+            Level_Timer.StartTime();
+        }
     }
 }
