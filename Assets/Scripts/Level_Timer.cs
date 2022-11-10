@@ -14,9 +14,6 @@ public class Level_Timer : MonoBehaviour
     //Represents whether or not the timer is on
     public static bool timer_on;
 
-    //A text object that displays the text
-    //public TextMeshProUGUI timer_text;
-
     // Start is called before the first frame update
     private void Awake()
     {
@@ -27,7 +24,6 @@ public class Level_Timer : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        // end of new code
 
         Instance = this;
         DontDestroyOnLoad(gameObject);

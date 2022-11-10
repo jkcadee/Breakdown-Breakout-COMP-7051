@@ -15,9 +15,11 @@ public class SceneChange : MonoBehaviour
         {
             Level_Timer.PauseTime();
             Level_Timer.ResetTime();
+            AudioController.StopMusic();
         }
         else {
             Level_Timer.StartTime();
+            AudioController.PlayMusic();
         }
     }
 }
