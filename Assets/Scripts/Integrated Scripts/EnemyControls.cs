@@ -103,6 +103,10 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         //Debug.Log(shield);
 
         healthBarImage = health_meter.GetComponent<Image>();
