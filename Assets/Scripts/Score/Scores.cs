@@ -11,7 +11,7 @@ public class Scores : MonoBehaviour
     {
         string mainText = "";
         if (ScoreController.sCtrl.highScores.Count != 0) {
-            for (int i = 0; i < ScoreController.maxrank; i++)
+            for (int i = 0; i < ScoreController.sCtrl.highScores.Count; i++)
             {
                 int time_integer = (int)ScoreController.sCtrl.highScores[i];
                 int minute = time_integer / 60;
