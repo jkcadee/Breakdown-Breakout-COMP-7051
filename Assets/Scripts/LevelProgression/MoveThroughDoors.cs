@@ -10,11 +10,9 @@ public class MoveThroughDoors : MonoBehaviour
     public Material material;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") )
+        if (collision.gameObject.CompareTag("Player") && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             levelManager.LoadLevel();
         }
     }
 }
-
-//&& door.GetComponent<MeshRenderer>().material == material

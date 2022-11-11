@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MousePoint : MonoBehaviour
 {
-    private Camera mainCam;
+    public Camera mainCam;
     private int layerMask;
 
     void Start()

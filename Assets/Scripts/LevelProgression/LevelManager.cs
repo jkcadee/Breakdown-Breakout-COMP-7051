@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEditor;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+    public static GameObject playerInstance;
     public GameObject player;
     public GameObject enemy;
     public static float playerHealth; 
@@ -15,14 +17,14 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         InstantiateManager();
-        DontDestroyOnLoad(player.gameObject);
-        DontDestroyOnLoad(enemy.gameObject);
     }
 
     void Start()
     {
         SpawnPlayer();
         SpawnEnemy();
+        DontDestroyOnLoad(playerInstance);
+        DontDestroyOnLoad(enemy.gameObject);
     }
 
     // I may need this, need to carry on health
@@ -41,19 +43,20 @@ public class LevelManager : MonoBehaviour
     private void SpawnPlayer()
     {
         Debug.Log("Spawning player");
-        Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
+        playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
         if (playerHealth == 0)
         {
             playerHealth = 5.0f;
         }
-        player.GetComponent<PlayerControls>().health = playerHealth;
-        Debug.Log(player.GetComponent<PlayerControls>().health);
+        playerInstance.GetComponent<PlayerControls>().health = playerHealth;
+        //Debug.Log(Camera.main);
+        //Object shootTarget = PrefabUtility.GetPrefabInstanceHandle(playerInstance);
     }
 
     private void SpawnEnemy()
     {
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
-        enemy.GetComponent<EnemyAI>().player = player;
+        enemy.GetComponent<EnemyAI>().player = playerInstance;
     }
 
     public void LoadLevel()
@@ -67,6 +70,6 @@ public class LevelManager : MonoBehaviour
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneNumber);
-
+        playerInstance.gameObject.transform.position = new Vector3(0, 1, -20);
     }
 }

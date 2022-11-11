@@ -32,7 +32,6 @@ public class PlayerControls : MonoBehaviour
     public float accelerationSpeed = 3f;
 
     public AudioSource death;
-    public LevelManager levelManager;
 
     /** 
      Sets up the value of the player's health.
@@ -98,7 +97,6 @@ public class PlayerControls : MonoBehaviour
     private void TakeDamage() {
         health -= 1.0f;
         UpdateHealth();
-        LevelManager.playerHealth = health;
     }
 
     /** 
