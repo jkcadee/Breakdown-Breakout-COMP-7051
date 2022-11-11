@@ -23,24 +23,13 @@ public class EnemyDefaultDamagable : Damageable
             {
                 enemy.shield -= 1f;
             }
-        }
-        else
-        {
+        } else {
             Debug.Log("Didn't Hit Shield!!!");
             enemy.health -= damage;
         }
 
-        AudioController.PlayHit();
+
         ai.angerTimer = 4f;
 
-        if (enemy.shield != enemy.maxShield && enemy.shield > 0)
-        {
-            enemy.healthBarImage.color = new Color(0f, 0f, 0f);
-
-        } else
-        {
-            enemy.healthBarImage.color = new Color(255f, 0f, 0f);
-
-        }
     }
 }

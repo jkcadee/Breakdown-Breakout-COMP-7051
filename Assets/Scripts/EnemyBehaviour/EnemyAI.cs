@@ -87,7 +87,7 @@ public class EnemyAI : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hit, 500f, bulletlayer))
         {
 
-            if (hit.collider.gameObject.name == ("UFO") && distance < maxDist)
+            if (hit.collider.gameObject.tag == ("Player") && distance < maxDist)
             {
                 isVisible = true;
                 angerTimer = 2.5f;

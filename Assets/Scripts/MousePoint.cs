@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MousePoint : MonoBehaviour
 {
-    private Camera mainCam;
+    public Camera mainCam;
     private int layerMask;
 
     void Start()
@@ -16,6 +16,7 @@ public class MousePoint : MonoBehaviour
 
     void Update()
     {
+        mainCam = Camera.main;
         // used this video as reference:
         // https://www.youtube.com/watch?v=0jTPKz3ga4w
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);

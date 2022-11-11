@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 985638768}
   - component: {fileID: 985638777}
   - component: {fileID: 985638778}
-  - component: {fileID: 985638783}
+  - component: {fileID: 8106116532212896484}
   m_Layer: 0
   m_Name: JS_TestEnemy
   m_TagString: Enemy
@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 7453403638127696360}
+  shoot: {fileID: 0}
 --- !u!114 &985638763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +382,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -399,8 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d138c59aa0ee91246b6286019e069eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 985638783}
+  enemy: {fileID: 8106116532212896484}
   ai: {fileID: 985638778}
+  hit: {fileID: 2276859046316058088, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
 --- !u!114 &985638778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +428,7 @@ MonoBehaviour:
     m_Bits: 192
   bulletType: 
   correctBullet: 0
---- !u!114 &985638783
+--- !u!114 &8106116532212896484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -439,13 +441,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  shield: 10
-  maxShield: 0
+  shield: 0
   health_meter: {fileID: 4944411924844627277}
   health_bar: {fileID: 4944411923985561809}
   enemyStats: {fileID: 1424196301}
   healthBarImage: {fileID: 0}
   distance: 0
+  eShield: {fileID: 0}
 --- !u!1001 &406768981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,10 +458,6 @@ PrefabInstance:
     - target: {fileID: 4944411924388623748, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
       propertyPath: m_Name
       value: Health_Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944411924388623748, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4944411924388623751, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
       propertyPath: m_Pivot.x

@@ -9,9 +9,9 @@ public class EnemyControls : MonoBehaviour
 
     //Represents the health of the enemy
     public float health = 3f;
-    public float shield = 10f;
+    public float shield;
     private float maxHealth;
-    public float maxShield;
+    private float maxShield;
 
     //Represents the health meter on the enemy's healthbar that indictes
     //how much health they have.
@@ -36,24 +36,37 @@ public class EnemyControls : MonoBehaviour
 
     private EnemyAI enemyAI;
 
+
     //Represents the distance between the player and the enemy.
     public float distance;
 
     private string weaponPrefabPath;
     private string assetFolder = "Prefabs/Pickup/";
-
+    private bool isShieldedEnemyType = false;
+    public EnemyShield eShield;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if (GetComponent<EnemyShield>() != null)
+        {
+            shield = eShield.maxShield;
+        } else {
+            shield = 0;
+        }
+        Debug.Log(shield);
         maxHealth = health;
         maxShield = shield;
         health_bar.SetActive(false);
         enemyStats.transform.parent = null;
         enemyAI = GetComponent<EnemyAI>();
 
-
+        if (maxShield != 0)
+        {
+            isShieldedEnemyType = true;
+        }
+        Debug.Log(isShieldedEnemyType);
     }
 
     /** 
@@ -79,7 +92,6 @@ public class EnemyControls : MonoBehaviour
 
     private void OnDestroy()
     {
-        AudioController.PlayDeath();
         Destroy(enemyStats);
     }
 
@@ -91,7 +103,7 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(shield);
+        //Debug.Log(shield);
 
         healthBarImage = health_meter.GetComponent<Image>();
 
@@ -111,18 +123,35 @@ public class EnemyControls : MonoBehaviour
         UpdateCanvasPosition();
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
-        if (health == maxHealth && shield == maxShield)
-        {
-            health_bar.SetActive(false);
-        }
-        else if (shield != maxShield && shield > 0)
-        {
 
-            health_bar.SetActive(true);
-        } else
+        if (isShieldedEnemyType)
         {
-
-            health_bar.SetActive(true);
+            if (health == maxHealth && shield == maxShield)
+            {
+                health_bar.SetActive(false);
+            }
+            else if (shield != maxShield && shield > 0)
+            {
+                healthBarImage.color = new Color(0, 175 / 255f, 45 / 255f);
+                health_bar.SetActive(true);
+            }
+            else
+            {
+                healthBarImage.color = new Color(255 / 255f, 0, 0);
+                health_bar.SetActive(true);
+            }
         }
+        else
+        {
+            if (health == maxHealth)
+            {
+                health_bar.SetActive(false);
+            }
+            else
+            {
+                health_bar.SetActive(true);
+            }
+        }
+
     }
 }
