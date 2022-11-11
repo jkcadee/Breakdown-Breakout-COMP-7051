@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
         }
         playerInstance.GetComponent<PlayerControls>().health = playerHealth;
         Debug.Log(GameObject.Find("/UFO(Clone)/ShootTarget"));
-        GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam = Camera.main;
+        // GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam = Camera.main;
     }
 
     private void SpawnEnemy()
@@ -69,11 +69,13 @@ public class LevelManager : MonoBehaviour
             sceneNumber = -1;
         }
 
+        Debug.Log(GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam.name);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneNumber);
-        if (GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam == null)
-        {
-            GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam = Camera.main;
-        }
+        // if (GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam == null)
+        // {
+        //     GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam = Camera.main;
+        // }
         playerInstance.gameObject.transform.position = new Vector3(0, 1, -20);
     }
 }
