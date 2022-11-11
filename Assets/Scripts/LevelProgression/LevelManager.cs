@@ -16,6 +16,10 @@ public class LevelManager : MonoBehaviour
 
     private int sceneNumber = 0;
 
+    // private string navMeshBakerPath = "Prefabs/Enemy/NavMeshBaker";
+
+    // private GameObject navMeshBakerObject;
+
     void Awake()
     {
         InstantiateManager();
@@ -69,6 +73,7 @@ public class LevelManager : MonoBehaviour
     // Loads a new level
     public void LoadLevel()
     {
+
         if(SceneManager.GetActiveScene().buildIndex != 3)
         {
             sceneNumber = 1;
