@@ -118,6 +118,7 @@ public class EnemyControls : MonoBehaviour
 
         if (health < 1)
         {
+            AudioController.PlayDeath();
             Instantiate(weaponDrop, transform.position, Quaternion.identity);
             Destroy(gameObject);
 

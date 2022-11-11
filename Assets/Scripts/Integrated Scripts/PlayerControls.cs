@@ -121,6 +121,7 @@ public class PlayerControls : MonoBehaviour
      */
 
     private void LoseCondition() {
+        AudioController.PlayDeath();
         Destroy(gameObject);
         Debug.Log("You Lose!");
     }
