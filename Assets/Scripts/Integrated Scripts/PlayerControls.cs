@@ -31,7 +31,6 @@ public class PlayerControls : MonoBehaviour
     public float speedLimit = 17f;
     public float accelerationSpeed = 3f;
 
-    public AudioSource death;
     public LevelManager levelManager;
 
     /** 
@@ -124,7 +123,7 @@ public class PlayerControls : MonoBehaviour
      */
 
     private void LoseCondition() {
-        AudioController.PlaySFX(death);
+        AudioController.PlayDeath();
         Destroy(gameObject);
         Debug.Log("You Lose!");
     }

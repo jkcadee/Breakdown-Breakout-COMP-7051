@@ -382,7 +382,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -402,7 +402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 985638783}
   ai: {fileID: 985638778}
-  hit: {fileID: 2276859046316058088, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
 --- !u!114 &985638778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,11 +441,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   shield: 10
+  maxShield: 0
   health_meter: {fileID: 4944411924844627277}
   health_bar: {fileID: 4944411923985561809}
   enemyStats: {fileID: 1424196301}
-  healthBarImage: {fileID: 4944411923985561811}
-  death: {fileID: 0}
+  healthBarImage: {fileID: 0}
   distance: 0
 --- !u!1001 &406768981
 PrefabInstance:
@@ -458,6 +457,10 @@ PrefabInstance:
     - target: {fileID: 4944411924388623748, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
       propertyPath: m_Name
       value: Health_Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924388623748, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4944411924388623751, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
       propertyPath: m_Pivot.x
