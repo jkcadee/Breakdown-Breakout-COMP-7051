@@ -3,12 +3,7 @@ guid: ab2a9c547e336074389aca6404248be3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - levelMusic: {fileID: 1412371772492209096, guid: 95694cf588768bc4bb504e87e31d9d2b, type: 3}
-  - death: {fileID: 3285527058873924951, guid: f43d59955f7891248884991c05b1732d, type: 3}
-  - hit: {fileID: 2276859046316058088, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
-  - upgrade: {fileID: 134418692865683448, guid: 79cac57222c8e2246bdc56f8da4d0224, type: 3}
-  - shoot: {fileID: 3059197952583112856, guid: af44178740e000c46be8aa899c304590, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

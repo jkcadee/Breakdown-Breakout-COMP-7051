@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyExplosionDamagable : Damageable
 {
@@ -25,25 +24,13 @@ public class EnemyExplosionDamagable : Damageable
             {
                 enemy.shield -= 1f;
             }
-        }
-        else
-        {
+        } else {
             Debug.Log("Didn't Hit Shield!!!");
             enemy.health -= damage;
         }
 
-        AudioController.PlayHit();
+
         ai.angerTimer = 4f;
 
-
-        if (enemy.shield != enemy.maxShield && enemy.shield > 0)
-        {
-            enemy.healthBarImage.color = new Color(255f, 100f / 255f, 0f);
-
-        } else
-        {
-            enemy.healthBarImage.color = new Color(255f , 0, 0);
-
-        }
     }
 }
