@@ -55,7 +55,7 @@ public class EnemyControls : MonoBehaviour
         } else {
             shield = 0;
         }
-        Debug.Log(shield);
+        
         maxHealth = health;
         maxShield = shield;
         health_bar.SetActive(false);
@@ -66,7 +66,7 @@ public class EnemyControls : MonoBehaviour
         {
             isShieldedEnemyType = true;
         }
-        Debug.Log(isShieldedEnemyType);
+        
     }
 
     /** 
