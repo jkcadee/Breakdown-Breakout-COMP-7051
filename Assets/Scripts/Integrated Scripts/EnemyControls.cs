@@ -103,6 +103,10 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         //Debug.Log(shield);
 
         healthBarImage = health_meter.GetComponent<Image>();
@@ -114,6 +118,7 @@ public class EnemyControls : MonoBehaviour
 
         if (health < 1)
         {
+            AudioController.PlayDeath();
             Instantiate(weaponDrop, transform.position, Quaternion.identity);
             Destroy(gameObject);
 

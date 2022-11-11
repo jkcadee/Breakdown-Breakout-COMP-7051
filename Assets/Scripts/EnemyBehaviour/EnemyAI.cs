@@ -43,6 +43,10 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {   
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         distance = Vector3.Distance(transform.position, player.transform.position);
 
         isVisible = isPlayerVisible();

@@ -26,10 +26,10 @@ public class SpawnDrops : MonoBehaviour
         // this part of the code randomly spawns in a new item at a new point around the pickup spots
         if (maxSpawnPosX < 0 && maxSpawnPosZ < 0)
         {
-            pos = new Vector3(Random.Range(maxSpawnPosX + 5, maxSpawnPosX + 1), 0.5f, Random.Range(maxSpawnPosZ + 5, maxSpawnPosZ + 1));
+            pos = new Vector3(Random.Range(maxSpawnPosX + 5, maxSpawnPosX + 1), 1f, Random.Range(maxSpawnPosZ + 5, maxSpawnPosZ + 1));
         } else if (maxSpawnPosX > 0 && maxSpawnPosZ > 0)
         {
-            pos = new Vector3(Random.Range(maxSpawnPosX - 5, maxSpawnPosX - 1), 0.5f, Random.Range(maxSpawnPosZ - 5, maxSpawnPosZ - 1));
+            pos = new Vector3(Random.Range(maxSpawnPosX - 5, maxSpawnPosX - 1), 1f, Random.Range(maxSpawnPosZ - 5, maxSpawnPosZ - 1));
         } else
         {
             pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);

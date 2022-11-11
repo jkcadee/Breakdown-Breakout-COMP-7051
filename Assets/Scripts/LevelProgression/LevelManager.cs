@@ -10,7 +10,9 @@ public class LevelManager : MonoBehaviour
     public static GameObject playerInstance;
     public GameObject player;
     public GameObject enemy;
-    public static float playerHealth; 
+    public int numberOfEnemies;
+    public static float playerHealth;
+    private static float spawnCollisionRadius = 1.0f;
 
     private int sceneNumber = 0;
 
@@ -22,9 +24,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         SpawnPlayer();
-        SpawnEnemy();
+        //SpawnEnemy();
         DontDestroyOnLoad(playerInstance);
-        DontDestroyOnLoad(enemy.gameObject);
     }
 
     // I may need this, need to carry on health
@@ -40,25 +41,32 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    // Spawns the player with 5 health, sets the health in the player controls script to have the same amount
     private void SpawnPlayer()
     {
-        Debug.Log("Spawning player");
         playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
         if (playerHealth == 0)
         {
             playerHealth = 5.0f;
         }
         playerInstance.GetComponent<PlayerControls>().health = playerHealth;
-        Debug.Log(GameObject.Find("/UFO(Clone)/ShootTarget"));
-        // GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam = Camera.main;
     }
 
     private void SpawnEnemy()
     {
-        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
-        enemy.GetComponent<EnemyAI>().player = playerInstance;
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            Vector3 pos = new Vector3(Random.Range(-24, 24), 3, Random.Range(5, 20));
+            if (!Physics.CheckSphere(pos, spawnCollisionRadius))
+            {
+                Instantiate(enemy, pos, Quaternion.identity);
+                enemy.GetComponent<EnemyAI>().player = playerInstance;
+                //enemy.GetComponent<SpawnBullet>().bulletPrefab 
+            }
+        }
     }
 
+    // Loads a new level
     public void LoadLevel()
     {
         if(SceneManager.GetActiveScene().buildIndex != 3)
@@ -69,13 +77,15 @@ public class LevelManager : MonoBehaviour
             sceneNumber = -1;
         }
 
-        Debug.Log(GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam.name);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneNumber);
-        // if (GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam == null)
-        // {
-        //     GameObject.Find("/UFO(Clone)/ShootTarget").GetComponent<MousePoint>().mainCam = Camera.main;
-        // }
         playerInstance.gameObject.transform.position = new Vector3(0, 1, -20);
+        float healthToHeal = 5.0f - playerInstance.GetComponent<PlayerControls>().health;
+        if (healthToHeal > 2.0000f)
+        {
+            healthToHeal = 2.0000f;
+        }
+        playerInstance.GetComponent<PlayerControls>().health += healthToHeal;
+        playerHealth += healthToHeal;
+        playerInstance.GetComponent<PlayerControls>().UpdateHealth();
     }
 }

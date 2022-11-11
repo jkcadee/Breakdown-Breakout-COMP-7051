@@ -10,6 +10,7 @@ TagManager:
   - LevelObject
   - Status_Image
   - Shield
+  - Wall
   layers:
   - Default
   - TransparentFX
