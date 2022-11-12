@@ -12,6 +12,7 @@ public class BulletBehaviour : MonoBehaviour
     public float shootCooldown = 0.3f;
     public float bulletSpeed = 40f;
     public float spreadAngle = 0;
+    public int ammo = 8;
     public GameObject bulletATFieldPrefab;
 
     protected virtual void Start()
@@ -77,5 +78,13 @@ public class BulletBehaviour : MonoBehaviour
         Vector3 adjustedAngleMovement = Quaternion.Euler(0, Random.Range(-spreadAngle, spreadAngle), 0) * v3;
         intendedVelocity = adjustedAngleMovement;
         rb.AddForce(adjustedAngleMovement, ForceMode.VelocityChange);
+    }
+
+    public void Update()
+    {
+        if(!shooter)
+        {
+            Destroy(gameObject);
+        }
     }
 }
