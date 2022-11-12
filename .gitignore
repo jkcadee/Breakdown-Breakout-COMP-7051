@@ -14,3 +14,5 @@ Assembly-CSharp.csproj
 Breakdown-Breakout-COMP-7051.sln
 obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
 ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+NavMeshComponents.csproj
+NavMeshComponentsEditor.csproj

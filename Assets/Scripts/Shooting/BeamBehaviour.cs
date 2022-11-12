@@ -7,7 +7,7 @@ public class BeamBehaviour : BulletBehaviour
     public LayerMask layerMask;
     bool stoppedMotion = false;
     bool destroyState = false;
-    static GameObject beam;
+    static Dictionary<GameObject, GameObject> beams = new();
 
     void OnCollisionEnter(Collision other)
     {
@@ -20,13 +20,27 @@ public class BeamBehaviour : BulletBehaviour
         }
     }
 
+    void ReplaceBeam()
+    {
+        GameObject beam;
+
+        if (beams.TryGetValue(GetShooter(), out beam))
+        {
+            Destroy(beam);
+            beams[GetShooter()] = gameObject;
+        } 
+        else
+        {
+            beams.Add(GetShooter(), gameObject);
+        }
+    }
+
     protected override void Start()
     {
         base.Start();
 
         // deletes the old beam
-        Destroy(beam);
-        beam = gameObject;
+        ReplaceBeam();
         layerMask = ~layerMask;
 
         // points the beam in the right direction
@@ -54,5 +68,6 @@ public class BeamBehaviour : BulletBehaviour
         }
         // only destroys the beam on a fixed update (to maintain the image of a true, solid "beam" rather than like. a machine gun lol)
         if(destroyState) Destroy(gameObject);
+        destroyState = true;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpreadBulletBehaviour : BulletBehaviour
 {
     public GameObject bulletPrefab;
+    public float splinterSpread = 5f;
     bool activated = false;
 
     // makes a "splinter" shot at a given modified angle
@@ -33,8 +34,8 @@ public class SpreadBulletBehaviour : BulletBehaviour
         GameObject shooter = GetShooter();
         Vector3 velocity = GetVelocity();
 
-        SplinterShot(-10f, shooter, velocity);
-        SplinterShot(10f, shooter, velocity);
+        SplinterShot(-splinterSpread, shooter, velocity);
+        SplinterShot(splinterSpread, shooter, velocity);
     }
 
     private void FixedUpdate()

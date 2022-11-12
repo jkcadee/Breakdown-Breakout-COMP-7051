@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -26,7 +27,14 @@ public class PlayerControls : MonoBehaviour
     //Represents the player's rigidbody component.
     Rigidbody rb;
 
+    //Represents the player's stats' canvas.
     public GameObject playerStats;
+
+    //Represents the player's ammo counter.
+    public TextMeshProUGUI ammoCounter;
+
+    //Represents the player's shoot component.
+    PlayerShoot ps;
 
     public float speedLimit = 17f;
     public float accelerationSpeed = 3f;
@@ -39,6 +47,7 @@ public class PlayerControls : MonoBehaviour
     private void Start() {
         UpdateHealth();
         playerStats.transform.SetParent(null);
+        ps = GetComponent<PlayerShoot>();
     }
 
     /** 
@@ -113,6 +122,12 @@ public class PlayerControls : MonoBehaviour
             TakeDamage();
         }
     }
+
+    void UpdateAmmo()
+    {
+        int ammo = ps.GetAmmo();
+        ammoCounter.text = ammo > 0 ? "" + ammo : "";
+    }
     
 
     /**
@@ -131,5 +146,6 @@ public class PlayerControls : MonoBehaviour
         if (health <= 0.0f) {
             LoseCondition();
         }
+        UpdateAmmo();
     }
 }
