@@ -16,7 +16,7 @@ public class NavMeshBaker : MonoBehaviour
 
     private NavMeshSurface navSurface;
 
-    private GameObject[] walls;
+    // private GameObject[] walls;
     // private GameObject[] levelObjects;
 
     public void Awake() {
@@ -59,19 +59,19 @@ public class NavMeshBaker : MonoBehaviour
         // Array.Clear(walls, 0, walls.Length);
 
         Debug.Log(stageLevelObjects);
-        Debug.Log(walls);
+
         
-        walls = GameObject.FindGameObjectsWithTag("Wall");
+        // walls = GameObject.FindGameObjectsWithTag("Wall");
         // levelObjects = GameObject.FindGameObjectsWithTag("LevelObject");
 
 
-        Debug.Log(walls);
 
-        foreach (GameObject wall in walls) {
-            Debug.Log(wall.name);
-            stageLevelObjects.Add(wall);
 
-        }
+        // foreach (GameObject wall in walls) {
+        //     Debug.Log(wall.name);
+        //     stageLevelObjects.Add(wall);
+
+        // }
 
         // foreach (GameObject lo in levelObjects) {
         //     Debug.Log(lo.name);
