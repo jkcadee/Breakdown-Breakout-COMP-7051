@@ -35,6 +35,15 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee1594eb-48cf-4936-b775-d953b28de84c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -70,6 +79,39 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
                     ""action"": ""Continue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6389e173-1b9b-4dd4-b289-5d58f8e6d187"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b88d5e99-6558-4f4f-9efb-d6c547ef9f61"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""546497df-5432-41e3-b8c3-1136f51d0dfb"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -79,6 +121,7 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Continue = m_Player.FindAction("Continue", throwIfNotFound: true);
+        m_Player_Skip = m_Player.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,11 +182,13 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Continue;
+    private readonly InputAction m_Player_Skip;
     public struct PlayerActions
     {
         private @VNActions m_Wrapper;
         public PlayerActions(@VNActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Continue => m_Wrapper.m_Player_Continue;
+        public InputAction @Skip => m_Wrapper.m_Player_Skip;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -156,6 +201,9 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
                 @Continue.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinue;
                 @Continue.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinue;
                 @Continue.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinue;
+                @Skip.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkip;
+                @Skip.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkip;
+                @Skip.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkip;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -163,6 +211,9 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
                 @Continue.started += instance.OnContinue;
                 @Continue.performed += instance.OnContinue;
                 @Continue.canceled += instance.OnContinue;
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
             }
         }
     }
@@ -170,5 +221,6 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnContinue(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
 }

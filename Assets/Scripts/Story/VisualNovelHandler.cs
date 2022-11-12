@@ -118,12 +118,16 @@ public class VisualNovelHandler : MonoBehaviour
     {
         vnActions.Player.Continue.Enable();
         vnActions.Player.Continue.performed += NextTextInput;
+        vnActions.Player.Skip.Enable();
+        vnActions.Player.Skip.performed += SkipScene;
     }
 
     private void OnDisable()
     {
         vnActions.Player.Continue.Disable();
         vnActions.Player.Continue.performed -= NextTextInput;
+        vnActions.Player.Skip.Disable();
+        vnActions.Player.Skip.performed -= SkipScene;
     }
 
     private void Start()

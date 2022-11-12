@@ -33,9 +33,9 @@ public class StorySegment4 : StorySegment
         storyPages.Add(new StoryPage(text, null));
 
         text = new();
-        text.Add("<i>If only I had said something;</i>");
-        text.Add("<i>if only I had done something;</i>");
-        text.Add("such thoughts filled the robot's mind.");
+        text.Add("<i>If only I had said something.</i>");
+        text.Add("<i>If only I had done something.</i>");
+        text.Add("... Such thoughts filled the robot's mind.");
         storyPages.Add(new StoryPage(text, null));
 
         text = new();
