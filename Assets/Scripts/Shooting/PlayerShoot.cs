@@ -51,6 +51,11 @@ public class PlayerShoot : MonoBehaviour
         ammo = a;
     }
 
+    public int GetAmmo()
+    {
+        return ammo;
+    }
+
     void Shoot()
     {
         if (timer > 0) 
