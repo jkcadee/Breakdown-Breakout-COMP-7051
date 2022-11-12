@@ -88,7 +88,6 @@ MonoBehaviour:
   playerStats: {fileID: 4710668282232986488}
   speedLimit: 17
   accelerationSpeed: 3
-  death: {fileID: 3285527058873924951, guid: f43d59955f7891248884991c05b1732d, type: 3}
 --- !u!114 &4710668281526633136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8034672323415119768}
+  defaultBullet: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
 --- !u!114 &4710668281526633137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 4710668281526633143}
-  shoot: {fileID: 3059197952583112856, guid: af44178740e000c46be8aa899c304590, type: 3}
 --- !u!114 &1206224015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 7517380267126786954}
-  pickup_sound: {fileID: 134418692865683448, guid: 79cac57222c8e2246bdc56f8da4d0224, type: 3}
+  defaultGunSprite: {fileID: 21300000, guid: 2e52d10930e5d254f83eb002ef05f356, type: 3}
 --- !u!114 &9156074671089787681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2985747b772ae214a8d363feeb43f683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: {fileID: 2276859046316058088, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
 --- !u!1 &4710668281602174435
 GameObject:
   m_ObjectHideFlags: 0

@@ -127,10 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9078c76550a9bf2428110a319ca7449c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 2
+  damageDealt: 1.2
   shootCooldown: 0.6
   bulletSpeed: 40
   spreadAngle: 0
+  ammo: 5
   bulletATFieldPrefab: {fileID: 8267849643428129342, guid: a07fbd413c57dee4e94249ff744af775, type: 3}
   explosionPrefab: {fileID: 6491656988900457012, guid: 7393b164f430514428298b2699467a0e, type: 3}
   distanceBeforeExplosion: 17

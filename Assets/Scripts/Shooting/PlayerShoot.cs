@@ -6,9 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerShoot : MonoBehaviour
 {
     private SpawnBullet sb;
+    private PickupNouveau pn;
     public GameObject target;
+    public GameObject defaultBullet;
     private InputActions inputActions;
     private InputAction shootAction;
+    private int ammo = 0;
 
     private float timer = 0;
 
@@ -22,6 +25,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         sb = GetComponent<SpawnBullet>();
+        pn = GetComponent<PickupNouveau>();
     }
 
     private void OnEnable()
@@ -42,12 +46,25 @@ public class PlayerShoot : MonoBehaviour
         shooting = false;
     }
 
+    public void SetAmmo(int a)
+    {
+        ammo = a;
+    }
+
     void Shoot()
     {
         if (timer > 0) 
             return;
 
         sb.ShootAtTarget(target.transform.position);
+
+        ammo--;
+        if(ammo <= 0)
+        {
+            sb.SetBulletPrefab(defaultBullet);
+            pn.ResetToDefault();
+        }
+
         timer = sb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
     }
 

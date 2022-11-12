@@ -23,6 +23,7 @@ public class BeamBehaviour : BulletBehaviour
     void ReplaceBeam()
     {
         GameObject beam;
+
         if (beams.TryGetValue(GetShooter(), out beam))
         {
             Destroy(beam);
