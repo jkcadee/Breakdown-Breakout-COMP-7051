@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
         playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
         if (playerHealth == 0)
         {
-            playerHealth = 100.0f;
+            playerHealth = 5.0f;
         }
         playerInstance.GetComponent<PlayerControls>().health = playerHealth;
     }
