@@ -31,11 +31,7 @@ public class VisualNovelHandler : MonoBehaviour
 
     private void ProgressText()
     {
-        if(pageIndex == storyPages.Count)
-        {
-            zeroVisCallback = GetComponent<StorySegment>().MoveToNextScene;
-        } 
-        else if(currentTextIndex < storyPages[pageIndex].storyText.Count)
+        if(pageIndex != storyPages.Count && currentTextIndex < storyPages[pageIndex].storyText.Count)
         {
             InstantiateText();
         } 
@@ -45,7 +41,15 @@ public class VisualNovelHandler : MonoBehaviour
             SetBackground();
             currentTextIndex = 0;
             updateCallback = DecreaseVisibility;
+
+            if(pageIndex == storyPages.Count)
+                zeroVisCallback = GetComponent<StorySegment>().MoveToNextScene;
         }
+    }
+
+    private void SkipScene(InputAction.CallbackContext _)
+    {
+        GetComponent<StorySegment>().MoveToNextScene();
     }
 
     private void NextTextInput(InputAction.CallbackContext _)
