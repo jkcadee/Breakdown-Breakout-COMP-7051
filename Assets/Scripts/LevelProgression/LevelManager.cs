@@ -20,6 +20,18 @@ public class LevelManager : MonoBehaviour
 
     // private GameObject navMeshBakerObject;
 
+    public void OnSceneLoaded(Scene scene, LoadSceneMode _)
+    {
+        if(scene.name.Contains("Level") && !playerInstance)
+        {
+            SpawnPlayer();
+            if(scene.name != "Level1")
+            {
+                playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
+            }
+        }
+    }
+
     void Awake()
     {
         InstantiateManager();
@@ -29,7 +41,7 @@ public class LevelManager : MonoBehaviour
     {
         SpawnPlayer();
         //SpawnEnemy();
-        DontDestroyOnLoad(playerInstance);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // I may need this, need to carry on health
@@ -54,6 +66,7 @@ public class LevelManager : MonoBehaviour
             playerHealth = 10.0f;
         }
         playerInstance.GetComponent<PlayerControls>().health = playerHealth;
+        DontDestroyOnLoad(playerInstance);
     }
 
     private void SpawnEnemy()

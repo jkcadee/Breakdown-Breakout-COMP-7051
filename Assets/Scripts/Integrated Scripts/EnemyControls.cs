@@ -62,7 +62,7 @@ public class EnemyControls : MonoBehaviour
         maxHealth = health;
         maxShield = shield;
         health_bar.SetActive(false);
-        enemyStats.transform.parent = null;
+        enemyStats.transform.SetParent(null);
         enemyAI = GetComponent<EnemyAI>();
 
         if (maxShield != 0)
