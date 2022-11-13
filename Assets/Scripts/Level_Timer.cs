@@ -30,10 +30,10 @@ public class Level_Timer : MonoBehaviour
     }
 
     private void Start() {
-        if (Level_Timer.Instance != null)
+        if (Instance != null)
         {
             ResetTime();
-            PauseTime();
+            //StartTime();
         }
     }
 

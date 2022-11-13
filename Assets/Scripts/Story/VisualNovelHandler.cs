@@ -140,12 +140,14 @@ public class VisualNovelHandler : MonoBehaviour
         InstantiateText();
         SetBackground();
         lm = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        Level_Timer.PauseTime();
         lm.DeactivatePlayer();
     }
 
     private void OnDestroy()
     {
         lm.ActivatePlayer();
+        Level_Timer.StartTime();
     }
 
     private void FixedUpdate()

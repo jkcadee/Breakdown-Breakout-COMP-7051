@@ -46,6 +46,10 @@ public class LevelManager : MonoBehaviour
         SpawnPlayer();
         //SpawnEnemy();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        if (!Level_Timer.timer_on)
+        {
+            Level_Timer.StartTime();
+        }
     }
 
     // I may need this, need to carry on health
