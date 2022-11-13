@@ -49,6 +49,9 @@ public class EnemyControls : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        Debug.Log(this.name + (GetComponent<EnemyShield>() != null));
+
         if (GetComponent<EnemyShield>() != null)
         {
             shield = eShield.maxShield;
@@ -129,33 +132,18 @@ public class EnemyControls : MonoBehaviour
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
 
-        if (isShieldedEnemyType)
+        if (health == maxHealth && shield == maxShield)
         {
-            if (health == maxHealth && shield == maxShield)
-            {
-                health_bar.SetActive(false);
-            }
-            else if (shield != maxShield && shield > 0)
-            {
-                healthBarImage.color = new Color(0, 175 / 255f, 45 / 255f);
-                health_bar.SetActive(true);
-            }
-            else
-            {
-                healthBarImage.color = new Color(255 / 255f, 0, 0);
-                health_bar.SetActive(true);
-            }
+            health_bar.SetActive(false);
         }
-        else
+        else if (shield != maxShield && shield > 0)
         {
-            if (health == maxHealth)
-            {
-                health_bar.SetActive(false);
-            }
-            else
-            {
-                health_bar.SetActive(true);
-            }
+
+            health_bar.SetActive(true);
+        } else
+        {
+
+            health_bar.SetActive(true);
         }
 
     }

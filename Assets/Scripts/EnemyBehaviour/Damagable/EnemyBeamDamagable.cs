@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyExplosionDamagable : Damageable
+public class EnemyBeamDamagable : Damageable
 {
 
     public EnemyControls enemy;
     public EnemyAI ai;
     public EnemyShield shield;
-
-    public ExplosionBehaviour bb;
-
     // private Collision collision;
     // public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
@@ -21,9 +17,9 @@ public class EnemyExplosionDamagable : Damageable
         {
             Debug.Log("Hit Shield!!!");
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
-            if (other.name == "Explosion(Clone)")
+            if (other.name == "Beam(Clone)")
             {
-                enemy.shield -= 2.8f;
+                enemy.shield -= 0.12f;
             }
             else
             {
@@ -36,12 +32,13 @@ public class EnemyExplosionDamagable : Damageable
             enemy.health -= damage;
         }
 
-        ai.angerTimer = 4f;
         AudioController.PlayHit();
+        ai.angerTimer = 4f;
+
 
         if (enemy.shield != shield.maxShield && enemy.shield > 0)
         {
-            enemy.healthBarImage.color = new Color(255f, 100f / 255f, 0f);
+            enemy.healthBarImage.color = new Color(215 / 255f, 90 / 255f, 165 / 255f);
 
         } else
         {
