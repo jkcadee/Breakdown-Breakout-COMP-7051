@@ -5,6 +5,7 @@ using UnityEngine;
 public class TextVisibilityIncrease : MonoBehaviour
 {
     CanvasGroup cv;
+    public float visibilityRate = 0.04f;
 
     void Start()
     {
@@ -15,6 +16,6 @@ public class TextVisibilityIncrease : MonoBehaviour
     void FixedUpdate()
     {
         if(cv.alpha < 1)
-            cv.alpha += 0.04f;
+            cv.alpha += visibilityRate;
     }
 }

@@ -44,6 +44,11 @@ public class PlayerControls : MonoBehaviour
      Sets up the value of the player's health.
      */
 
+    private void OnDestroy()
+    {
+        Destroy(playerStats);
+    }
+
     private void Start() {
         UpdateHealth();
         playerStats.transform.SetParent(null);
