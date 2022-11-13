@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
         playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
         if (playerHealth == 0)
         {
-            playerHealth = 5.0f;
+            playerHealth = 10.0f;
         }
         playerInstance.GetComponent<PlayerControls>().health = playerHealth;
         DontDestroyOnLoad(playerInstance);
@@ -97,10 +97,10 @@ public class LevelManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneNumber);
         playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
-        float healthToHeal = 5.0f - playerInstance.GetComponent<PlayerControls>().health;
-        if (healthToHeal > 2.0000f)
+        float healthToHeal = 10.0f - playerInstance.GetComponent<PlayerControls>().health;
+        if (healthToHeal > 3.0000f)
         {
-            healthToHeal = 2.0000f;
+            healthToHeal = 3.0000f;
         }
         playerInstance.GetComponent<PlayerControls>().health += healthToHeal;
         playerHealth += healthToHeal;
