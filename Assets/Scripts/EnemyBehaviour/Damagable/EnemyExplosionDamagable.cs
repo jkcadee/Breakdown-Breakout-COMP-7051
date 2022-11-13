@@ -27,7 +27,7 @@ public class EnemyExplosionDamagable : Damageable
             }
             else if (other.name == "Beam(Clone)")
             {
-                enemy.shield -= 0.06f;
+                enemy.shield -= 0.03f;
             }
             else
             {
