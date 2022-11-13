@@ -58,7 +58,7 @@ public class SpawnDrops : MonoBehaviour
 
         for (int i = 0; i < maxNumOfSpawnedWeapons; i++)
         {
-            if (spawnedWeapons.Count == 0)
+            if (spawnedWeapons.Count == 0 && timer > spawnWaitTime)
             {
                 spawnNewWeapon();
                 timer = 0.0f;
@@ -76,6 +76,7 @@ public class SpawnDrops : MonoBehaviour
                 if (spawnedWeapons[i] == null)
                 {
                     spawnedWeapons.RemoveAt(i);
+                    timer = 0.0f;
                     spawnedWeaponCounter--;
                 }
             }

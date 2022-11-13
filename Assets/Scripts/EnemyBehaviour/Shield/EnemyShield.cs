@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyShield : MonoBehaviour
 {
     public bool hasShield;
-    public float maxShield = 0f;
+    public float maxShield = 10f;
     public EnemyControls ec;
     public bool correctBullet;
     public GameObject shield;
