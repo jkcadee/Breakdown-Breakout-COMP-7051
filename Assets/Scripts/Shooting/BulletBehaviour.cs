@@ -14,6 +14,8 @@ public class BulletBehaviour : MonoBehaviour
     public float spreadAngle = 0;
     public int ammo = 8;
     public GameObject bulletATFieldPrefab;
+    float selfDestruct = 0;
+    public float timeToSelfDestruct = 5f;
 
     protected virtual void Start()
     {
@@ -82,7 +84,9 @@ public class BulletBehaviour : MonoBehaviour
 
     public void Update()
     {
-        if(!shooter)
+        selfDestruct += Time.deltaTime;
+
+        if(!shooter || selfDestruct > timeToSelfDestruct)
         {
             Destroy(gameObject);
         }
