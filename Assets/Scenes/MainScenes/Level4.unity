@@ -1704,7 +1704,7 @@ PrefabInstance:
     - target: {fileID: 7436398780814060312, guid: 9af51005d572ae64e87fe63228532cd6, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 6223945032506627727, guid: 293da330144fea94989d1515253107a5, type: 3}
+      objectReference: {fileID: 6223945032506627727, guid: ca3c2d02528298e418a70ea6a30dd5c7, type: 3}
     - target: {fileID: 7453403638127696360, guid: 9af51005d572ae64e87fe63228532cd6, type: 3}
       propertyPath: m_Name
       value: JS_SpreadShieldedEnemy
@@ -4404,7 +4404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_LocalPosition.x
