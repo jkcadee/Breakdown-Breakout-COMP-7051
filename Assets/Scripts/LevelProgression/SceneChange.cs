@@ -11,5 +11,18 @@ public class SceneChange : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        if (sceneName == "Title_Screen")
+        {
+
+            AudioController.StopMusic();
+            Level_Timer.PauseTime();
+            Level_Timer.ResetTime();
+
+        }
+        else
+        {
+            AudioController.PlayMusic();
+            Level_Timer.StartTime();
+        }
     }
 }
