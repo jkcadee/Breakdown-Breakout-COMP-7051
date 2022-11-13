@@ -85,9 +85,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneNumber);
         playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
         float healthToHeal = 5.0f - playerInstance.GetComponent<PlayerControls>().health;
-        if (healthToHeal > 2.0000f)
+        if (healthToHeal > 3.0000f)
         {
-            healthToHeal = 2.0000f;
+            healthToHeal = 3.0000f;
         }
         playerInstance.GetComponent<PlayerControls>().health += healthToHeal;
         playerHealth += healthToHeal;
