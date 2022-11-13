@@ -22,13 +22,17 @@ public class LevelManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
-        if(scene.name.Contains("Level") && !playerInstance)
+        if(scene.name.Contains("Level"))
         {
-            SpawnPlayer();
+            if(!playerInstance)
+                SpawnPlayer();
             if(scene.name != "Level1")
-            {
                 playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
-            }
+            playerInstance.SetActive(true);
+        } 
+        else
+        {
+            playerInstance.SetActive(false);
         }
     }
 
@@ -55,6 +59,16 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void ActivatePlayer()
+    {
+        playerInstance.SetActive(true);
+    }
+
+    public void DeactivatePlayer()
+    {
+        playerInstance.SetActive(false);
     }
 
     // Spawns the player with 5 health, sets the health in the player controls script to have the same amount
@@ -87,7 +101,7 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel()
     {
 
-        if(SceneManager.GetActiveScene().buildIndex != 4)
+        if(SceneManager.GetActiveScene().buildIndex != 9)
         {
             sceneNumber = 1;
         } else

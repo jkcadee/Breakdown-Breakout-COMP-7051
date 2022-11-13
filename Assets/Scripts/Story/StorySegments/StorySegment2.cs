@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StorySegment2 : StorySegment
 {
@@ -57,5 +58,6 @@ public class StorySegment2 : StorySegment
     public override void MoveToNextScene()
     {
         Debug.Log("Move to next scene");
+        SceneManager.LoadScene("Level2");
     }
 }

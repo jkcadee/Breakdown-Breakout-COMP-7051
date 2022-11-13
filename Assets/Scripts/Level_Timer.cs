@@ -44,7 +44,7 @@ public class Level_Timer : MonoBehaviour
         {
             time += Time.deltaTime;
         }
-        Debug.Log(time);
+        //Debug.Log(time);
     }
 
     public static float GetTime() {

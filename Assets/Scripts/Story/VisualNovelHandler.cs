@@ -15,6 +15,7 @@ public class VisualNovelHandler : MonoBehaviour
     List<StoryPage> storyPages;
     VNActions vnActions;
     int currentTextIndex, pageIndex = 0;
+    LevelManager lm;
 
     public float opacityChangeRate = 0.04f;
     Action zeroVisCallback;
@@ -138,6 +139,13 @@ public class VisualNovelHandler : MonoBehaviour
         updateCallback = IncreaseVisibility;
         InstantiateText();
         SetBackground();
+        lm = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        lm.DeactivatePlayer();
+    }
+
+    private void OnDestroy()
+    {
+        lm.ActivatePlayer();
     }
 
     private void FixedUpdate()
