@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: 3e92604f2b07a594f946e97c4ce5a833, type: 3}
+  spawnedWeapons: []
 --- !u!1001 &568933846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: a431815c7086ddd42924d3843f114f00, type: 3}
+  spawnedWeapons: []
 --- !u!1001 &1547593123
 PrefabInstance:
   m_ObjectHideFlags: 0
