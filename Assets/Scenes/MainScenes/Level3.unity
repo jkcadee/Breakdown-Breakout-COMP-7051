@@ -503,6 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: db11bd08637336b4aa5bddbdef1794d2, type: 3}
+  spawnedWeapons: []
 --- !u!1001 &482643649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1808,6 +1809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: a431815c7086ddd42924d3843f114f00, type: 3}
+  spawnedWeapons: []
 --- !u!1001 &1525446176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3176,7 +3178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.5
+      value: -4.98
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalRotation.w

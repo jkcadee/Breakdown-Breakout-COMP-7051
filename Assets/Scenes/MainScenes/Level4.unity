@@ -1443,6 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: 3e92604f2b07a594f946e97c4ce5a833, type: 3}
+  spawnedWeapons: []
 --- !u!1 &459799250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 9af51005d572ae64e87fe63228532cd6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 9af51005d572ae64e87fe63228532cd6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1723,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 9af51005d572ae64e87fe63228532cd6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.132288
+      value: -0.42
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 9af51005d572ae64e87fe63228532cd6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2161,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 4f33827a92a6806449c9e35adb494f93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.37
+      value: 24.02
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 4f33827a92a6806449c9e35adb494f93, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2169,7 +2170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 4f33827a92a6806449c9e35adb494f93, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.96
+      value: -19.13
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: 4f33827a92a6806449c9e35adb494f93, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3691,6 +3692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: a431815c7086ddd42924d3843f114f00, type: 3}
+  spawnedWeapons: []
 --- !u!1 &1489757428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,7 +4005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7453403638127696365, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5162,7 +5164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.3
+      value: 19.7
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5170,7 +5172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.3
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5499,7 +5501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.07
+      value: -34.77
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5507,7 +5509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.5
+      value: -21.08
       objectReference: {fileID: 0}
     - target: {fileID: 2349359919340913548, guid: fb41fb6983e63624fb0c9ff5e94236b7, type: 3}
       propertyPath: m_LocalRotation.w
