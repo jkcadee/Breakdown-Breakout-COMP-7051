@@ -25,6 +25,10 @@ public class LevelManager : MonoBehaviour
         if(scene.name.Contains("Level") && !playerInstance)
         {
             SpawnPlayer();
+            if(scene.name != "Level1")
+            {
+                playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
+            }
         }
     }
 
