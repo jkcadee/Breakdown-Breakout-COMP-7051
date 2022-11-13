@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460452318357870613}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -188,7 +188,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020928804317649110}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -286,7 +286,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335202615049921689}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -384,7 +384,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2997707132653173972}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -481,7 +481,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914224671417426146}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -578,7 +578,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4959981405436453819}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -676,7 +676,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6098897810394467569}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 25343fbfd3191b343bbb42ed9410aff5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
