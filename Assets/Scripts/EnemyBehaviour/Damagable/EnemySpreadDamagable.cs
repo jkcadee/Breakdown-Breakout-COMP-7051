@@ -23,6 +23,10 @@ public class EnemySpreadDamagable : Damageable
             {
                 enemy.shield -= 4f;
             }
+            else if (other.name == "Beam(Clone)")
+            {
+                enemy.shield -= 0.06f;
+            }
             else
             {
                 enemy.shield -= 1f;

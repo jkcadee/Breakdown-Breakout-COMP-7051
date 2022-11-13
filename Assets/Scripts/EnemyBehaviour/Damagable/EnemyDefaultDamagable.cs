@@ -20,6 +20,10 @@ public class EnemyDefaultDamagable : Damageable
             {
                 enemy.shield -= 2f;
             }
+            else if (other.name == "Beam(Clone)")
+            {
+                enemy.shield -= 0.06f;
+            }
             else
             {
                 enemy.shield -= 1f;
