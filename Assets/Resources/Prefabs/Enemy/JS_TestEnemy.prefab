@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 985638777}
   - component: {fileID: 985638778}
   - component: {fileID: 8106116532212896484}
+  - component: {fileID: 4906037708683457493}
   m_Layer: 0
   m_Name: JS_TestEnemy
   m_TagString: Enemy
@@ -353,7 +354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6223945032506627727, guid: f66391e1c5907924680527e651575e0f, type: 3}
   shooter: {fileID: 7453403638127696360}
-  shoot: {fileID: 0}
 --- !u!114 &985638763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8106116532212896484}
   ai: {fileID: 985638778}
-  hit: {fileID: 2276859046316058088, guid: 9b405d5322b35f14285b8e5933a90e09, type: 3}
 --- !u!114 &985638778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +447,22 @@ MonoBehaviour:
   healthBarImage: {fileID: 0}
   distance: 0
   eShield: {fileID: 0}
+--- !u!114 &4906037708683457493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453403638127696360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &406768981
 PrefabInstance:
   m_ObjectHideFlags: 0
