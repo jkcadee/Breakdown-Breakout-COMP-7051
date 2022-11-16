@@ -5,7 +5,7 @@ using UnityEngine;
 public class UFODeathHandler : MonoBehaviour
 {
     public GameObject deathScreen;
-    private void OnDestroy()
+    public void DieNow()
     {
         Instantiate(deathScreen);
     }

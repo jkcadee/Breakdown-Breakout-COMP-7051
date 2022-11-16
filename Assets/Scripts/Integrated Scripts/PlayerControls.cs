@@ -143,6 +143,8 @@ public class PlayerControls : MonoBehaviour
     private void LoseCondition() {
         AudioController.PlayDeath();
         Destroy(gameObject);
+        UFODeathHandler udh = GetComponent<UFODeathHandler>();
+        udh.DieNow(); // !!!!!!!!
         Debug.Log("You Lose!");
     }
 

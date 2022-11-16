@@ -94,7 +94,7 @@ public partial class @VNActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b88d5e99-6558-4f4f-9efb-d6c547ef9f61"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

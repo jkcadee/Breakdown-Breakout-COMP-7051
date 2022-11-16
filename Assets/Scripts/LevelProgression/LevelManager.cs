@@ -38,6 +38,7 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log(Instance + "" + playerInstance);
         InstantiateManager();
     }
 
@@ -78,6 +79,7 @@ public class LevelManager : MonoBehaviour
     // Spawns the player with 5 health, sets the health in the player controls script to have the same amount
     private void SpawnPlayer()
     {
+        Destroy(playerInstance);
         playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
         if (playerHealth == 0)
         {
