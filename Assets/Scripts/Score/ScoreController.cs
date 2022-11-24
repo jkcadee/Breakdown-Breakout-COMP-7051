@@ -21,18 +21,20 @@ public class ScoreController : MonoBehaviour
     /** Initializes the script when the game starts.*/
     public void Awake()
     {
-        if (sCtrl == null)
+        if (sCtrl != null)
         {
-            DontDestroyOnLoad(gameObject);
-            sCtrl = this;
-            LoadScore();
+            Destroy(gameObject);
+            return;
         }
+        sCtrl = this;
+        LoadScore();
+        DontDestroyOnLoad(gameObject);
     }
     
     /** 
      Loads the score values that have been saved.
      */
-    public void LoadScore()
+    public static void LoadScore()
     {
         if (File.Exists(Application.persistentDataPath + fileName))
         {
@@ -40,7 +42,7 @@ public class ScoreController : MonoBehaviour
             FileStream fs = File.Open(Application.persistentDataPath + fileName, FileMode.Open, FileAccess.Read);
             GameData data = (GameData)bf.Deserialize(fs);
             fs.Close();
-            highScores = data.highScores;
+            sCtrl.highScores = data.highScores;
         }
     }
     /** 

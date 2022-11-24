@@ -92,7 +92,6 @@ public class PlayerControls : MonoBehaviour
         rb.AddForce(v3, ForceMode.VelocityChange);
         if (rb.velocity.magnitude > speedLimit)
             rb.velocity = rb.velocity.normalized * speedLimit;
-
     }
 
     /** 
