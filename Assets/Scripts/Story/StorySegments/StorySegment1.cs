@@ -12,7 +12,7 @@ public class StorySegment1 : StorySegment
         List<string> text = new();
         text.Add("In a dark room with metal walls and metal floors...");
         text.Add("a robot wakes from its sleep mode.");
-        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/testbg1")));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S1S1")));
 
         text = new();
         text.Add("The room hums with the soft sound of fans,");
@@ -22,13 +22,13 @@ public class StorySegment1 : StorySegment
         text = new();
         text.Add("<i>How did I get here?</i>, the robot wonders,");
         text.Add("when its memory banks return a most perplexing result.");
-        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/testbg2")));
+        storyPages.Add(new StoryPage(text, null));
 
         text = new();
         text.Add("All data is fragmented.");
         text.Add("No memory, beyond its common sense unit, is accessible,");
         text.Add("save for a single text file, and a single image.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S1S2")));
 
         text = new();
         text.Add("<i>In one day, </i> the text file reads,");
@@ -49,7 +49,7 @@ public class StorySegment1 : StorySegment
         text.Add("at the cold, still floors,");
         text.Add("at the cold, still robots,");
         text.Add("and softly hovers to the exit.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S1S3")));
 
         return storyPages;
     }

@@ -325,6 +325,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6264513797271148465, guid: ac2d0f6326938e34d9f45aa4dc827d68, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264513797271148465, guid: ac2d0f6326938e34d9f45aa4dc827d68, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264513797271148465, guid: ac2d0f6326938e34d9f45aa4dc827d68, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4627451
+      objectReference: {fileID: 0}
     - target: {fileID: 6264513797642470056, guid: ac2d0f6326938e34d9f45aa4dc827d68, type: 3}
       propertyPath: m_Name
       value: VNCanvas
