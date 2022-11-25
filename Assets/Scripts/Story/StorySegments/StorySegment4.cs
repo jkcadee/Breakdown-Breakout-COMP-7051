@@ -17,7 +17,7 @@ public class StorySegment4 : StorySegment
         text = new();
         text.Add("In an interior hallway flooded with blue light...");
         text.Add("a robot overhears an upcoming plan by the company.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S4S1")));
 
         text = new();
         text.Add("The company will, once more, be scrapping old robots,");
@@ -55,7 +55,7 @@ public class StorySegment4 : StorySegment
         text.Add("and heads into the sleeping quarters,");
         text.Add("with its cold, still walls,");
         text.Add("and cold, still floors.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S4S2")));
 
         text = new();
         text.Add("The robot creates a single short text file,");

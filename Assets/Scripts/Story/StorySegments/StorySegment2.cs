@@ -18,7 +18,7 @@ public class StorySegment2 : StorySegment
         text.Add("In a bright room with glass walls overlooking a city...");
         text.Add("a robot wakes from its sleep mode");
         text.Add("to the gleeful expressions of some few scientist robots.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S2S1")));
 
         text = new();
         text.Add("Most turn to each other to celebrate,");
@@ -33,7 +33,7 @@ public class StorySegment2 : StorySegment
         text.Add("<i>and to the company.</i>");
         text.Add("<i>You'll be in my care,</i>");
         text.Add("<i>I hope we can get along.</i>");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S2S2")));
 
         text = new();
         text.Add("The robot commits this image -");
