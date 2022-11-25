@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_image: {fileID: 4710668281770429752}
-  health: 0
+  health: 10
   health_meter: {fileID: 4710668283059286617}
   playerStats: {fileID: 4710668282232986488}
   ammoCounter: {fileID: 5671040202844154860}
