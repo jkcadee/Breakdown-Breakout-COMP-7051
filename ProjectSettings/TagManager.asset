@@ -12,6 +12,7 @@ TagManager:
   - Shield
   - Wall
   - Floor
+  - Tutorial
   layers:
   - Default
   - TransparentFX

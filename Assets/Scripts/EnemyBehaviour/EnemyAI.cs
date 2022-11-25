@@ -111,6 +111,6 @@ public class EnemyAI : MonoBehaviour
         enemyAim = player.transform.position + new Vector3(rand.x, 0, rand.y) * inaccuraty;
         sb.ShootAtTarget(enemyAim);
 
-    }    public bool correctBullet;
+    } 
 
 }
