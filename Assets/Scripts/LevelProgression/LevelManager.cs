@@ -81,11 +81,6 @@ public class LevelManager : MonoBehaviour
     {
         Destroy(playerInstance);
         playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
-        if (playerHealth == 0)
-        {
-            playerHealth = 10.0f;
-        }
-        playerInstance.GetComponent<PlayerControls>().health = playerHealth;
         DontDestroyOnLoad(playerInstance);
     }
 
