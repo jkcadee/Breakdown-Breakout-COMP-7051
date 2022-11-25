@@ -17,7 +17,7 @@ public class StorySegment3 : StorySegment
         text = new();
         text.Add("In a small exam room with a soft, pale light...");
         text.Add("a robot has just finished its checkup.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S3S1")));
 
         text = new();
         text.Add("Long after the robot first awoke,");
@@ -44,7 +44,7 @@ public class StorySegment3 : StorySegment
         text.Add("<i>You're good to go</i>, the mechanic says.");
         text.Add("The robot begins to speak, but hesitates.");
         text.Add("<i>See you another time</i>, the robot chokes out.");
-        storyPages.Add(new StoryPage(text, null));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S3S2")));
 
         text = new();
         text.Add("And without another word exchanged...");

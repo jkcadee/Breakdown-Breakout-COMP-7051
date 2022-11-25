@@ -13,7 +13,7 @@ public class StorySegment5 : StorySegment
         text.Add("At last, the robot reaches the top of the building.");
         text.Add("Looking down at the cityscape around and in the distance,");
         text.Add("the robot is awash with emotion.");
-        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/testbg1")));
+        storyPages.Add(new StoryPage(text, Resources.Load<Sprite>("Story/S5S1")));
 
         text = new();
         text.Add("On the rooftop lies a helicopter, and, with quick thinking,");
