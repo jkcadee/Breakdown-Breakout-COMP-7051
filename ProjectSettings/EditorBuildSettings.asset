@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StoryScenes/VisualNovel5.unity
     guid: 21681c019eaddfa4b9d4d3eca39ff2fd
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/PostRunWrapup.unity
+    guid: 44bf80b21a4036a42af1fa231da3b7a2
   m_configObjects: {}
