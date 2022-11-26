@@ -189,11 +189,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 985638768, guid: 50f9b0a79c13c0446bcaed447266eca6, type: 3}
       propertyPath: m_Speed
-      value: 3.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3780641241050905352, guid: 50f9b0a79c13c0446bcaed447266eca6, type: 3}
       propertyPath: health
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7436398780814060312, guid: 50f9b0a79c13c0446bcaed447266eca6, type: 3}
       propertyPath: bulletPrefab
