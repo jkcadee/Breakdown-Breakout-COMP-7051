@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamageable : Damageable
+public class BossDamageable : Damageable
 {
-    public EnemyControls enemy;
+    public BossController boss;
     
     public EnemyAI ai;
 
     public override void GetHit(float damage, GameObject other)
     {
 
-        enemy.health -= damage;
+        boss.health -= damage;
 
         ai.angerTimer = 4f;
 

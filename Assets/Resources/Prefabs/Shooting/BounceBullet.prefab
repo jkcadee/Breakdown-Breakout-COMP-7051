@@ -133,5 +133,6 @@ MonoBehaviour:
   spreadAngle: 0
   ammo: 10
   bulletATFieldPrefab: {fileID: 8267849643428129342, guid: a07fbd413c57dee4e94249ff744af775, type: 3}
+  timeToSelfDestruct: 5
   bounces: 2
   bounceDamageModifier: 1.25

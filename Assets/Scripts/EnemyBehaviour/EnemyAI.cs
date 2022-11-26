@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     private float inaccuraty = 2f;
     private Vector3 enemyAim;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {

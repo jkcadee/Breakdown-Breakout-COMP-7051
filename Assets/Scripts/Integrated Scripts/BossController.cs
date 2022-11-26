@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class EnemyControls : MonoBehaviour
+public class BossController : MonoBehaviour
 {
 
     /** This code represents the Enemy's status and attributes (health, etc.)*/
 
     //Represents the health of the enemy
-    public float health = 3f;
-    public float shield;
+    public float health = 5f;
+    
+    public float healthBarCounter = 3f;
+
+
     private float maxHealth;
-    private float maxShield;
+
 
     //Represents the health meter on the enemy's healthbar that indictes
     //how much health they have.
@@ -32,45 +35,28 @@ public class EnemyControls : MonoBehaviour
     //Represents the player.
     private GameObject player;
 
-    private GameObject weaponDrop;
+
     private EnemyAI enemyAI;
+
+    public Material mMaterial;
 
     //Represents the distance between the player and the enemy.
     public float distance;
 
-    private string weaponPrefabPath;
-    private string assetFolder = "Prefabs/Pickup/";
-    private bool isShieldedEnemyType = false;
-    public EnemyShield eShield;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        Debug.Log(this.name + (GetComponent<EnemyShield>() != null));
-
-        if (GetComponent<EnemyShield>() != null)
-        {
-            shield = eShield.maxShield;
-        }
-        else
-        {
-            shield = 0;
-        }
+        // Debug.Log(this.name + (GetComponent<BossShield>() != null));
 
         maxHealth = health;
-        maxShield = shield;
         health_bar.SetActive(false);
         enemyStats.transform.SetParent(null);
         enemyAI = GetComponent<EnemyAI>();
-
-        
-
-        if (maxShield != 0)
-        {
-            isShieldedEnemyType = true;
-        }
+        mMaterial.color = new Color(0f, 0f, 0f);
 
     }
 
@@ -79,14 +65,10 @@ public class EnemyControls : MonoBehaviour
     */
     private void UpdateHealth()
     {
-        if (shield <= 0)
-        {
-            health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHealth * 5, 1);
-        }
-        else
-        {
-            health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(shield / maxShield * 5, 1);
-        }
+
+
+        health_meter.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHealth * 5, 1);
+
 
     }
 
@@ -109,6 +91,25 @@ public class EnemyControls : MonoBehaviour
     private void FixedUpdate()
     {
 
+        if (healthBarCounter == 2) {
+        GetComponent<SpawnBullet>().bulletPrefab = (GameObject)Resources.Load("Prefabs/Shooting/SpreadBullet", typeof(GameObject));
+        mMaterial.color = new Color(0f, 175f / 255f, 255f);
+        healthBarImage.color = new Color(0f, 175f / 255f, 255f);
+        }
+
+        if (healthBarCounter == 1) {
+        
+        GetComponent<SpawnBullet>().bulletPrefab = (GameObject)Resources.Load("Prefabs/Shooting/BossExplosion", typeof(GameObject));
+        mMaterial.color = new Color(255f, 100f / 255f, 0f);
+        healthBarImage.color = new Color(255f, 100f / 255f, 0f);
+        }
+
+        if (healthBarCounter == 0) {
+        GetComponent<SpawnBullet>().bulletPrefab = (GameObject)Resources.Load("Prefabs/Shooting/BossBounce", typeof(GameObject));
+        mMaterial.color = new Color(0f, 255f, 75 / 255f);
+        healthBarImage.color = new Color(0f, 255f, 75 / 255f);
+        }
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -117,21 +118,18 @@ public class EnemyControls : MonoBehaviour
 
         healthBarImage = health_meter.GetComponent<Image>();
 
-        // Debug.Log(weaponPrefabPath);
-        weaponPrefabPath = assetFolder + enemyAI.bulletType;
 
-        weaponDrop = (GameObject)Resources.Load(weaponPrefabPath, typeof(GameObject));
-
-        if (health < 1)
+        if (health < 1 && healthBarCounter <= 0)
         {
-            if (enemyAI.weaponName != "TutorialDefaultBullet" && enemyAI.weaponName != "DefaultBullet")
-            {
-                Instantiate(weaponDrop, transform.position, Quaternion.identity);
-            }
+
             AudioController.PlayDeath();
 
             Destroy(gameObject);
 
+        } else if (health < 1) 
+        {
+            healthBarCounter -= 1;
+            health = maxHealth;
         }
 
         UpdateHealth();
@@ -139,13 +137,13 @@ public class EnemyControls : MonoBehaviour
         distance = Vector3.Distance(transform.localPosition, player.transform.localPosition);
 
 
-        if (health == maxHealth && shield == maxShield)
+        if (health == maxHealth && healthBarCounter == 3)
         {
             health_bar.SetActive(false);
         }
-        else if (shield != maxShield && shield > 0)
+ 
+        else if (healthBarCounter < 3) 
         {
-
             health_bar.SetActive(true);
         }
         else
