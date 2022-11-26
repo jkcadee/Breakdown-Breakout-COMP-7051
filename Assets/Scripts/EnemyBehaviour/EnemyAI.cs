@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask bulletlayer;
     public string bulletType;
 
-    private string weaponName;
+    public string weaponName;
     private float inaccuraty = 2f;
     private Vector3 enemyAim;
 
