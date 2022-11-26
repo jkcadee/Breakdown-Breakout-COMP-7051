@@ -414,6 +414,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   bulletType: 
+  weaponName: 
 --- !u!114 &985638783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +580,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4944411924712327194, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
       propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327195, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327195, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327195, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
