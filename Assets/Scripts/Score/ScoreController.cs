@@ -69,7 +69,7 @@ public class ScoreController : MonoBehaviour
                 }
             }
         }
-               
+        Debug.Log("Save Score was hit"); 
     }
 
     public void CutList() {
