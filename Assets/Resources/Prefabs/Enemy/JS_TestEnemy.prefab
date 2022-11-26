@@ -426,6 +426,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   bulletType: 
+  weaponName: 
 --- !u!114 &8106116532212896484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +556,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4944411924388623751, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327195, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327195, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327195, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944411924712327269, guid: ca1f2e606e5b3ac488675346fbfaebe1, type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
