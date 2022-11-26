@@ -33,9 +33,7 @@ public class EnemyControls : MonoBehaviour
     private GameObject player;
 
     private GameObject weaponDrop;
-
     private EnemyAI enemyAI;
-
 
     //Represents the distance between the player and the enemy.
     public float distance;
@@ -55,21 +53,25 @@ public class EnemyControls : MonoBehaviour
         if (GetComponent<EnemyShield>() != null)
         {
             shield = eShield.maxShield;
-        } else {
+        }
+        else
+        {
             shield = 0;
         }
-        
+
         maxHealth = health;
         maxShield = shield;
         health_bar.SetActive(false);
         enemyStats.transform.SetParent(null);
         enemyAI = GetComponent<EnemyAI>();
 
+        
+
         if (maxShield != 0)
         {
             isShieldedEnemyType = true;
         }
-        
+
     }
 
     /** 
@@ -106,6 +108,8 @@ public class EnemyControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("WEAPON NAME: " + enemyAI.weaponName);
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -121,8 +125,12 @@ public class EnemyControls : MonoBehaviour
 
         if (health < 1)
         {
+            if (enemyAI.weaponName != "TutorialDefaultBullet" && enemyAI.weaponName != "DefaultBullet")
+            {
+                Instantiate(weaponDrop, transform.position, Quaternion.identity);
+            }
             AudioController.PlayDeath();
-            Instantiate(weaponDrop, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
 
         }
@@ -140,7 +148,8 @@ public class EnemyControls : MonoBehaviour
         {
 
             health_bar.SetActive(true);
-        } else
+        }
+        else
         {
 
             health_bar.SetActive(true);

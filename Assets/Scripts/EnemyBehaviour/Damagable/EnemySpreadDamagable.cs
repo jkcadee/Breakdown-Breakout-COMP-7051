@@ -16,10 +16,15 @@ public class EnemySpreadDamagable : Damageable
         {
             Debug.Log("Hit Shield!!!");
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
-            if (other.name == "SpreadBullet(Clone)")
+            if ((other.name == "SpreadBullet(Clone)" || other.name == "SpreadBulletChild(Clone)") && this.name == "TutorialShield")
             {
+                enemy.shield -= 20f;
+            }
+            else if (other.name == "SpreadBullet(Clone)") {
                 enemy.shield -= 2f;
-            } else if (other.name == "SpreadBulletChild(Clone)") 
+            }
+
+            else if (other.name == "SpreadBulletChild(Clone)") 
             {
                 enemy.shield -= 4f;
             }
