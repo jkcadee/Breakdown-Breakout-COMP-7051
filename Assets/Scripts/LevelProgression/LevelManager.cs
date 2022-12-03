@@ -6,30 +6,25 @@ using UnityEditor;
 
 public class LevelManager : MonoBehaviour
 {
+    /** Overarching Singleton Level Manager for the game, handles runtime player spawning, healing when going through rooms and loading scenes*/
     public static LevelManager Instance;
     public static GameObject playerInstance;
     public GameObject player;
     public GameObject enemy;
     public int numberOfEnemies;
     public static float playerHealth;
-    private static float spawnCollisionRadius = 1.0f;
 
     private int sceneNumber = 0;
 
     private Scene currentScene;
 
-    // private string navMeshBakerPath = "Prefabs/Enemy/NavMeshBaker";
-
-    // private GameObject navMeshBakerObject;
-
+    // Loading scene for VNHandler
     public void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
-        if(scene.name.Contains("TutorialFirstLevel"))
+        if(scene.name.Contains("Level") || scene.name.Contains("Tutorial"))
         {
             if(!playerInstance)
                 SpawnPlayer();
-            if(scene.name != "TutorialFirstLevel")
-                playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
             playerInstance.SetActive(true);
         } 
         else
@@ -40,14 +35,12 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(Instance + "" + playerInstance);
         InstantiateManager();
     }
 
     void Start()
     {
         SpawnPlayer();
-        //SpawnEnemy();
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (!Level_Timer.timer_on)
         {
@@ -55,7 +48,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // I may need this, need to carry on health
+    // Instantiates overarching level manager
     private void InstantiateManager ()
     {
         if (Instance == null)
@@ -68,11 +61,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    // Activates player
     public void ActivatePlayer()
     {
         playerInstance.SetActive(true);
     }
 
+    // Deactivates player
     public void DeactivatePlayer()
     {
         playerInstance.SetActive(false);
@@ -82,29 +77,32 @@ public class LevelManager : MonoBehaviour
     private void SpawnPlayer()
     {
         Destroy(playerInstance);
-        playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
-        DontDestroyOnLoad(playerInstance);
-    }
 
-    private void SpawnEnemy()
-    {
-        for (int i = 0; i < numberOfEnemies; i++)
+        currentScene = SceneManager.GetActiveScene();
+        int newIndex = currentScene.buildIndex;
+        if (newIndex == 2 ||
+            newIndex == 3 ||
+            newIndex == 4 ||
+            newIndex == 6 ||
+            newIndex == 12)
+
         {
-            Vector3 pos = new Vector3(Random.Range(-24, 24), 3, Random.Range(5, 20));
-            if (!Physics.CheckSphere(pos, spawnCollisionRadius))
-            {
-                Instantiate(enemy, pos, Quaternion.identity);
-                enemy.GetComponent<EnemyAI>().player = playerInstance;
-                //enemy.GetComponent<SpawnBullet>().bulletPrefab 
-            }
+            playerInstance = Instantiate(player, new Vector3(0, 1, -20), Quaternion.identity);
+
         }
+        else
+        {
+            playerInstance = Instantiate(player, new Vector3(-35, 1, 0f), Quaternion.identity);
+        }
+
+        DontDestroyOnLoad(playerInstance);
     }
 
     // Loads a new level
     public void LoadLevel()
     {
 
-        if(SceneManager.GetActiveScene().buildIndex != 9)
+        if(SceneManager.GetActiveScene().buildIndex != 14)
         {
             sceneNumber = 1;
         } else
@@ -113,8 +111,13 @@ public class LevelManager : MonoBehaviour
         }
 
         currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex + sceneNumber);
-        if (currentScene.name == "Level1" || currentScene.name == "TutorialFirstLevel" || currentScene.name == "TurorialWeaponDemo" || currentScene.name == "TutorialShield" || currentScene.name == "BossLevel")
+        int newIndex = currentScene.buildIndex + sceneNumber;
+        SceneManager.LoadScene(newIndex);
+        if (newIndex == 2 ||
+            newIndex == 3 ||
+            newIndex == 4 ||
+            newIndex == 5 ||
+            newIndex == 12)
 
         {
             playerInstance.gameObject.transform.position = new Vector3(0, 1, -20f);

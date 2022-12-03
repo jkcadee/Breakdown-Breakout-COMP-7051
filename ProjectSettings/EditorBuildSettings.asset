@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial/TutorialFirstLevel.unity
     guid: 641b981b2c5afee418c7b6a855f044a1
   - enabled: 1
-    path: Assets/Scenes/Tutorial/TurorialWeaponDemo.unity
+    path: Assets/Scenes/Tutorial/TutorialWeaponDemo.unity
     guid: d2707a843e1643d4b839780195fdc070
   - enabled: 1
     path: Assets/Scenes/MainScenes/Level1.unity

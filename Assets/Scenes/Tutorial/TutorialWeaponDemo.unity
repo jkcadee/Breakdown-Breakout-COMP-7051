@@ -2288,7 +2288,7 @@ PrefabInstance:
     - target: {fileID: -2317271702745406244, guid: 988b684e12911fd46b87da8191682b49, type: 3}
       propertyPath: levelManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1972320142}
     - target: {fileID: 7994097044451610734, guid: 988b684e12911fd46b87da8191682b49, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2552,6 +2552,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5deddb5e39d1cdf4bb683a225f775364, type: 3}
+--- !u!114 &1972320142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7136146549279080285, guid: 5deddb5e39d1cdf4bb683a225f775364, type: 3}
+  m_PrefabInstance: {fileID: 1972320141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f89a7ca0fe2da544bb6b7a721121851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1990485256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222438932992062070, guid: 899d522eff6cf7b44aef3c83989a4290, type: 3}

@@ -22,7 +22,6 @@ public class SceneChange : MonoBehaviour
         else
         {
             AudioController.PlayMusic();
-            //Level_Timer.StartTime();
         }
     }
 }
