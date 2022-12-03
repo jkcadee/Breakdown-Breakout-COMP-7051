@@ -19,22 +19,27 @@ public class EnemySpreadDamagable : Damageable
             if ((other.name == "SpreadBullet(Clone)" || other.name == "SpreadBulletChild(Clone)") && this.name == "TutorialShield")
             {
                 enemy.shield -= 20f;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "SpreadBullet(Clone)") {
-                enemy.shield -= 2f;
+                enemy.shield -= damage * 2;
+                AudioController.PlayCorrect();
             }
 
             else if (other.name == "SpreadBulletChild(Clone)") 
             {
-                enemy.shield -= 4f;
+                enemy.shield -= damage * 2;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "Beam(Clone)")
             {
                 enemy.shield -= 0.03f;
+                AudioController.PlayIncorrect();
             }
             else
             {
                 enemy.shield -= 1f;
+                AudioController.PlayIncorrect();
             }
         }
         else

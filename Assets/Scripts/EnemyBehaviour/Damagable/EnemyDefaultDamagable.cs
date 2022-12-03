@@ -7,6 +7,7 @@ public class EnemyDefaultDamagable : Damageable
     public EnemyControls enemy;
     public EnemyAI ai;
     public EnemyShield shield;
+    
     // private Collision collision;
     // public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
@@ -18,15 +19,18 @@ public class EnemyDefaultDamagable : Damageable
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
             if (other.name == "DefaultBullet(Clone)")
             {
-                enemy.shield -= 2f;
+                enemy.shield -= damage * 2;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "Beam(Clone)")
             {
                 enemy.shield -= 0.03f;
+                AudioController.PlayIncorrect();
             }
             else
             {
                 enemy.shield -= 1f;
+                AudioController.PlayIncorrect();
             }
         }
         else
