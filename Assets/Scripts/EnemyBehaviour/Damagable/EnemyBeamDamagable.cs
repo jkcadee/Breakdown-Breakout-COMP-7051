@@ -19,7 +19,7 @@ public class EnemyBeamDamagable : Damageable
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
             if (other.name == "Beam(Clone)")
             {
-                enemy.shield -= damage * 2;
+                enemy.shield -= damage * 3;
                 AudioController.PlayCorrect();
             }
             else
