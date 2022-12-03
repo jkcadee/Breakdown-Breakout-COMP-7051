@@ -23,15 +23,18 @@ public class EnemyExplosionDamagable : Damageable
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
             if (other.name == "Explosion(Clone)")
             {
-                enemy.shield -= 2.8f;
+                enemy.shield -= damage * 2;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "Beam(Clone)")
             {
                 enemy.shield -= 0.03f;
+                AudioController.PlayIncorrect();
             }
             else
             {
                 enemy.shield -= 1f;
+                AudioController.PlayIncorrect();
             }
         }
         else

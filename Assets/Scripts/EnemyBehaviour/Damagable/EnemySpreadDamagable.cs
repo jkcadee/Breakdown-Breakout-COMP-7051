@@ -18,23 +18,28 @@ public class EnemySpreadDamagable : Damageable
             Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
             if ((other.name == "SpreadBullet(Clone)" || other.name == "SpreadBulletChild(Clone)") && this.name == "TutorialShield")
             {
-                enemy.shield -= 20f;
+                enemy.shield -= 15f;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "SpreadBullet(Clone)") {
-                enemy.shield -= 2f;
+                enemy.shield -= damage * 3;
+                AudioController.PlayCorrect();
             }
 
             else if (other.name == "SpreadBulletChild(Clone)") 
             {
-                enemy.shield -= 4f;
+                enemy.shield -= damage * 3;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "Beam(Clone)")
             {
                 enemy.shield -= 0.03f;
+                AudioController.PlayIncorrect();
             }
             else
             {
                 enemy.shield -= 1f;
+                AudioController.PlayIncorrect();
             }
         }
         else

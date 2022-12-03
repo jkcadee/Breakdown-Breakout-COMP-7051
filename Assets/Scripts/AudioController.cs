@@ -20,6 +20,8 @@ public class AudioController : MonoBehaviour
     public static AudioSource hit;
     public static AudioSource shoot;
     public static AudioSource pickup;
+    public static AudioSource correctWeapon;
+    public static AudioSource incorrectWeapon;
 
     private void Awake()
     {
@@ -36,6 +38,8 @@ public class AudioController : MonoBehaviour
         hit = gameObject.GetComponents<AudioSource>()[2];
         pickup = gameObject.GetComponents<AudioSource>()[3];
         shoot = gameObject.GetComponents<AudioSource>()[4];
+        correctWeapon = gameObject.GetComponents<AudioSource>()[5];
+        incorrectWeapon = gameObject.GetComponents<AudioSource>()[6];
         DontDestroyOnLoad(gameObject);
     }
 
@@ -85,4 +89,13 @@ public class AudioController : MonoBehaviour
         shoot.Play();
     }
 
+    public static void PlayCorrect()
+    {
+        correctWeapon.Play();
+    }
+
+    public static void PlayIncorrect()
+    {
+        incorrectWeapon.Play();
+    }
 }

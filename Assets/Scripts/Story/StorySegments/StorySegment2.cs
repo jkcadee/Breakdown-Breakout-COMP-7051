@@ -58,6 +58,6 @@ public class StorySegment2 : StorySegment
     public override void MoveToNextScene()
     {
         Debug.Log("Move to next scene");
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("TutorialShield");
     }
 }
