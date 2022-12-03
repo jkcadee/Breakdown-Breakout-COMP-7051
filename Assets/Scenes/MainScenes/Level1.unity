@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: weaponDrop
       value: 
       objectReference: {fileID: 9126153371847525794, guid: a431815c7086ddd42924d3843f114f00, type: 3}
+    - target: {fileID: 1631072089654233020, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db3fe1716b3a73b46911142902b4498c, type: 2}
+    - target: {fileID: 1819720076017756018, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db3fe1716b3a73b46911142902b4498c, type: 2}
     - target: {fileID: 7436398780814060312, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: bulletPrefab
       value: 
@@ -337,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: 3e92604f2b07a594f946e97c4ce5a833, type: 3}
   spawnedWeapons: []
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1001 &516436307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSpawn: {fileID: 9126153371847525794, guid: a431815c7086ddd42924d3843f114f00, type: 3}
   spawnedWeapons: []
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1547593123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -763,6 +773,14 @@ PrefabInstance:
       propertyPath: weaponDrop
       value: 
       objectReference: {fileID: 9126153371847525794, guid: 059710396c98409448b97a323260e326, type: 3}
+    - target: {fileID: 1631072089654233020, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 647edfa19a4c0204bac2b2938927c43e, type: 2}
+    - target: {fileID: 1819720076017756018, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 647edfa19a4c0204bac2b2938927c43e, type: 2}
     - target: {fileID: 7436398780814060312, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: bulletPrefab
       value: 
@@ -954,6 +972,14 @@ PrefabInstance:
       propertyPath: weaponDrop
       value: 
       objectReference: {fileID: 9126153371847525794, guid: db11bd08637336b4aa5bddbdef1794d2, type: 3}
+    - target: {fileID: 1631072089654233020, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96de81a1c0fb2bc4d83152d3594166ac, type: 2}
+    - target: {fileID: 1819720076017756018, guid: ac76d1e077bec224683e9496233acd17, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96de81a1c0fb2bc4d83152d3594166ac, type: 2}
     - target: {fileID: 7436398780814060312, guid: ac76d1e077bec224683e9496233acd17, type: 3}
       propertyPath: bulletPrefab
       value: 
