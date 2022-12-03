@@ -12,11 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/StoryScenes/VisualNovel1.unity
     guid: 2f9a56a11c6b0694490b21247b89bbb1
   - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialFirstLevel.unity
+    guid: 641b981b2c5afee418c7b6a855f044a1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TurorialWeaponDemo.unity
+    guid: d2707a843e1643d4b839780195fdc070
+  - enabled: 1
     path: Assets/Scenes/MainScenes/Level1.unity
     guid: 75770f1ae26b5434c869865615c2b987
   - enabled: 1
     path: Assets/Scenes/StoryScenes/VisualNovel2.unity
     guid: 54486ce58aada3f49944a827765914c3
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialShield.unity
+    guid: 3dddc78615a2ae9479dd53a2292099ee
   - enabled: 1
     path: Assets/Scenes/MainScenes/Level2.unity
     guid: 33d001dc28b0c4c459f5b03db9404403
@@ -32,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScenes/Level4.unity
     guid: b35924966e9234a41a14017ed6c71401
+  - enabled: 1
+    path: Assets/Scenes/EnemyAITest/BossLevel.unity
+    guid: 3f596ffc6b54f1340ab84dde76c648de
   - enabled: 1
     path: Assets/Scenes/StoryScenes/VisualNovel5.unity
     guid: 21681c019eaddfa4b9d4d3eca39ff2fd

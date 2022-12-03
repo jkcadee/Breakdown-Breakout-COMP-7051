@@ -16,17 +16,19 @@ public class LevelManager : MonoBehaviour
 
     private int sceneNumber = 0;
 
+    private Scene currentScene;
+
     // private string navMeshBakerPath = "Prefabs/Enemy/NavMeshBaker";
 
     // private GameObject navMeshBakerObject;
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
-        if(scene.name.Contains("Level"))
+        if(scene.name.Contains("TutorialFirstLevel"))
         {
             if(!playerInstance)
                 SpawnPlayer();
-            if(scene.name != "Level1")
+            if(scene.name != "TutorialFirstLevel")
                 playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
             playerInstance.SetActive(true);
         } 
@@ -110,8 +112,20 @@ public class LevelManager : MonoBehaviour
             sceneNumber = -1;
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneNumber);
-        playerInstance.gameObject.transform.position = new Vector3(-35, 1, -0.3f);
+        currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex + sceneNumber);
+        if (currentScene.name == "Level1" || currentScene.name == "TutorialFirstLevel" || currentScene.name == "TurorialWeaponDemo" || currentScene.name == "TutorialShield" || currentScene.name == "BossLevel")
+
+        {
+            playerInstance.gameObject.transform.position = new Vector3(0, 1, -20f);
+
+        }
+        else
+        {
+            playerInstance.gameObject.transform.position = new Vector3(-35, 1, 0f);
+        }
+
+
         float healthToHeal = 10.0f - playerInstance.GetComponent<PlayerControls>().health;
         if (healthToHeal > 3.0000f)
         {
