@@ -7,37 +7,40 @@ public class EnemyDefaultDamagable : Damageable
     public EnemyControls enemy;
     public EnemyAI ai;
     public EnemyShield shield;
+    
     // private Collision collision;
     // public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
     {
-        Debug.Log(shield.hasShield);
+        // check if shield is hit by the correct weapon types
         if (shield.hasShield)
         {
-            Debug.Log("Hit Shield!!!");
-            Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
+
             if (other.name == "DefaultBullet(Clone)")
             {
-                enemy.shield -= 2f;
+                enemy.shield -= damage * 2;
+                AudioController.PlayCorrect();
             }
             else if (other.name == "Beam(Clone)")
             {
                 enemy.shield -= 0.03f;
+                AudioController.PlayIncorrect();
             }
             else
             {
                 enemy.shield -= 1f;
+                AudioController.PlayIncorrect();
             }
         }
         else
         {
-            Debug.Log("Didn't Hit Shield!!!");
+
             enemy.health -= damage;
         }
 
         AudioController.PlayHit();
         ai.angerTimer = 4f;
-
+        // Modify health bar correct depending on if shield is broken
         if (enemy.shield != shield.maxShield && enemy.shield > 0)
         {
             enemy.healthBarImage.color = new Color(0f, 0f, 0f);

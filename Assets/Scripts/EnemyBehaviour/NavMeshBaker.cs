@@ -41,13 +41,13 @@ public class NavMeshBaker : MonoBehaviour
     // Start is called before the first frame update
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("BAKING NAVMESH!!!");
+
 
         stageLevelObjects = new List<GameObject>();
 
         AttachNavMeshSurfaces();
 
-        Debug.Log(navMeshSurfaces);
+
 
         for(int i = 0; i < navMeshSurfaces.Length; i++) {
             navMeshSurfaces[i].BuildNavMesh();
@@ -58,30 +58,20 @@ public class NavMeshBaker : MonoBehaviour
         // stageLevelObjects.Clear();
         // Array.Clear(walls, 0, walls.Length);
 
-        Debug.Log(stageLevelObjects);
-
-        
         // walls = GameObject.FindGameObjectsWithTag("Wall");
         // levelObjects = GameObject.FindGameObjectsWithTag("LevelObject");
 
-
-
-
         // foreach (GameObject wall in walls) {
-        //     Debug.Log(wall.name);
         //     stageLevelObjects.Add(wall);
-
         // }
 
         // foreach (GameObject lo in levelObjects) {
-        //     Debug.Log(lo.name);
         //     stageLevelObjects.Add(lo);
-
         // }
 
         stageLevelObjects.Add(GameObject.FindGameObjectWithTag("Floor"));
         
-        Debug.Log(stageLevelObjects);
+
 
         foreach (GameObject o in stageLevelObjects) {
             navSurface = o.AddComponent<NavMeshSurface>() as NavMeshSurface;

@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     private float inaccuraty = 2f;
     private Vector3 enemyAim;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,47 +42,56 @@ public class EnemyAI : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {   
+    {
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        distance = Vector3.Distance(transform.position, player.transform.position);
 
-        isVisible = isPlayerVisible();
-
-        if (angerTimer > 0)
+        if (player != null)
         {
-            if (distance <= minDist)
-            {
-                _agent.isStopped = true;
-                transform.LookAt(player.transform);
+            distance = Vector3.Distance(transform.position, player.transform.position);
 
-                if (Time.time > _fireTimer)
+            isVisible = isPlayerVisible();
+
+            if (angerTimer > 0)
+            {
+                // stop enemy from approaching the player if minimal distance is reached
+                if (distance <= minDist)
                 {
-                    _fireTimer = Time.time + weaponCooldown;
-                    Shoot();
+                    _agent.isStopped = true;
+                    transform.LookAt(player.transform);
+
+                    // apply weapon cooldown
+                    if (Time.time > _fireTimer)
+                    {
+                        _fireTimer = Time.time + weaponCooldown;
+                        Shoot();
+                    }
+                }
+                else
+                {
+                    _agent.isStopped = false;
+                    transform.LookAt(player.transform);
+                    _agent.SetDestination(player.transform.position);
+
+                    if (Time.time > _fireTimer)
+                    {
+                        _fireTimer = Time.time + weaponCooldown;
+                        Shoot();
+                    }
                 }
             }
             else
             {
-                _agent.isStopped = false;
-                transform.LookAt(player.transform);
-                _agent.SetDestination(player.transform.position);
-
-                if (Time.time > _fireTimer)
-                {
-                    _fireTimer = Time.time + weaponCooldown;
-                    Shoot();
-                }
+                _agent.isStopped = true;
             }
         }
-        else {
-             _agent.isStopped = true;
-        }
+
     }
 
-
+    // check if player is visible or aggro'd
     private bool isPlayerVisible()
     {
         Vector3 direction = player.transform.position - transform.position;
@@ -105,12 +114,13 @@ public class EnemyAI : MonoBehaviour
         return isVisible;
     }
 
+    // apply inaccuracy for enemy aiming
     void Shoot()
-    {   
+    {
         Vector2 rand = Random.insideUnitCircle;
         enemyAim = player.transform.position + new Vector3(rand.x, 0, rand.y) * inaccuraty;
         sb.ShootAtTarget(enemyAim);
 
-    } 
+    }
 
 }

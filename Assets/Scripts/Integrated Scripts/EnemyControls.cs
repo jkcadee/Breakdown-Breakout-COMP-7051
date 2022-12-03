@@ -48,8 +48,7 @@ public class EnemyControls : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        Debug.Log(this.name + (GetComponent<EnemyShield>() != null));
-
+        // get enemy shield value
         if (GetComponent<EnemyShield>() != null)
         {
             shield = eShield.maxShield;
@@ -113,11 +112,10 @@ public class EnemyControls : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        //Debug.Log(shield);
+
 
         healthBarImage = health_meter.GetComponent<Image>();
 
-        // Debug.Log(weaponPrefabPath);
         weaponPrefabPath = assetFolder + enemyAI.bulletType;
 
         weaponDrop = (GameObject)Resources.Load(weaponPrefabPath, typeof(GameObject));
