@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93c1e0f59d0d34649b6f28daf68c9aaa, type: 2}
+  - {fileID: 2100000, guid: 3ae7c8473af1ab5488434becd376f8ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,4 +133,6 @@ MonoBehaviour:
   spreadAngle: 0
   ammo: 12
   bulletATFieldPrefab: {fileID: 8267849643428129342, guid: a07fbd413c57dee4e94249ff744af775, type: 3}
+  timeToSelfDestruct: 5
   bulletPrefab: {fileID: 6223945032506627727, guid: d04acb7c08ce81d44a139bd6455d0d8d, type: 3}
+  splinterSpread: 5
