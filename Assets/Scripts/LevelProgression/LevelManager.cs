@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
         playerInstance.SetActive(false);
     }
 
-    // Spawns the player with 5 health, sets the health in the player controls script to have the same amount
+    // Spawns the player with 10 health, sets the health in the player controls script to have the same amount
     private void SpawnPlayer()
     {
         Destroy(playerInstance);
@@ -113,6 +113,7 @@ public class LevelManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
         int newIndex = currentScene.buildIndex + sceneNumber;
         SceneManager.LoadScene(newIndex);
+        // Will spawn the player in a different spot depending on what scene is loaded
         if (newIndex == 2 ||
             newIndex == 3 ||
             newIndex == 4 ||
@@ -128,7 +129,7 @@ public class LevelManager : MonoBehaviour
             playerInstance.gameObject.transform.position = new Vector3(-35, 1, 0f);
         }
 
-
+        // Healing in between rooms
         float healthToHeal = 10.0f - playerInstance.GetComponent<PlayerControls>().health;
         if (healthToHeal > 3.0000f)
         {
