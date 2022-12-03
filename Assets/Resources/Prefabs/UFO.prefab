@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2985747b772ae214a8d363feeb43f683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hvf: {fileID: 0}
 --- !u!114 &8862406305163951722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,6 +2165,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4710668281526633139}
     m_Modifications:
+    - target: {fileID: 1399294111146904165, guid: 981a7daf70b4c4045a6a0742d9134e33, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98ab01c3ed5cfcc41a0cf94c6aa33d1e, type: 2}
+    - target: {fileID: 1399294112080488260, guid: 981a7daf70b4c4045a6a0742d9134e33, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98ab01c3ed5cfcc41a0cf94c6aa33d1e, type: 2}
     - target: {fileID: 1399294112629448818, guid: 981a7daf70b4c4045a6a0742d9134e33, type: 3}
       propertyPath: m_Name
       value: UFO_Model
