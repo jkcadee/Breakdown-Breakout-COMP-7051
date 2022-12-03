@@ -13,11 +13,10 @@ public class EnemyBounceDamagable : Damageable
     // public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
     {
-        Debug.Log(shield.hasShield);
+        // check if shield is hit by the correct weapon types
         if (shield.hasShield)
         {
-            Debug.Log("Hit Shield!!!");
-            Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
+
             if (other.name == "BounceBullet(Clone)")
             {
                 enemy.shield -= damage * 2;
@@ -36,14 +35,14 @@ public class EnemyBounceDamagable : Damageable
         }
         else
         {
-            Debug.Log("Didn't Hit Shield!!!");
+
             enemy.health -= damage;
         }
 
         AudioController.PlayHit();
         ai.angerTimer = 4f;
 
-
+        // Modify health bar correct depending on if shield is broken
         if (enemy.shield != shield.maxShield && enemy.shield > 0)
         {
             enemy.healthBarImage.color = new Color(0f, 255f, 75 / 255f);

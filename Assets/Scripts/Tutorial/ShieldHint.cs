@@ -20,7 +20,7 @@ public class ShieldHint : MonoBehaviour
         StartCoroutine(ShowArrow(invisibleTimer));
     }
 
-
+    // show arrow hint after set time
     IEnumerator ShowArrow(float invisibleTimer) {
         yield return new WaitForSeconds(invisibleTimer);
         arrow.SetActive(true);

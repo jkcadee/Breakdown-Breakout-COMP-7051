@@ -13,7 +13,6 @@ public class TutorialShooting : MonoBehaviour
     {
         tb = GetComponent<TutorialBullet>();
         weaponCooldown = tb.bulletPrefab.GetComponent<BulletBehaviour>().shootCooldown;
-        Debug.Log("TARGET: " + targetDummy.gameObject.name);
     }
 
     // Update is called once per frame

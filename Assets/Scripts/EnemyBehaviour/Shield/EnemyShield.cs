@@ -29,7 +29,7 @@ public class EnemyShield : MonoBehaviour
             hasShield = false;
         }
     }
-
+    // destroy shield if shield value is 0
     public void ShieldDamage()
     {
         if (ec.shield <= 0 && shield != null)

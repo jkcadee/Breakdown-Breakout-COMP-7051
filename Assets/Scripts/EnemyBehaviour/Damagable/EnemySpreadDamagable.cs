@@ -14,8 +14,7 @@ public class EnemySpreadDamagable : Damageable
         Debug.Log(shield.hasShield);
         if (shield.hasShield)
         {
-            Debug.Log("Hit Shield!!!");
-            Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
+            // check if shield is hit by the correct weapon types
             if ((other.name == "SpreadBullet(Clone)" || other.name == "SpreadBulletChild(Clone)") && this.name == "TutorialShield")
             {
                 enemy.shield -= 15f;
@@ -44,13 +43,13 @@ public class EnemySpreadDamagable : Damageable
         }
         else
         {
-            Debug.Log("Didn't Hit Shield!!!");
+
             enemy.health -= damage;
         }
 
         AudioController.PlayHit();
         ai.angerTimer = 4f;
-
+        // Modify health bar correct depending on if shield is broken
         if (enemy.shield != shield.maxShield && enemy.shield > 0)
         {
             enemy.healthBarImage.color = new Color(0f, 175f / 255f, 255f);

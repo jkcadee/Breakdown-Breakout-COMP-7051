@@ -16,11 +16,10 @@ public class EnemyExplosionDamagable : Damageable
     // public AudioSource hit;
     public override void GetHit(float damage, GameObject other)
     {
-        Debug.Log(shield.hasShield);
+        // check if shield is hit by the correct weapon types
         if (shield.hasShield)
         {
-            Debug.Log("Hit Shield!!!");
-            Debug.Log("IS IT THE CORRECT BULLET???" + shield.correctBullet);
+
             if (other.name == "Explosion(Clone)")
             {
                 enemy.shield -= damage * 2;
@@ -39,13 +38,13 @@ public class EnemyExplosionDamagable : Damageable
         }
         else
         {
-            Debug.Log("Didn't Hit Shield!!!");
+
             enemy.health -= damage;
         }
 
         ai.angerTimer = 4f;
         AudioController.PlayHit();
-
+        // Modify health bar correct depending on if shield is broken
         if (enemy.shield != shield.maxShield && enemy.shield > 0)
         {
             enemy.healthBarImage.color = new Color(255f, 100f / 255f, 0f);

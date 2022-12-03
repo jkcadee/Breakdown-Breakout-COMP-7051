@@ -16,6 +16,7 @@ public class TutorialArrow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // create arrow hovering effect
         float newY = Mathf.Sin(Time.time * speed);
         transform.position = new Vector3(initialPos.x, newY * height + initialPos.y, initialPos.z);
     }
