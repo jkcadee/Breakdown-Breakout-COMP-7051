@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// starts text invisible, then makes it more visible
 public class TextVisibilityIncrease : MonoBehaviour
 {
     CanvasGroup cv;

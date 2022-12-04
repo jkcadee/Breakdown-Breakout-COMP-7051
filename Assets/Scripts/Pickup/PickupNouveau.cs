@@ -55,6 +55,7 @@ public class PickupNouveau : MonoBehaviour
         gun.GetComponent<Renderer>().material.color = Color.black;
     }
 
+    // handles things like changing the bullet, changing gun colour, deleting pickup, etc.
     public void GrabPickupItem(InputAction.CallbackContext _)
     {
         // can only pickup if in range of an item pickup
@@ -78,6 +79,7 @@ public class PickupNouveau : MonoBehaviour
         AudioController.PlayPickup();
     }
 
+    // this is used so that pickups can set themselves to the pickupnouveau, so the player can only pick up one weapon at a time
     public void SetPickupItem(GameObject pi)
     {
         pickupItem = pi;

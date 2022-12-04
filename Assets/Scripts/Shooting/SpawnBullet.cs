@@ -8,6 +8,7 @@ public class SpawnBullet : MonoBehaviour
     public GameObject shooter;
     ParticleSystem ps;
 
+    // makes the muzzle flash for shooting
     private void MakeFlash(Vector3 target)
     {
         GameObject flash = Instantiate(LevelManager.Instance.muzzleFlashPrefab, transform.position, Quaternion.identity);
@@ -16,6 +17,7 @@ public class SpawnBullet : MonoBehaviour
         Destroy(ps.gameObject, 1);
     }
 
+    // spawns the bullet, makes the bullet ignore collision with the shooter, makes the noise and muzzle flash, tells the bullet who fired it
     public void ShootAtTarget(Vector3 target)
     {
         GameObject bullet = Instantiate(bulletPrefab, transform);
@@ -29,6 +31,7 @@ public class SpawnBullet : MonoBehaviour
         MakeFlash(target);
     }
 
+    // overwrites the type of bullet spawned
     public void SetBulletPrefab(GameObject bulletType)
     {
         bulletPrefab = bulletType;

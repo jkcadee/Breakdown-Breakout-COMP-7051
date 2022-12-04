@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// the third story segment
 public class StorySegment3 : StorySegment
 {
     public override List<StoryPage> GetStoryPages()

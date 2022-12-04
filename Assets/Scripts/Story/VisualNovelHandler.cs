@@ -21,6 +21,7 @@ public class VisualNovelHandler : MonoBehaviour
     Action zeroVisCallback;
     Action updateCallback;
 
+    // creates text based on the current page's text index
     private void InstantiateText()
     {
         GameObject textObj = Instantiate(textLine, content.transform);
@@ -30,6 +31,7 @@ public class VisualNovelHandler : MonoBehaviour
         updateCallback = IncreaseVisibility;
     }
 
+    // continues the text or gets ready to move to the next scene
     private void ProgressText()
     {
         if(pageIndex != storyPages.Count && currentTextIndex < storyPages[pageIndex].storyText.Count)
@@ -55,10 +57,12 @@ public class VisualNovelHandler : MonoBehaviour
 
     private void NextTextInput(InputAction.CallbackContext _)
     {
-        if(contentCv.alpha == 1)
+        // cannot click while the content isn't fully opaque
+        if (contentCv.alpha == 1)
             ProgressText();
     }
 
+    // sets bg based on what the current page has
     private void SetBackground()
     {
         Image image = background.GetComponent<Image>();
@@ -68,6 +72,7 @@ public class VisualNovelHandler : MonoBehaviour
         }
     }
 
+    // gets rid of the current text and instantiates the next page's text
     private void WipeText()
     {
         if (pageIndex == storyPages.Count)
@@ -83,6 +88,7 @@ public class VisualNovelHandler : MonoBehaviour
         InstantiateText();
     }
 
+    // increases content vis, and removes the update callback
     private void IncreaseVisibility()
     {
         if(contentCv.alpha >= 1)
@@ -94,6 +100,7 @@ public class VisualNovelHandler : MonoBehaviour
         contentCv.alpha += opacityChangeRate;
     }
 
+    // decreases content vis, and calls zeroVisCallback (if any) when invisible
     private void DecreaseVisibility()
     {
         if (contentCv.alpha <= 0)
@@ -131,6 +138,7 @@ public class VisualNovelHandler : MonoBehaviour
         vnActions.Player.Skip.performed -= SkipScene;
     }
 
+    // sets the scene
     private void Start()
     {
         contentCv = content.GetComponent<CanvasGroup>();

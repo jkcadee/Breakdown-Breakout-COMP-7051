@@ -56,6 +56,7 @@ public class PlayerShoot : MonoBehaviour
         return ammo;
     }
 
+    // can only shoot while the cooldown timer isn't active
     void Shoot()
     {
         if (timer > 0) 

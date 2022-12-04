@@ -17,8 +17,10 @@ public class BulletBehaviour : MonoBehaviour
     float selfDestruct = 0;
     public float timeToSelfDestruct = 5f;
 
+    // initialisation
     protected virtual void Start()
     {
+        // AT field prevents the bullet from colliding with "allies" (i.e. enemy bullets travel through enemies)
         GameObject bulletATField = Instantiate(bulletATFieldPrefab, transform);
         FieldBulletProtector fbp = bulletATField.GetComponent<FieldBulletProtector>();
         fbp.shooterTag = shooter.tag;
@@ -82,6 +84,7 @@ public class BulletBehaviour : MonoBehaviour
         rb.AddForce(adjustedAngleMovement, ForceMode.VelocityChange);
     }
 
+    // delete automatically when existed for too long, or when the shooter is killed
     public void Update()
     {
         selfDestruct += Time.deltaTime;
