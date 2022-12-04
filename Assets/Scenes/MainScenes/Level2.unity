@@ -363,6 +363,7 @@ MonoBehaviour:
   player: {fileID: 4710668281526633143, guid: e68dedb8a37eecd4a992e60dcba2f1d0, type: 3}
   enemy: {fileID: 7453403638127696360, guid: ac76d1e077bec224683e9496233acd17, type: 3}
   numberOfEnemies: 3
+  muzzleFlashPrefab: {fileID: 8115601643619860738, guid: 88ee79a6384bcd340b26c2260c623512, type: 3}
 --- !u!4 &153832740
 Transform:
   m_ObjectHideFlags: 0
