@@ -13,10 +13,16 @@ public class LevelManager : MonoBehaviour
     public GameObject enemy;
     public int numberOfEnemies;
     public static float playerHealth;
+    public GameObject muzzleFlashPrefab;
 
     private int sceneNumber = 0;
 
     private Scene currentScene;
+
+    public GameObject GetMuzzleFlashPrefab()
+    {
+        return muzzleFlashPrefab;
+    }
 
     // Loading scene for VNHandler
     public void OnSceneLoaded(Scene scene, LoadSceneMode _)
